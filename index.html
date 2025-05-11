@@ -19,26 +19,26 @@
       flex-direction: column;
     }
 
-    /* Professional Logo Banner Styling */
+    /* Clean white header with centered logo */
     .site-header {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.6); /* dark overlay for contrast */
+      background: white;
+      padding: 10px 0;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 100;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* subtle bottom shadow */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     .logo-banner {
-      height: 80px; /* cleaner height */
-      max-width: 100%;
+      height: 100px;
+      max-width: 90%;
       object-fit: contain;
-      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)); /* subtle logo shadow */
+      filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
     }
 
     .popup-video {
@@ -75,22 +75,21 @@
       cursor: pointer;
     }
 
-    /* Make sure content doesn't go under the logo */
     @media screen and (max-width: 600px) {
       .logo-banner {
-        height: 60px;
+        height: 70px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Full-width professional logo banner -->
+  <!-- Logo Banner -->
   <header class="site-header">
     <img src="logo.png" alt="Kinsi Logo" class="logo-banner" />
   </header>
 
-  <!-- Centered popup video -->
+  <!-- Centered popup-style video -->
   <video class="popup-video" autoplay muted loop playsinline>
     <source src="hero-banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.

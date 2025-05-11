@@ -21,21 +21,21 @@
 
     .site-header {
       position: absolute;
-      top: 20px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
     }
 
     .logo {
-      width: 150px;
+      width: 300px;  /* ✅ Increased size significantly */
       height: auto;
-      opacity: 0.95;
+      opacity: 0.98;
     }
 
     .popup-video {
       position: absolute;
-      top: 50%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 80%;
@@ -49,7 +49,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: 320px;
+      margin-top: 360px;
     }
 
     h1 {
@@ -70,18 +70,18 @@
 </head>
 <body>
 
-  <!-- Logo centered at the top -->
+  <!-- Large centered logo -->
   <header class="site-header">
     <img src="logo.png" alt="Kinsi Logo" class="logo" />
   </header>
 
-  <!-- Popup-style video -->
+  <!-- Centered popup video -->
   <video class="popup-video" autoplay muted loop playsinline>
     <source src="hero-banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Page content -->
+  <!-- Content under video -->
   <div class="content">
     <h1>Do You Like Fruit?</h1>
     <p style="color:white;">Welcome to our fruity fun zone! 🍓🍌🍍</p>

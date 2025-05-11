@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fruit Theme Site</title>
+  <title>Kinsi - Portable Blender</title>
   <style>
     body {
       background-image: url('fruit-theme.png');
@@ -12,11 +12,25 @@
       background-repeat: no-repeat;
       min-height: 100vh;
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
       font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      opacity: 0.95;
     }
 
     .popup-video {
@@ -35,6 +49,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      margin-top: 320px;
     }
 
     h1 {
@@ -54,17 +69,24 @@
   </style>
 </head>
 <body>
-  <!-- Centered popup-style video -->
+
+  <!-- Logo centered at the top -->
+  <header class="site-header">
+    <img src="logo.png" alt="Kinsi Logo" class="logo" />
+  </header>
+
+  <!-- Popup-style video -->
   <video class="popup-video" autoplay muted loop playsinline>
     <source src="hero-banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Other content underneath the video -->
+  <!-- Page content -->
   <div class="content">
     <h1>Do You Like Fruit?</h1>
     <p style="color:white;">Welcome to our fruity fun zone! 🍓🍌🍍</p>
     <button class="button">Click Me</button>
   </div>
+
 </body>
 </html>

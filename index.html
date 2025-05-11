@@ -21,16 +21,17 @@
 
     .site-header {
       position: absolute;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0;
+      left: 0;
+      width: 100%;
       z-index: 20;
     }
 
-    .logo {
-      width: 300px;  /* ✅ Increased size significantly */
-      height: auto;
-      opacity: 0.98;
+    .logo-banner {
+      width: 100%;
+      height: 120px; /* control the banner height */
+      object-fit: cover; /* keeps image from stretching weirdly */
+      display: block;
     }
 
     .popup-video {
@@ -70,9 +71,9 @@
 </head>
 <body>
 
-  <!-- Large centered logo -->
+  <!-- Full-width logo banner -->
   <header class="site-header">
-    <img src="logo.png" alt="Kinsi Logo" class="logo" />
+    <img src="logo.png" alt="Kinsi Logo Banner" class="logo-banner" />
   </header>
 
   <!-- Centered popup video -->
@@ -81,7 +82,7 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Content under video -->
+  <!-- Page content -->
   <div class="content">
     <h1>Do You Like Fruit?</h1>
     <p style="color:white;">Welcome to our fruity fun zone! 🍓🍌🍍</p>

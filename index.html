@@ -19,7 +19,7 @@
       flex-direction: column;
     }
 
-    /* Clean white header with centered logo */
+    /* Header with larger logo */
     .site-header {
       position: absolute;
       top: 0;
@@ -35,12 +35,13 @@
     }
 
     .logo-banner {
-      height: 100px;
+      height: 130px;
       max-width: 90%;
       object-fit: contain;
       filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
     }
 
+    /* Centered popup video */
     .popup-video {
       position: absolute;
       top: 55%;
@@ -53,11 +54,12 @@
       z-index: 10;
     }
 
+    /* Text and button */
     .content {
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: 360px;
+      margin-top: 380px;
     }
 
     h1 {
@@ -75,27 +77,36 @@
       cursor: pointer;
     }
 
+    /* Mobile adjustments */
     @media screen and (max-width: 600px) {
       .logo-banner {
-        height: 70px;
+        height: 90px;
+      }
+
+      .popup-video {
+        width: 90%;
+      }
+
+      .content {
+        margin-top: 300px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo Banner -->
+  <!-- Logo at top -->
   <header class="site-header">
     <img src="logo.png" alt="Kinsi Logo" class="logo-banner" />
   </header>
 
-  <!-- Centered popup-style video -->
+  <!-- Video in the center -->
   <video class="popup-video" autoplay muted loop playsinline>
     <source src="hero-banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Page content -->
+  <!-- Headline and button -->
   <div class="content">
     <h1>Do You Like Fruit?</h1>
     <p style="color:white;">Welcome to our fruity fun zone! 🍓🍌🍍</p>

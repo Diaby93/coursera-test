@@ -13,7 +13,7 @@
 
     body {
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fff;
+      background-color: #fefdfb;
       color: #333;
     }
 
@@ -48,11 +48,12 @@
       cursor: pointer;
     }
 
+    /* HERO VIDEO SECTION */
     .hero-video {
       position: relative;
-      width: 100%;
       height: 500px;
       overflow: hidden;
+      width: 100%;
     }
 
     .video-bg {
@@ -63,27 +64,51 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      background-color: black;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0.5)
+      );
+      z-index: 1;
     }
 
     .hero-video-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       color: white;
       text-align: center;
       top: 50%;
       transform: translateY(-50%);
-      padding: 20px;
+      padding: 0 20px;
+    }
+
+    .hero-video-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .hero-video-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
     }
 
     .btn {
       background-color: #ff6000;
       color: white;
       border: none;
-      padding: 15px 30px;
+      padding: 14px 28px;
       font-size: 1rem;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .btn:hover {
@@ -100,6 +125,7 @@
     .section h2 {
       font-size: 2rem;
       margin-bottom: 20px;
+      color: #444;
     }
 
     .section p {
@@ -135,33 +161,33 @@
     </ul>
   </nav>
 
+  <!-- HERO VIDEO SECTION -->
   <section class="hero-video">
     <video autoplay muted loop playsinline class="video-bg">
       <source src="hero-banner.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div class="hero-overlay"></div>
     <div class="hero-video-content">
-      <h1>Blend Fresh</h1>
-      <p>Portable. Powerful. Smoothies made for life on the move.</p>
+      <h1>Fresh Energy in Every Blend</h1>
+      <p>Portable. Healthy. Powerful. The blender that fits your lifestyle.</p>
       <button class="btn">Shop Now</button>
     </div>
   </section>
 
+  <!-- MAIN SECTION -->
   <div class="section">
-    <h2>Lightweight. Rechargeable. Powerful.</h2>
-    <p>The Portable Blender Pro is your perfect companion for health and energy on the move. Small enough to carry, powerful enough to crush ice — all with no cords.</p>
+    <h2>Lightweight. Rechargeable. Built for Life.</h2>
+    <p>
+      The Portable Blender Pro is your perfect companion for smoothies, shakes, and health on-the-go.
+      Compact, USB-C rechargeable, and powerful enough to crush ice — all without wires.
+    </p>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Portable Blender Pro. All rights reserved.
   </footer>
 
 </body>
 </html>
-<script>
-  const video = document.querySelector('.video-bg');
-  video.addEventListener('ended', function () {
-    this.currentTime = 0;
-    this.play();
-  });
-</script>

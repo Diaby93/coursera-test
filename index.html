@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinsi - Portable Blender Shop</title>
+  <title>Kinsi - Portable Blender</title>
   <style>
     body {
       margin: 0;
@@ -16,26 +16,31 @@
     }
 
     .top-bar {
-      background: #fff;
-      padding: 5px 20px;
+      background: #000;
+      color: #fff;
+      padding: 8px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .top-bar .left {
-      font-weight: bold;
+      color: #00ff88;
     }
 
-    .top-bar .right img {
-      height: 16px;
-      margin-left: 10px;
+    .top-bar .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 20px;
     }
 
     header {
       background: white;
-      padding: 10px 0;
+      padding: 15px 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -43,7 +48,7 @@
     }
 
     .logo-banner {
-      height: 130px;
+      height: 140px;
       object-fit: contain;
     }
 
@@ -51,15 +56,20 @@
       background: #f7f7f7;
       display: flex;
       justify-content: center;
-      padding: 10px 0;
-      gap: 30px;
+      padding: 15px 0;
+      gap: 40px;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .nav-bar a {
       text-decoration: none;
       color: #333;
+      transition: color 0.2s;
+    }
+
+    .nav-bar a:hover {
+      color: #00b894;
     }
 
     .popup-video {
@@ -92,11 +102,11 @@
 
   <!-- Top bar -->
   <div class="top-bar">
-    <div class="left">Free Shipping on Orders Over £50</div>
+    <div class="left">🔥 50% OFF — Limited Time Offer 🔥</div>
     <div class="right">
-      <img src="uk.png" alt="UK" />
-      <img src="ie.png" alt="Ireland" />
-      <span style="margin-left: 20px; cursor: pointer;">🔍 👤 🛒</span>
+      <span title="Search">🔍</span>
+      <span title="Account">👤</span>
+      <span title="Cart">🛒</span>
     </div>
   </div>
 

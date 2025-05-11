@@ -7,11 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #00c48c;
-      --accent-color: #ffb347;
-      --text-color: #333;
-      --bg-light: #ffffff;
-      --bg-dark: #f9f9f9;
+      --primary: #00c48c;
+      --accent: #ffb347;
+      --dark: #222;
+      --light: #fff;
+      --text: #333;
     }
 
     * {
@@ -22,129 +22,136 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-color);
-      line-height: 1.6;
+      background-color: #f8f8f8;
+      color: var(--text);
     }
 
+    /* Top bar */
     .top-bar {
-      background: var(--primary-color);
+      background-color: var(--primary);
       color: white;
       padding: 12px 20px;
       text-align: center;
       font-weight: 600;
-      letter-spacing: 0.5px;
+      font-size: 15px;
     }
 
+    /* Logo Header */
     header {
-      background: var(--bg-light);
+      background: white;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
-    .logo-banner {
-      height: 80px;
+    .logo {
+      height: 100px;
       object-fit: contain;
     }
 
+    /* Navigation */
     nav {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      background: white;
-      padding: 15px;
+      gap: 30px;
+      padding: 15px 0;
+      background-color: white;
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
 
     nav a {
       text-decoration: none;
-      color: var(--text-color);
+      color: var(--text);
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: var(--primary-color);
+      color: var(--primary);
     }
 
+    /* Hero Video */
     .hero {
-      padding: 40px 20px;
       text-align: center;
-      background-image: url('fruit-theme.png');
-      background-size: cover;
-      background-position: center;
+      padding: 40px 20px;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: white;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-
-    .hero .button {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .hero .button:hover {
-      background: #ffa726;
-    }
-
-    .product-video {
-      max-width: 600px;
-      margin: 30px auto;
+    .video-box {
+      max-width: 720px;
+      margin: 0 auto 30px auto;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
 
-    video {
+    .hero video {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 20px;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-top: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin: 10px 0 20px;
+    }
+
+    .button {
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #ffa726;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        height: 70px;
       }
 
       .hero h1 {
         font-size: 2rem;
       }
 
-      .logo-banner {
-        height: 60px;
+      .top-bar {
+        font-size: 14px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Promo bar -->
   <div class="top-bar">
-    🔥 50% OFF — Limited Time Only! 🔥
+    🚀 50% OFF — Limited Time Only!
   </div>
 
+  <!-- Logo Header -->
   <header>
-    <img src="logo.png" alt="Kinsi Logo" class="logo-banner" />
+    <img src="logo.png" alt="Kinsi Logo" class="logo" />
   </header>
 
+  <!-- Nav -->
   <nav>
     <a href="#">All Blenders</a>
     <a href="#">Portable</a>
@@ -153,17 +160,17 @@
     <a href="#">Offers</a>
   </nav>
 
-  <section class="product-video">
-    <video autoplay muted loop playsinline>
-      <source src="hero-banner.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
-
+  <!-- Hero Video Section -->
   <section class="hero">
-    <h1>Do You Like Fruit?</h1>
-    <p>Welcome to our fruity fun zone! 🍓🍌🍍</p>
-    <button class="button">Click Me</button>
+    <div class="video-box">
+      <video autoplay muted loop playsinline>
+        <source src="hero-banner.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h1>The Future of Blending</h1>
+    <p>Blend anywhere. No wires. No limits.</p>
+    <button class="button">Shop Now</button>
   </section>
 
 </body>

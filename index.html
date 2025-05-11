@@ -1,53 +1,160 @@
-<section class="hero-video">
-  <video autoplay muted loop playsinline class="video-bg">
-    <source src="hero-banner.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-video-content">
-    <h1>Blend Fresh</h1>
-    <p>Portable. Powerful. Smoothies made for life on the move.</p>
-    <button class="btn">Shop Now</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portable Blender Pro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .top-bar {
+      background-color: #f5f5f5;
+      padding: 10px 20px;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .hero-video {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      background-color: black;
+    }
+
+    .hero-video-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 20px;
+    }
+
+    .btn {
+      background-color: #ff6000;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #e05600;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    Telephone Sales: <a href="tel:03448002198">0344 800 2198</a> | 6am to 6pm
   </div>
-</section>
-🎨 3. Add this to your <style> section at the top:
-css
-Copy
-Edit
-.hero-video {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
-}
 
-.video-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
+  <nav>
+    <div class="logo">PortableBlender</div>
+    <ul>
+      <li>All Blenders</li>
+      <li>Accessories</li>
+      <li>Recipes</li>
+      <li>Offers</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
 
-.hero-video-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 20px;
-}
+  <section class="hero-video">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="hero-banner.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-video-content">
+      <h1>Blend Fresh</h1>
+      <p>Portable. Powerful. Smoothies made for life on the move.</p>
+      <button class="btn">Shop Now</button>
+    </div>
+  </section>
 
-.btn {
-  background-color: #ff6000;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  <div class="section">
+    <h2>Lightweight. Rechargeable. Powerful.</h2>
+    <p>The Portable Blender Pro is your perfect companion for health and energy on the move. Small enough to carry, powerful enough to crush ice — all with no cords.</p>
+  </div>
 
-.btn:hover {
-  background-color: #e05600;
-}
+  <footer>
+    &copy; 2025 Portable Blender Pro. All rights reserved.
+  </footer>
+
+</body>
+</html>

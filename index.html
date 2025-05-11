@@ -26,7 +26,6 @@
       color: var(--text);
     }
 
-    /* Top bar */
     .top-bar {
       background-color: var(--primary);
       color: white;
@@ -36,22 +35,20 @@
       font-size: 15px;
     }
 
-    /* Logo Header */
     header {
       background: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 30px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .logo {
-      height: 100px;
+      height: 140px;
       object-fit: contain;
     }
 
-    /* Navigation */
     nav {
       display: flex;
       justify-content: center;
@@ -72,14 +69,13 @@
       color: var(--primary);
     }
 
-    /* Hero Video */
     .hero {
       text-align: center;
       padding: 40px 20px;
     }
 
     .video-box {
-      max-width: 720px;
+      max-width: 520px;
       margin: 0 auto 30px auto;
       border-radius: 12px;
       overflow: hidden;
@@ -118,9 +114,26 @@
       background: #ffa726;
     }
 
+    .theme-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fefefe;
+    }
+
+    .theme-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .theme-section img {
+      max-width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
     @media (max-width: 600px) {
       .logo {
-        height: 70px;
+        height: 100px;
       }
 
       .hero h1 {
@@ -136,22 +149,23 @@
         gap: 15px;
         padding: 10px;
       }
+
+      .video-box {
+        max-width: 90%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Promo bar -->
   <div class="top-bar">
     🚀 50% OFF — Limited Time Only!
   </div>
 
-  <!-- Logo Header -->
   <header>
     <img src="logo.png" alt="Kinsi Logo" class="logo" />
   </header>
 
-  <!-- Nav -->
   <nav>
     <a href="#">All Blenders</a>
     <a href="#">Portable</a>
@@ -160,7 +174,6 @@
     <a href="#">Offers</a>
   </nav>
 
-  <!-- Hero Video Section -->
   <section class="hero">
     <div class="video-box">
       <video autoplay muted loop playsinline>
@@ -171,6 +184,11 @@
     <h1>The Future of Blending</h1>
     <p>Blend anywhere. No wires. No limits.</p>
     <button class="button">Shop Now</button>
+  </section>
+
+  <section class="theme-section">
+    <h2>Our New Look</h2>
+    <img src="new-design.png" alt="New Kinsi Theme Preview" />
   </section>
 
 </body>

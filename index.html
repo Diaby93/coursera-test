@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,36 @@
       background-repeat: no-repeat;
       min-height: 100vh;
       margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-family: Arial, sans-serif;
     }
+
+    .popup-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      z-index: 10;
+    }
+
+    .content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      color: white;
+      font-size: 2em;
+    }
+
     .button {
       padding: 10px 20px;
       font-size: 16px;
@@ -26,17 +54,17 @@
   </style>
 </head>
 <body>
-  <h1>Do You Like Fruit?</h1>
-  <p>Welcome to our fruity fun zone! 🍓🍌🍍</p>
-  <button class="button">Click Me</button>
-
-  <!-- Video player -->
-  <video controls autoplay muted loop>
-    <source src="hero-banner.mp4" type="video/mp4">
+  <!-- Centered popup-style video -->
+  <video class="popup-video" autoplay muted loop playsinline>
+    <source src="hero-banner.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+
+  <!-- Other content underneath the video -->
+  <div class="content">
+    <h1>Do You Like Fruit?</h1>
+    <p style="color:white;">Welcome to our fruity fun zone! 🍓🍌🍍</p>
+    <button class="button">Click Me</button>
+  </div>
 </body>
 </html>
-=======
-</h1><h1>Hello Kinsi</h1>
->>>>>>> 5cd6988 (Merge remote-tracking branch 'origin/main')

@@ -99,15 +99,25 @@
     .modal-content {
       background-color: #fff;
       margin: 5% auto;
-      padding: 30px;
+      padding: 40px 60px;
       border-radius: 10px;
       width: 600px;
       text-align: center;
+      position: relative;
+    }
+
+    .modal-content .logo-text {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
     }
 
     .close {
       color: #aaa;
-      float: right;
+      position: absolute;
+      top: 15px;
+      right: 20px;
       font-size: 28px;
       font-weight: bold;
       cursor: pointer;
@@ -130,6 +140,13 @@
       border-radius: 25px;
       font-size: 16px;
       cursor: pointer;
+    }
+
+    .modal ul {
+      text-align: left;
+      max-width: 400px;
+      margin: 10px auto 20px auto;
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -156,10 +173,10 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
-      <img src="logo.png" alt="STRYKE" style="height: 40px; margin-bottom: 20px;">
-      <h2>Get exclusive deals!</h2>
+      <div class="logo-text">STRYKE</div>
+      <h2 style="margin-top: 0;">Get exclusive deals!</h2>
       <p>Sign up today and be the first to receive:</p>
-      <ul style="text-align: left; max-width: 400px; margin: 0 auto 20px auto;">
+      <ul>
         <li>Early access to product launches</li>
         <li>Exclusive discounts and updates</li>
       </ul>

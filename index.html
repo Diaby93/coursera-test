@@ -1,136 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinsi - Portable Blender</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stryke Logo & Popup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
     }
 
     header {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 10px 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
     }
 
     .logo {
-      height: 100px;
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .overlay {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
+    .container {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      padding: 60px;
+    }
+
+    .popup {
+      width: 900px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      display: flex;
+      gap: 40px;
+    }
+
+    .popup video {
+      width: 350px;
+      border-radius: 10px;
+    }
+
+    .popup-content {
+      max-width: 500px;
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .popup-content button {
+      background-color: #e04e1d;
       color: white;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0 20px;
-    }
-
-    .overlay h1 {
-      font-size: 3rem;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .overlay p {
-      font-size: 1.2rem;
-      margin: 15px 0;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .button {
-      background-color: white;
-      color: black;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border-radius: 30px;
-      font-weight: bold;
+      padding: 12px 24px;
       border: none;
+      border-radius: 25px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
-    .button:hover {
-      background-color: #00c48c;
-      color: white;
-    }
-
-    @media (max-width: 768px) {
-      .logo {
-        height: 70px;
-      }
-
-      .overlay h1 {
-        font-size: 2rem;
-      }
-
-      .overlay p {
-        font-size: 1rem;
-      }
+    .popup-content button:hover {
+      background-color: #c94217;
     }
   </style>
 </head>
 <body>
-
-  <!-- Logo -->
   <header>
-    <img src="logo.png" alt="Kinsi Logo" class="logo" />
+    <div class="logo">STRYKE</div>
   </header>
 
-  <!-- Fullscreen Hero Video Section -->
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="hero-banner.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay">
-      <h1>The Original Portable Blender</h1>
-      <p>Blend anywhere. No wires. No limits.</p>
-      <button class="button">Shop Now</button>
+  <div class="container">
+    <div class="popup">
+      <video controls poster="thumbnail.jpg">
+        <source src="your-4k-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="popup-content">
+        <h2>Official STRYKE parts and accessories</h2>
+        <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
+        <button>Shop Now</button>
+      </div>
     </div>
-  </section>
-
+  </div>
 </body>
 </html>

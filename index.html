@@ -34,32 +34,37 @@
     }
 
     .popup {
-      width: 1000px;
+      max-width: 1000px;
+      width: 100%;
       background: #fff;
-      padding: 40px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: left;
       display: flex;
+      align-items: center;
       gap: 40px;
     }
 
     .popup video {
-      width: 500px;
+      width: 400px;
+      height: auto;
       border-radius: 10px;
     }
 
     .popup-content {
+      flex: 1;
       max-width: 500px;
     }
 
     .popup-content h2 {
-      font-size: 24px;
+      font-size: 20px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
 
     .popup-content p {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 20px;
       line-height: 1.5;
     }
@@ -67,10 +72,10 @@
     .popup-content button {
       background-color: #e04e1d;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border: none;
       border-radius: 25px;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
     }
 
@@ -86,7 +91,7 @@
 
   <div class="container">
     <div class="popup">
-      <video autoplay loop muted playsinline width="500" style="border-radius: 10px;">
+      <video autoplay loop muted playsinline poster="fallback.jpg">
         <source src="Video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>

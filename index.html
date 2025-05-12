@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stryke Website</title>
+  <title>STRYKE Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
@@ -83,15 +83,14 @@
       background-color: #c94217;
     }
 
-    /* Modal styles */
     #popup-modal {
-      display: none;
+      display: flex;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
       z-index: 9999;
       justify-content: center;
       align-items: center;
@@ -168,6 +167,59 @@
       color: #555;
       margin-top: 20px;
     }
+
+    /* Product Section */
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .product-card h2 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #e44b11;
+      margin: 10px 0;
+    }
+
+    .button {
+      background-color: #e44b11;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #c94217;
+    }
   </style>
 </head>
 <body>
@@ -192,7 +244,7 @@
   <!-- Modal -->
   <div id="popup-modal">
     <div class="modal-content">
-      <span class="close" onclick="document.getElementById('popup-modal').style.display='none'">&times;</span>
+      <span class="close" onclick="redirectToProductPage()">&times;</span>
       <div class="logo-text">STRYKE</div>
       <h1>Get exclusive deals!</h1>
       <p>Sign up today and be the first to receive:</p>
@@ -202,14 +254,47 @@
       </ul>
       <input type="email" placeholder="Email address (required)">
       <input type="text" placeholder="Phone number (optional)">
-      <button>Sign me up</button>
+      <button onclick="redirectToProductPage()">Sign me up</button>
       <p class="disclaimer">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
     </div>
   </div>
 
+  <!-- Product Section -->
+  <section style="text-align: center;">
+    <h1>STRYKE Portable Blenders</h1>
+    <p>Choose your favourite colour. All blenders are portable, USB rechargeable, and built to power your smoothie, shake or drink on the go.</p>
+    <div class="products">
+      <div class="product-card">
+        <img src="images/white.png" alt="White Blender">
+        <h2>STRYKE Portable Blender – White</h2>
+        <div class="price">£24.99</div>
+        <a href="#" class="button">More info</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Pink.png" alt="Pink Blender">
+        <h2>STRYKE Portable Blender – Pink</h2>
+        <div class="price">£24.99</div>
+        <a href="#" class="button">More info</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Black.png" alt="Black Blender">
+        <h2>STRYKE Portable Blender – Black</h2>
+        <div class="price">£24.99</div>
+        <a href="#" class="button">More info</a>
+      </div>
+    </div>
+  </section>
+
   <script>
     function openPopup() {
       document.getElementById('popup-modal').style.display = 'flex';
+    }
+
+    function redirectToProductPage() {
+      document.getElementById('popup-modal').style.display = 'none';
+      document.querySelector('section').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stryke Logo & Popup</title>
+  <title>Stryke Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
@@ -84,61 +84,72 @@
     }
 
     /* Modal styles */
-    .modal {
+    #popup-modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
     }
 
     .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 40px 60px;
+      background: white;
+      max-width: 600px;
+      width: 90%;
+      padding: 40px;
       border-radius: 10px;
-      width: 600px;
       text-align: center;
       position: relative;
+      font-family: Arial, sans-serif;
     }
 
     .modal-content .logo-text {
       font-family: 'Anton', sans-serif;
       font-size: 36px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .modal-content h1 {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    .modal-content p {
+      font-size: 16px;
       margin-bottom: 20px;
     }
 
-    .close {
-      color: #aaa;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
+    .modal-content ul {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 25px;
+      padding: 0;
+      list-style-position: inside;
     }
 
-    .modal input {
+    .modal-content input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .modal button {
       background-color: #e04e1d;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 14px 30px;
       border-radius: 25px;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
     }
 
@@ -147,6 +158,13 @@
       max-width: 400px;
       margin: 10px auto 20px auto;
       padding-left: 20px;
+      font-size: 16px;
+    }
+
+    .modal p:last-of-type {
+      font-size: 12px;
+      color: #666;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -174,7 +192,7 @@
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
       <div class="logo-text">STRYKE</div>
-      <h2 style="margin-top: 0;">Get exclusive deals!</h2>
+      <h2>Get exclusive deals!</h2>
       <p>Sign up today and be the first to receive:</p>
       <ul>
         <li>Early access to product launches</li>
@@ -183,7 +201,7 @@
       <input type="email" placeholder="Email address (required)">
       <input type="text" placeholder="Phone number (optional)">
       <button>Sign me up</button>
-      <p style="margin-top: 20px; font-size: 12px; color: #666;">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
+      <p>By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
     </div>
   </div>
 </body>

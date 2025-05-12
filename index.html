@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STRYKE Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stryke Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
@@ -84,13 +84,13 @@
     }
 
     #popup-modal {
-      display: flex;
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 9999;
       justify-content: center;
       align-items: center;
@@ -104,6 +104,7 @@
       border-radius: 10px;
       text-align: center;
       position: relative;
+      font-family: Arial, sans-serif;
     }
 
     .modal-content .logo-text {
@@ -190,7 +191,7 @@
   <!-- Modal -->
   <div id="popup-modal">
     <div class="modal-content">
-      <span class="close" onclick="redirectToGallery()">&times;</span>
+      <span class="close" onclick="document.getElementById('popup-modal').style.display='none'">&times;</span>
       <div class="logo-text">STRYKE</div>
       <h1>Get exclusive deals!</h1>
       <p>Sign up today and be the first to receive:</p>
@@ -200,85 +201,19 @@
       </ul>
       <input type="email" placeholder="Email address (required)">
       <input type="text" placeholder="Phone number (optional)">
-      <button onclick="redirectToGallery()">Sign me up</button>
+      <button>Sign me up</button>
       <p class="disclaimer">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
     </div>
-  </div>
-
-  <!-- Product Image Gallery -->
-  <section id="gallery" style="display: flex; max-width: 1000px; margin: 40px auto;">
-    <!-- Thumbnails -->
-    <div id="thumbs" style="display: flex; flex-direction: column; gap: 10px; margin-right: 20px;">
-      <img src="images/product1.png" onclick="showImage(0)" width="60">
-      <img src="images/product2.png" onclick="showImage(1)" width="60">
-      <img src="images/product3.png" onclick="showImage(2)" width="60">
-      <img src="images/product4.png" onclick="showImage(3)" width="60">
-      <img src="images/product5.png" onclick="showImage(4)" width="60">
-      <img src="images/product6.png" onclick="showImage(5)" width="60">
-      <img src="images/product7.png" onclick="showImage(6)" width="60">
-      <img src="images/product8.png" onclick="showImage(7)" width="60">
-    </div>
-
-    <!-- Main Image -->
-    <div style="position: relative; flex: 1;">
-      <img id="mainImage" src="images/product1.png" style="width: 100%; border-radius: 10px; cursor: pointer;" onclick="zoomImage()">
-
-      <!-- Arrows -->
-      <button onclick="prevImage()" style="position: absolute; top: 10px; right: 10px; font-size: 24px;">⬆</button>
-      <button onclick="nextImage()" style="position: absolute; bottom: 10px; right: 10px; font-size: 24px;">⬇</button>
-    </div>
-  </section>
-
-  <!-- Zoomed Image Modal -->
-  <div id="zoomModal" onclick="closeZoom()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000c; z-index:9999; justify-content:center; align-items:center;">
-    <img id="zoomedImg" src="" style="max-width:90%; max-height:90%;">
   </div>
 
   <script>
     function openPopup() {
       document.getElementById('popup-modal').style.display = 'flex';
     }
-
-    function redirectToGallery() {
-      document.getElementById('popup-modal').style.display = 'none';
-      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    const images = [
-      "images/product1.png",
-      "images/product2.png",
-      "images/product3.png",
-      "images/product4.png",
-      "images/product5.png",
-      "images/product6.png",
-      "images/product7.png",
-      "images/product8.png"
-    ];
-    let currentIndex = 0;
-
-    function showImage(index) {
-      currentIndex = index;
-      document.getElementById("mainImage").src = images[currentIndex];
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    }
-
-    function zoomImage() {
-      document.getElementById("zoomModal").style.display = "flex";
-      document.getElementById("zoomedImg").src = images[currentIndex];
-    }
-
-    function closeZoom() {
-      document.getElementById("zoomModal").style.display = "none";
-    }
   </script>
+
+  <!-- Product Grid, Descriptions, and Gallery Sections go below here -->
+  <!-- You can paste the final combined section from Canvas (product cards, pink/white/black gallery, descriptions, buttons) here to complete the code -->
+
 </body>
 </html>

@@ -82,6 +82,55 @@
     .popup-content button:hover {
       background-color: #c94217;
     }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 600px;
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .modal button {
+      background-color: #e04e1d;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -98,8 +147,26 @@
       <div class="popup-content">
         <h2>Official STRYKE parts and accessories</h2>
         <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
-        <button>Shop Now</button>
+        <button onclick="document.getElementById('modal').style.display='block'">Shop Now</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+      <img src="logo.png" alt="STRYKE" style="height: 40px; margin-bottom: 20px;">
+      <h2>Get exclusive deals!</h2>
+      <p>Sign up today and be the first to receive:</p>
+      <ul style="text-align: left; max-width: 400px; margin: 0 auto 20px auto;">
+        <li>Early access to product launches</li>
+        <li>Exclusive discounts and updates</li>
+      </ul>
+      <input type="email" placeholder="Email address (required)">
+      <input type="text" placeholder="Phone number (optional)">
+      <button>Sign me up</button>
+      <p style="margin-top: 20px; font-size: 12px; color: #666;">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
     </div>
   </div>
 </body>

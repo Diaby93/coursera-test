@@ -2,114 +2,213 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STRYKE - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stryke Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #fff;
     }
 
-    .video-banner {
-      width: 100%;
-      height: 300px;
-      background: black;
-      color: white;
+    header {
+      padding: 20px 60px;
       display: flex;
       align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .container {
+      display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 60px;
     }
 
-    #email-popup {
-      position: fixed;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 400px;
-      background: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-
-    #email-popup h2 {
-      margin-top: 0;
-    }
-
-    #email-popup input {
+    .popup {
+      max-width: 1000px;
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .popup video {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .popup-content {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .popup-content h2 {
+      font-size: 20px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
 
-    #email-popup button {
-      background: orange;
+    .popup-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .popup-content button {
+      background-color: #e04e1d;
       color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 10px;
-      width: 100%;
+      border-radius: 25px;
+      font-size: 14px;
       cursor: pointer;
     }
 
-    #close-popup {
-      position: absolute;
-      top: 5px;
-      right: 10px;
+    .popup-content button:hover {
+      background-color: #c94217;
+    }
+
+    /* Modal styles */
+    #popup-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 600px;
+      width: 90%;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    .modal-content .logo-text {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .modal-content h1 {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-content ul {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 25px;
+      padding: 0;
+      list-style-position: inside;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .modal-content button {
+      padding: 14px 28px;
+      background: #e44b11;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
       cursor: pointer;
+    }
+
+    .modal-content .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-content .disclaimer {
+      font-size: 12px;
+      color: #555;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">STRYKE</div>
+  </header>
 
-  <div class="video-banner">
-    <h1>STRYKE Portable Blenders</h1>
+  <div class="container">
+    <div class="popup">
+      <video autoplay loop muted playsinline poster="fallback.jpg">
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="popup-content">
+        <h2>Official STRYKE parts and accessories</h2>
+        <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
+        <button onclick="openPopup()">Shop Now</button>
+      </div>
+    </div>
   </div>
 
-  <div style="padding: 20px;">
-    <h2>Official STRYKE parts and accessories</h2>
-    <p>Take your STRYKE on more adventures. Extra blending cups and lids.</p>
-    <a href="shop.html">
-      <button>Shop Now</button>
-    </a>
-  </div>
-
-  <!-- POPUP MODAL -->
-  <div id="email-popup">
-    <span id="close-popup">×</span>
-    <h2>STRYKE</h2>
-    <p><strong>Get exclusive deals!</strong></p>
-    <p>Sign up today and be the first to receive:</p>
-    <ul>
-      <li>Early access to product launches</li>
-      <li>Exclusive discounts and updates</li>
-    </ul>
-    <input type="email" placeholder="Email address (required)">
-    <input type="text" placeholder="Phone number (optional)">
-    <button>Sign me up</button>
-    <p style="font-size: 12px;">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
+  <!-- Modal -->
+  <div id="popup-modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('popup-modal').style.display='none'">&times;</span>
+      <div class="logo-text">STRYKE</div>
+      <h1>Get exclusive deals!</h1>
+      <p>Sign up today and be the first to receive:</p>
+      <ul>
+        <li>Early access to product launches</li>
+        <li>Exclusive discounts and updates</li>
+      </ul>
+      <input type="email" placeholder="Email address (required)">
+      <input type="text" placeholder="Phone number (optional)">
+      <button>Sign me up</button>
+      <p class="disclaimer">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
+    </div>
   </div>
 
   <script>
-    const popup = document.getElementById('email-popup');
-    const closeBtn = document.getElementById('close-popup');
-
-    const hasSeen = localStorage.getItem('popupSeen');
-
-    // Show only on homepage + not already seen
-    if (window.location.pathname !== '/' || hasSeen) {
-      popup.style.display = 'none';
-    } else {
-      popup.style.display = 'block';
-      localStorage.setItem('popupSeen', 'true');
+    function openPopup() {
+      document.getElementById('popup-modal').style.display = 'flex';
     }
-
-    // Close button
-    closeBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
   </script>
-
 </body>
 </html>

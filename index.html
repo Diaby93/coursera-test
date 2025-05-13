@@ -9,11 +9,11 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
+      background: #fff;
     }
 
     header {
-      padding: 20px 60px;
+      padding: 20px 40px;
       display: flex;
       align-items: center;
       border-bottom: 1px solid #ccc;
@@ -21,64 +21,39 @@
 
     .logo {
       font-family: 'Anton', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: bold;
       letter-spacing: 2px;
     }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px;
+    .section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
-    .popup {
-      max-width: 1000px;
-      width: 100%;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .popup video {
-      width: 400px;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .popup-content {
-      flex: 1;
-      max-width: 500px;
-    }
-
-    .popup-content h2 {
-      font-size: 20px;
-      font-weight: bold;
+    .section h1 {
+      text-align: center;
+      font-size: 28px;
       margin-bottom: 10px;
     }
 
-    .popup-content p {
-      font-size: 14px;
-      margin-bottom: 20px;
+    .section p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 16px;
       line-height: 1.5;
     }
 
-    .popup-content button {
-      background-color: #e04e1d;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      font-size: 14px;
-      cursor: pointer;
+    .main-img {
+      display: block;
+      margin: 0 auto 30px;
+      width: 300px;
+      border-radius: 8px;
     }
 
+<<<<<<< HEAD
     .popup-content button:hover {
       background-color: #c94217;
     }
@@ -92,10 +67,17 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
       z-index: 9999;
+=======
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+>>>>>>> d98ff10 (Add product pages and update index)
       justify-content: center;
-      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
     }
 
+<<<<<<< HEAD
     .modal-content {
       background: white;
       max-width: 600px;
@@ -105,22 +87,26 @@
       text-align: center;
       position: relative;
       font-family: Arial, sans-serif;
+=======
+    .gallery img {
+      width: 200px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+>>>>>>> d98ff10 (Add product pages and update index)
     }
 
-    .modal-content .logo-text {
-      font-family: 'Anton', sans-serif;
-      font-size: 36px;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+    .gallery img:hover {
+      transform: scale(1.05);
     }
 
-    .modal-content h1 {
-      font-size: 40px;
-      font-weight: bold;
-      margin: 10px 0 20px;
-      line-height: 1.2;
+    .buy-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
     }
 
+<<<<<<< HEAD
     .modal-content p {
       font-size: 18px;
       margin-bottom: 16px;
@@ -146,26 +132,16 @@
 
     .modal-content button {
       padding: 14px 28px;
+=======
+    .buy-btn a {
+>>>>>>> d98ff10 (Add product pages and update index)
       background: #e44b11;
       color: white;
-      border: none;
+      padding: 14px 30px;
       border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
       font-size: 16px;
-      cursor: pointer;
-    }
-
-    .modal-content .close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .modal-content .disclaimer {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
     }
   </style>
 </head>
@@ -174,19 +150,27 @@
     <div class="logo">STRYKE</div>
   </header>
 
-  <div class="container">
-    <div class="popup">
-      <video autoplay loop muted playsinline poster="fallback.jpg">
-        <source src="hero-banner.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="popup-content">
-        <h2>Official STRYKE parts and accessories</h2>
-        <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
-        <button onclick="openPopup()">Shop Now</button>
-      </div>
+  <div class="section">
+    <h1>White STRYKE Portable Blender</h1>
+    <p>The STRYKE White Portable Blender offers sleek simplicity and serious performance. Featuring a 16,000 RPM motor, stainless steel blades, and USB rechargeable battery, it's your go-to device for healthy living on the move. Elegant, lightweight, and easy to clean.</p>
+    <img src="images/white.png" alt="White Blender" class="main-img">
+
+    <div class="buy-btn">
+      <a href="#">Buy Now – £24.99</a>
+    </div>
+
+    <div class="gallery">
+      <img src="images/product1.png" alt="Product image 1">
+      <img src="images/product2.png" alt="Product image 2">
+      <img src="images/product3.png" alt="Product image 3">
+      <img src="images/product4.png" alt="Product image 4">
+      <img src="images/product5.png" alt="Product image 5">
+      <img src="images/product6.png" alt="Product image 6">
+      <img src="images/product7.png" alt="Product image 7">
+      <img src="images/product8.png" alt="Product image 8">
     </div>
   </div>
+<<<<<<< HEAD
 
   <!-- Modal -->
   <div id="popup-modal">
@@ -238,5 +222,7 @@
       document.getElementById('popup-modal').style.display = 'flex';
     }
   </script>
+=======
+>>>>>>> d98ff10 (Add product pages and update index)
 </body>
 </html>

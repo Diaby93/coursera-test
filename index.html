@@ -3,245 +3,527 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>White STRYKE Blender</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <title>STRYKE Portable Blender | Official Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --primary-color: #e44b11;
+      --text-color: #333;
+      --bg-color: #fff;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
+      padding: 0;
     }
-
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
     header {
-      padding: 20px 40px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
     }
-
     .logo {
       font-family: 'Anton', sans-serif;
       font-size: 32px;
-      font-weight: bold;
-      letter-spacing: 2px;
+      color: var(--primary-color);
     }
-
-    .section {
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      margin-left: 20px;
+      font-weight: 600;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+    .hero video {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 16px;
+    }
+    .hero-text {
+      max-width: 480px;
+    }
+    .hero-text h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .cta-btn:hover {
+      background-color: #c6400f;
+      transform: scale(1.03);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
       max-width: 1200px;
       margin: 60px auto;
       padding: 0 20px;
     }
-
-    .section h1 {
+    .feature-box {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
       text-align: center;
-      font-size: 28px;
+    }
+    .feature-box i {
+      font-size: 36px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    .feature-box h3 {
+      font-size: 18px;
       margin-bottom: 10px;
     }
-
-    .section p {
+    .product-showcase {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 16px;
-      line-height: 1.5;
+      padding: 40px 20px;
+      background: #fafafa;
     }
-
-    .main-img {
-      display: block;
-      margin: 0 auto 30px;
-      width: 300px;
-      border-radius: 8px;
+    .product-showcase h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
     }
-
-<<<<<<< HEAD
-    .gallery {
+    .product-grid {
       display: flex;
       flex-wrap: wrap;
-=======
-<<<<<<< HEAD
-    .popup-content button:hover {
-      background-color: #c94217;
+      justify-content: center;
+      gap: 30px;
     }
-
-    #popup-modal {
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 280px;
+      transition: 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .product-card .price {
+      margin: 10px 0;
+    }
+    .product-card .price .old {
+      text-decoration: line-through;
+      color: #999;
+      margin-right: 10px;
+    }
+    .product-card .price .new {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #fff;
+      margin: 0 10px;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      font-size: 16px;
+    }
+    .mobile-sticky-cta {
       display: none;
       position: fixed;
-      top: 0;
+      bottom: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-=======
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
->>>>>>> d98ff10 (Add product pages and update index)
->>>>>>> saved-edits
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      right: 0;
+      background: #e44b11;
+      padding: 15px;
+      text-align: center;
+      z-index: 999;
     }
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+    .mobile-sticky-cta a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
     .modal-content {
-      background: white;
-      max-width: 600px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 500px;
       width: 90%;
-      padding: 40px;
-      border-radius: 10px;
       text-align: center;
       position: relative;
-      font-family: Arial, sans-serif;
-=======
->>>>>>> saved-edits
-    .gallery img {
-      width: 200px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-<<<<<<< HEAD
-=======
->>>>>>> d98ff10 (Add product pages and update index)
->>>>>>> saved-edits
+      animation: fadeIn 0.4s ease;
     }
-
-    .gallery img:hover {
-      transform: scale(1.05);
+    .modal-content img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      margin-bottom: 20px;
     }
-
-    .buy-btn {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
+    .modal-content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
-
-<<<<<<< HEAD
-    .buy-btn a {
-=======
-<<<<<<< HEAD
-    .modal-content p {
-      font-size: 18px;
-      margin-bottom: 16px;
-      text-align: center;
+    .modal-content .price {
+      font-size: 20px;
+      color: #e44b11;
+      margin: 10px 0;
     }
-
-    .modal-content ul {
-      text-align: center;
-      margin: 0 auto 25px;
-      padding-left: 0;
-      list-style-type: disc;
-      width: fit-content;
-    }
-
-    .modal-content input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .modal-content .old {
+      text-decoration: line-through;
+      color: #999;
       font-size: 14px;
+      margin-left: 8px;
     }
-
-    .modal-content button {
-      padding: 14px 28px;
-=======
-    .buy-btn a {
->>>>>>> d98ff10 (Add product pages and update index)
->>>>>>> saved-edits
+    .modal-content .cta-btn {
       background: #e44b11;
-      color: white;
-      padding: 14px 30px;
+      color: #fff;
+      padding: 12px 25px;
       border-radius: 999px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .modal-content .payments {
+      margin-top: 15px;
+      max-width: 180px;
+    }
+    .modal-content .guarantee {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .countdown {
+      font-size: 14px;
+      color: #e44b11;
+      margin-top: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">STRYKE</div>
-  </header>
+!-- Header -->
+ <header>
+   <div class="logo">STRYKE</div>
+   <nav>
+     <a href="#features">Features</a>
+     <a href="#shop">Shop</a>
+     <a href="#footer">Contact</a>
+   </nav>
+ </header>
 
-  <div class="section">
-    <h1>White STRYKE Portable Blender</h1>
-    <p>The STRYKE White Portable Blender offers sleek simplicity and serious performance. Featuring a 16,000 RPM motor, stainless steel blades, and USB rechargeable battery, it's your go-to device for healthy living on the move. Elegant, lightweight, and easy to clean.</p>
-    <img src="images/white.png" alt="White Blender" class="main-img">
+ <!-- Hero Section -->
+ <section class="hero" data-aos="fade-up">
+   <video src="hero-banner.mp4" autoplay muted loop playsinline></video>
+   <div class="hero-text">
+     <h1>Blend Beyond Limits</h1>
+     <p>Smoothies in the gym. Shakes in the car. Juice on a hike.<br>
+     <strong>STRYKE</strong> goes wherever you go — no wires, no waiting.<br>
+     With <strong>16,000 RPM of raw blending power</strong>, this pocket-sized beast doesn’t ask for a kitchen.</p>
+     <a class="cta-btn" href="#shop">Shop Now</a>
+   </div>
+ </section>
 
-    <div class="buy-btn">
-      <a href="#">Buy Now – £24.99</a>
-    </div>
+ <!-- Features Section -->
+ <section id="features" class="features" data-aos="fade-up">
+   <div class="feature-box">
+     <i class="fas fa-bolt"></i>
+     <h3>Powerful Motor</h3>
+     <p>Crush fruit and ice with 16,000 RPM speed.</p>
+   </div>
+   <div class="feature-box">
+     <i class="fas fa-battery-full"></i>
+     <h3>USB-C Rechargeable</h3>
+     <p>25 blends per charge. No cords. No limits.</p>
+   </div>
+   <div class="feature-box">
+     <i class="fas fa-glass-water"></i>
+     <h3>Easy to Clean</h3>
+     <p>Just add water and blend. Simple and mess-free.</p>
+   </div>
+   <div class="feature-box">
+     <i class="fas fa-shield-alt"></i>
+     <h3>1-Year Warranty</h3>
+     <p>Peace of mind with every purchase.</p>
+   </div>
+ </section>
 
-    <div class="gallery">
-      <img src="images/product1.png" alt="Product image 1">
-      <img src="images/product2.png" alt="Product image 2">
-      <img src="images/product3.png" alt="Product image 3">
-      <img src="images/product4.png" alt="Product image 4">
-      <img src="images/product5.png" alt="Product image 5">
-      <img src="images/product6.png" alt="Product image 6">
-      <img src="images/product7.png" alt="Product image 7">
-      <img src="images/product8.png" alt="Product image 8">
-    </div>
-  </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+ <!-- Product Grid -->
+ <section id="shop" class="product-showcase" data-aos="fade-up">
+   <h2>Shop the Collection</h2>
+   <div class="product-grid">
+     <div class="product-card">
+       <img src="images/white.png" alt="White STRYKE Blender">
+       <h3>White STRYKE Blender</h3>
+       <div class="price">
+         <span class="old">£80</span>
+         <span class="new">£49.99</span>
+       </div>
+       <a class="cta-btn" href="javascript:void(0)" onclick="openModal('white')">Buy Now</a>
+     </div>
+     <div class="product-card">
+       <img src="images/pink.png" alt="Pink STRYKE Blender">
+       <h3>Pink STRYKE Blender</h3>
+       <div class="price">
+         <span class="old">£80</span>
+         <span class="new">£49.99</span>
+       </div>
+       <a class="cta-btn" href="javascript:void(0)" onclick="openModal('pink')">Buy Now</a>
+     </div>
+     <div class="product-card">
+       <img src="images/black.png" alt="Black STRYKE Blender">
+       <h3>Black STRYKE Blender</h3>
+       <div class="price">
+         <span class="old">£80</span>
+         <span class="new">£49.99</span>
+       </div>
+       <a class="cta-btn" href="javascript:void(0)" onclick="openModal('black')">Buy Now</a>
+     </div>
+   </div>
+ </section>
 
-  <!-- Modal -->
-  <div id="popup-modal">
+ <!-- Urgency Banner -->
+ <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
+   🔥 Limited Stock Alert! Order now before we sell out again!
+ </section>
+
+ <!-- Testimonials -->
+ <section class="testimonials" data-aos="fade-up" style="padding:60px 20px; background:#fff; text-align:center;">
+   <h2 style="font-size:28px; margin-bottom:30px;">What Our Customers Say</h2>
+   <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1000px; margin:0 auto;">
+     <div style="background:#f9f9f9; padding:20px; border-radius:12px; max-width:300px;">
+       <p>"Game changer! I blend every morning in the car before work. STRYKE is 🔥"</p>
+       <strong>- Jess K.</strong>
+     </div>
+     <div style="background:#f9f9f9; padding:20px; border-radius:12px; max-width:300px;">
+       <p>"No mess, no fuss. I even use it at my desk. This is how blenders should be."</p>
+       <strong>- Omar S.</strong>
+     </div>
+     <div style="background:#f9f9f9; padding:20px; border-radius:12px; max-width:300px;">
+       <p>"Perfect for hikes and road trips. STRYKE handled frozen fruit like a beast."</p>
+       <strong>- Liv R.</strong>
+     </div>
+   </div>
+ </section>
+
+ <!-- FAQ Section -->
+ <section class="faq" data-aos="fade-up" style="padding:60px 20px; background:#fff; max-width:800px; margin:0 auto;">
+   <h2 style="text-align:center; font-size:28px; margin-bottom:30px;">FAQs</h2>
+   <div style="margin-bottom:20px;">
+     <strong>Q: Is STRYKE dishwasher safe?</strong>
+     <p>A: The cup is, but we recommend a quick blend with water and soap to clean easily.</p>
+   </div>
+   <div style="margin-bottom:20px;">
+     <strong>Q: Can it crush ice?</strong>
+     <p>A: Absolutely. With 16,000 RPM and steel blades, it crushes ice in seconds.</p>
+   </div>
+   <div style="margin-bottom:20px;">
+     <strong>Q: How long does a full charge last?</strong>
+     <p>A: Around 25 blends depending on ingredients.</p>
+   </div>
+   <div>
+     <strong>Q: Is there a return policy?</strong>
+     <p>A: Yes, we offer a 30-day money-back guarantee, no questions asked.</p>
+   </div>
+ </section>
+
+ <!-- Mobile Sticky CTA and Scroll Button -->
+ <div class="mobile-sticky-cta">
+   <a href="#shop">🛒 Buy Now for £49.99 – Limited Stock!</a>
+ </div>
+ <button class="scroll-top" id="scrollTopBtn">↑ Top</button>
+
+ <!-- Footer -->
+ <footer id="footer" class="footer">
+   <p>&copy; 2025 STRYKE Blenders. All rights reserved.</p>
+   <p>Contact us: support@stryke.co.uk</p>
+   <div style="margin-top:20px;">
+     <a href="#"><i class="fab fa-instagram"></i></a>
+     <a href="#"><i class="fab fa-facebook-f"></i></a>
+     <a href="#"><i class="fab fa-tiktok"></i></a>
+   </div>
+ </footer>  
+   <!-- Product Modals -->
+  <div id="modal-white" class="product-modal">
     <div class="modal-content">
-      <span class="close" onclick="document.getElementById('popup-modal').style.display='none'">&times;</span>
-      <div class="logo-text">STRYKE</div>
-      <h1>Get exclusive deals!</h1>
-      <p>Sign up today and be the first to receive:</p>
-      <ul>
-        <li>Early access to product launches</li>
-        <li>Exclusive discounts and updates</li>
-      </ul>
-      <input type="email" placeholder="Email address (required)">
-      <input type="text" placeholder="Phone number (optional)">
-      <button>Sign me up</button>
-      <p class="disclaimer">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
+      <button class="close-btn" onclick="closeModal('white')">&times;</button>
+      <img src="images/white.png" alt="White STRYKE" />
+      <h2>White STRYKE Blender</h2>
+      <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
+      <p class="price">£49.99 <span class="old">£80</span></p>
+      <div id="countdown-white" class="countdown"></div>
+      <a href="checkout-white.html" class="cta-btn">Buy Now</a>
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
 
-  <!-- Product Grid -->
-  <div id="product-grid" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
-    <h1 style="text-align:center; font-size: 32px;">Choose Your STRYKE Portable Blender</h1>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px;">
-      <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px; text-align: center; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="images/white.png" alt="White Blender" style="width: 100%; border-radius: 8px;">
-        <h2 style="font-size: 18px; margin: 15px 0 5px;">White Blender</h2>
-        <div style="font-size: 20px; font-weight: bold; color: #e44b11; margin-bottom: 15px;">£24.99</div>
-        <a href="white.html" style="background: #e44b11; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none;">More info</a>
-      </div>
-
-      <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px; text-align: center; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="images/Pink.png" alt="Pink Blender" style="width: 100%; border-radius: 8px;">
-        <h2 style="font-size: 18px; margin: 15px 0 5px;">Pink Blender</h2>
-        <div style="font-size: 20px; font-weight: bold; color: #e44b11; margin-bottom: 15px;">£24.99</div>
-        <a href="pink.html" style="background: #e44b11; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none;">More info</a>
-      </div>
-
-      <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px; text-align: center; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="images/Black.png" alt="Black Blender" style="width: 100%; border-radius: 8px;">
-        <h2 style="font-size: 18px; margin: 15px 0 5px;">Black Blender</h2>
-        <div style="font-size: 20px; font-weight: bold; color: #e44b11; margin-bottom: 15px;">£24.99</div>
-        <a href="black.html" style="background: #e44b11; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none;">More info</a>
-      </div>
+  <div id="modal-pink" class="product-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('pink')">&times;</button>
+      <img src="images/pink.png" alt="Pink STRYKE" />
+      <h2>Pink STRYKE Blender</h2>
+      <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
+      <p class="price">£49.99 <span class="old">£80</span></p>
+      <div id="countdown-pink" class="countdown"></div>
+      <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
 
+  <div id="modal-black" class="product-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('black')">&times;</button>
+      <img src="images/black.png" alt="Black STRYKE" />
+      <h2>Black STRYKE Blender</h2>
+      <p>Stealth design. Blends everything in silence and style.</p>
+      <p class="price">£49.99 <span class="old">£80</span></p>
+      <div id="countdown-black" class="countdown"></div>
+      <a href="checkout-black.html" class="cta-btn">Buy Now</a>
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    function openPopup() {
-      document.getElementById('popup-modal').style.display = 'flex';
+    AOS.init({ duration: 1000, once: true });
+
+    function handleStickyCTA() {
+      const cta = document.querySelector('.mobile-sticky-cta');
+      cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
+    }
+    window.addEventListener('resize', handleStickyCTA);
+    window.addEventListener('load', handleStickyCTA);
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    function openModal(color) {
+      document.getElementById(`modal-${color}`).style.display = "flex";
+      startCountdown(color);
+    }
+
+    function closeModal(color) {
+      document.getElementById(`modal-${color}`).style.display = "none";
+    }
+
+    function startCountdown(color) {
+      const display = document.getElementById(`countdown-${color}`);
+      let timer = 5 * 60;
+      const interval = setInterval(() => {
+        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+          clearInterval(interval); return;
+        }
+        let min = Math.floor(timer / 60);
+        let sec = timer % 60;
+        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
+        timer--;
+        if (timer < 0) {
+          display.textContent = "⏰ Time’s up! Limited stock remaining!";
+          clearInterval(interval);
+        }
+      }, 1000);
     }
   </script>
-=======
->>>>>>> d98ff10 (Add product pages and update index)
->>>>>>> saved-edits
+
 </body>
 </html>

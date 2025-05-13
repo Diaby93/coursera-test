@@ -26,15 +26,114 @@
       letter-spacing: 2px;
     }
 
+    /* Video + popup layout */
     .container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 60px auto;
       padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
     }
 
-    h1 {
+    .popup video {
+      width: 400px;
+      border-radius: 10px;
+    }
+
+    .popup-content {
+      flex: 1;
+    }
+
+    .popup-content h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .popup-content button {
+      background-color: #e04e1d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Modal styles */
+    #popup-modal {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 600px;
+      width: 90%;
+      padding: 40px;
+      border-radius: 10px;
       text-align: center;
-      font-size: 32px;
+      position: relative;
+    }
+
+    .modal-content .logo-text {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+    }
+
+    .modal-content button {
+      padding: 12px 25px;
+      background: #e44b11;
+      border: none;
+      color: white;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal-content .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .modal-content ul {
+      text-align: left;
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Product Grid */
+    .product-grid-container {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
     }
 
     .product-grid {
@@ -93,8 +192,38 @@
     <div class="logo">STRYKE</div>
   </header>
 
+  <!-- Video + CTA -->
   <div class="container">
-    <h1>Choose Your STRYKE Portable Blender</h1>
+    <video autoplay muted loop playsinline poster="fallback.jpg">
+      <source src="hero-banner.mp4" type="video/mp4" />
+    </video>
+    <div class="popup-content">
+      <h2>Official STRYKE parts and accessories</h2>
+      <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
+      <button onclick="redirectToProducts()">Shop Now</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="popup-modal">
+    <div class="modal-content">
+      <span class="close" onclick="redirectToProducts()">&times;</span>
+      <div class="logo-text">STRYKE</div>
+      <h1>Get exclusive deals!</h1>
+      <p>Sign up today and be the first to receive:</p>
+      <ul>
+        <li>Early access to product launches</li>
+        <li>Exclusive discounts and updates</li>
+      </ul>
+      <input type="email" placeholder="Email address (required)">
+      <input type="text" placeholder="Phone number (optional)">
+      <button onclick="redirectToProducts()">Sign me up</button>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <div id="product-grid" class="product-grid-container">
+    <h1 style="text-align:center;">Choose Your STRYKE Portable Blender</h1>
     <div class="product-grid">
       <div class="product-card">
         <img src="images/white.png" alt="White Blender">
@@ -116,5 +245,17 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function redirectToProducts() {
+      document.getElementById('popup-modal').style.display = 'none';
+      document.getElementById('product-grid').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Optional: Automatically show popup on page load
+    window.addEventListener('load', function () {
+      document.getElementById('popup-modal').style.display = 'flex';
+    });
+  </script>
 </body>
 </html>

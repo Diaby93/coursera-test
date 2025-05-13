@@ -26,7 +26,6 @@
       letter-spacing: 2px;
     }
 
-    /* Video + popup layout */
     .container {
       max-width: 1000px;
       margin: 60px auto;
@@ -37,7 +36,7 @@
     }
 
     .popup video {
-      width: 400px;
+      width: 300px;
       border-radius: 10px;
     }
 
@@ -129,7 +128,6 @@
       margin-bottom: 20px;
     }
 
-    /* Product Grid */
     .product-grid-container {
       max-width: 1200px;
       margin: 80px auto;
@@ -252,7 +250,7 @@
       document.getElementById('product-grid').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Optional: Automatically show popup on page load
+    // Show modal on load
     window.addEventListener('load', function () {
       document.getElementById('popup-modal').style.display = 'flex';
     });

@@ -284,8 +284,7 @@
   </style>
 </head>
 <body>
-!-- Header -->
- <header>
+  <header>
    <div class="logo">STRYKE</div>
    <nav>
      <a href="#features">Features</a>
@@ -424,106 +423,94 @@
      <a href="#"><i class="fab fa-facebook-f"></i></a>
      <a href="#"><i class="fab fa-tiktok"></i></a>
    </div>
- </footer>  
-   <!-- Product Modals -->
-  <div id="modal-white" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('white')">&times;</button>
-      <img src="images/white.png" alt="White STRYKE" />
-      <h2>White STRYKE Blender</h2>
-      <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-white" class="countdown"></div>
-      <a href="checkout-white.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
-    </div>
+ </footer>
+ <!-- Product Modals -->
+<div id="modal-white" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('white')">&times;</button>
+    <img src="images/white.png" alt="White STRYKE Blender" />
+    <h2>White STRYKE Blender</h2>
+    <p>Sleek. Minimal. Engineered for results. Blend anywhere with power that fits in your bag.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-white" class="countdown"></div>
+
+    <label for="qty-white">Quantity:</label>
+    <input type="number" id="qty-white" min="1" value="1" style="padding:8px 12px; width:60px; margin:10px 0; border-radius:8px; border:1px solid #ccc; text-align:center;" />
+
+    <a href="checkout-white.html" class="cta-btn" onclick="updateCart('white')">Buy Now</a>
+    <img src="https://raw.githubusercontent.com/Diaby93/coursera-test/main/images/payments.png" class="payments" alt="Payment Methods" />
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
   </div>
+</div>
 
-  <div id="modal-pink" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-      <img src="images/pink.png" alt="Pink STRYKE" />
-      <h2>Pink STRYKE Blender</h2>
-      <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-pink" class="countdown"></div>
-      <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
-    </div>
+<div id="modal-pink" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('pink')">&times;</button>
+    <img src="images/pink.png" alt="Pink STRYKE Blender" />
+    <h2>Pink STRYKE Blender</h2>
+    <p>Bold and beautiful. Blend smoothies, shakes & juices on the go with total ease.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-pink" class="countdown"></div>
+
+    <label for="qty-pink">Quantity:</label>
+    <input type="number" id="qty-pink" min="1" value="1" style="padding:8px 12px; width:60px; margin:10px 0; border-radius:8px; border:1px solid #ccc; text-align:center;" />
+
+    <a href="checkout-pink.html" class="cta-btn" onclick="updateCart('pink')">Buy Now</a>
+    <img src="https://raw.githubusercontent.com/Diaby93/coursera-test/main/images/payments.png" class="payments" alt="Payment Methods" />
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
   </div>
+</div>
 
-  <div id="modal-black" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('black')">&times;</button>
-      <img src="images/black.png" alt="Black STRYKE" />
-      <h2>Black STRYKE Blender</h2>
-      <p>Stealth design. Blends everything in silence and style.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-black" class="countdown"></div>
-      <a href="checkout-black.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
-    </div>
+<div id="modal-black" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('black')">&times;</button>
+    <img src="images/black.png" alt="Black STRYKE Blender" />
+    <h2>Black STRYKE Blender</h2>
+    <p>Stealth design. Premium power. Perfect for work, workouts, and anywhere in between.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-black" class="countdown"></div>
+
+    <label for="qty-black">Quantity:</label>
+    <input type="number" id="qty-black" min="1" value="1" style="padding:8px 12px; width:60px; margin:10px 0; border-radius:8px; border:1px solid #ccc; text-align:center;" />
+
+    <a href="checkout-black.html" class="cta-btn" onclick="updateCart('black')">Buy Now</a>
+    <img src="https://raw.githubusercontent.com/Diaby93/coursera-test/main/images/payments.png" class="payments" alt="Payment Methods" />
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
   </div>
+</div>
 
-  <!-- JavaScript -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
+<!-- JavaScript -->
+<script>
+  function openModal(color) {
+    document.getElementById(`modal-${color}`).style.display = "flex";
+    startCountdown(color);
+  }
 
-    function handleStickyCTA() {
-      const cta = document.querySelector('.mobile-sticky-cta');
-      cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
-    }
-    window.addEventListener('resize', handleStickyCTA);
-    window.addEventListener('load', handleStickyCTA);
+  function closeModal(color) {
+    document.getElementById(`modal-${color}`).style.display = "none";
+  }
 
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  function startCountdown(color) {
+    const display = document.getElementById(`countdown-${color}`);
+    let timer = 5 * 60;
+    const interval = setInterval(() => {
+      if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+        clearInterval(interval); return;
+      }
+      let min = Math.floor(timer / 60);
+      let sec = timer % 60;
+      display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
+      timer--;
+      if (timer < 0) {
+        display.textContent = "⏰ Time’s up! Limited stock remaining!";
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
 
-    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    });
-
-    function openModal(color) {
-      document.getElementById(`modal-${color}`).style.display = "flex";
-      startCountdown(color);
-    }
-
-    function closeModal(color) {
-      document.getElementById(`modal-${color}`).style.display = "none";
-    }
-
-    function startCountdown(color) {
-      const display = document.getElementById(`countdown-${color}`);
-      let timer = 5 * 60;
-      const interval = setInterval(() => {
-        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
-          clearInterval(interval); return;
-        }
-        let min = Math.floor(timer / 60);
-        let sec = timer % 60;
-        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
-        timer--;
-        if (timer < 0) {
-          display.textContent = "⏰ Time’s up! Limited stock remaining!";
-          clearInterval(interval);
-        }
-      }, 1000);
-    }
-  </script>
-
-</body>
-</html>
+  function updateCart(color) {
+    const qty = document.getElementById(`qty-${color}`).value;
+    console.log(`User selected ${qty} ${color} blender(s)`); 
+    // Hook into cart logic here if needed
+  }
+</script>

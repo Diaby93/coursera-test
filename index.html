@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stryke Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STRYKE Blenders</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,188 +11,80 @@
       font-family: Arial, sans-serif;
       background-color: #fff;
     }
+
     header {
-      padding: 20px 60px;
+      padding: 20px 40px;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ddd;
     }
+
     .logo {
       font-family: 'Anton', sans-serif;
       font-size: 36px;
       font-weight: bold;
       letter-spacing: 2px;
     }
+
     .container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .product-grid {
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 60px;
-    }
-    .popup {
-      max-width: 1000px;
-      width: 100%;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      display: flex;
-      align-items: center;
       gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
     }
-    .popup video {
-      width: 400px;
-      height: auto;
+
+    .product-card {
+      border: 1px solid #eee;
       border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .popup-content {
-      flex: 1;
-      max-width: 500px;
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
-    .popup-content h2 {
+
+    .product-card h2 {
+      font-size: 18px;
+      margin: 15px 0 5px;
+    }
+
+    .price {
       font-size: 20px;
       font-weight: bold;
-      margin-bottom: 10px;
+      color: #e44b11;
+      margin-bottom: 15px;
     }
-    .popup-content p {
-      font-size: 14px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .popup-content button {
-      background-color: #e04e1d;
+
+    .more-info-btn {
+      background: #e44b11;
       color: white;
       padding: 10px 20px;
       border: none;
-      border-radius: 25px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .popup-content button:hover {
-      background-color: #c94217;
-    }
-    #popup-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: white;
-      max-width: 600px;
-      width: 90%;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-    }
-    .modal-content .logo-text {
-      font-family: 'Anton', sans-serif;
-      font-size: 36px;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-    .modal-content h1 {
-      font-size: 40px;
-      font-weight: bold;
-      margin: 10px 0 20px;
-      line-height: 1.2;
-    }
-    .modal-content p {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
-    .modal-content ul {
-      text-align: left;
-      margin: 0 auto 25px;
-      padding-left: 0;
-      list-style-position: outside;
-      list-style-type: disc;
-      width: fit-content;
-    }
-    .modal-content input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .modal-content button {
-      padding: 14px 28px;
-      background: #e44b11;
-      color: white;
-      border: none;
-      border-radius: 999px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .modal-content .close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    .modal-content .disclaimer {
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-    }
-    .product-section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .product {
-      border-bottom: 1px solid #ccc;
-      padding: 40px 0;
-    }
-    .product h2 {
-      text-align: center;
-    }
-    .product img.main-img {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 300px;
-      border-radius: 8px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .gallery img {
-      width: 200px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .buy-btn {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-    }
-    .buy-btn a {
-      display: inline-block;
-      background: #e44b11;
-      color: white;
-      padding: 12px 30px;
       border-radius: 30px;
+      font-size: 14px;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
+    }
+
+    .more-info-btn:hover {
+      background: #c94217;
     }
   </style>
 </head>
@@ -202,94 +94,27 @@
   </header>
 
   <div class="container">
-    <div class="popup">
-      <video autoplay loop muted playsinline poster="fallback.jpg">
-        <source src="hero-banner.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="popup-content">
-        <h2>Official STRYKE parts and accessories</h2>
-        <p>Take your STRYKE on even more adventures with extra blending cups and lids or replace your charging cable.</p>
-        <button onclick="redirectToProducts()">Shop Now</button>
+    <h1>Choose Your STRYKE Portable Blender</h1>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/white.png" alt="White Blender">
+        <h2>White Blender</h2>
+        <div class="price">£24.99</div>
+        <a href="white.html" class="more-info-btn">More info</a>
+      </div>
+      <div class="product-card">
+        <img src="images/Pink.png" alt="Pink Blender">
+        <h2>Pink Blender</h2>
+        <div class="price">£24.99</div>
+        <a href="pink.html" class="more-info-btn">More info</a>
+      </div>
+      <div class="product-card">
+        <img src="images/Black.png" alt="Black Blender">
+        <h2>Black Blender</h2>
+        <div class="price">£24.99</div>
+        <a href="black.html" class="more-info-btn">More info</a>
       </div>
     </div>
   </div>
-
-  <div id="popup-modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('popup-modal').style.display='none'">&times;</span>
-      <div class="logo-text">STRYKE</div>
-      <h1>Get exclusive deals!</h1>
-      <p>Sign up today and be the first to receive:</p>
-      <ul>
-        <li>Early access to product launches</li>
-        <li>Exclusive discounts and updates</li>
-      </ul>
-      <input type="email" placeholder="Email address (required)">
-      <input type="text" placeholder="Phone number (optional)">
-      <button>Sign me up</button>
-      <p class="disclaimer">By submitting, you agree to receive emails from STRYKE. You can unsubscribe anytime.</p>
-    </div>
-  </div>
-
-  <div id="product-grid" class="product-section">
-    <div class="product">
-      <h2>White Portable Blender</h2>
-      <img src="images/white.png" alt="White Blender" class="main-img">
-      <p style="text-align:center; max-width:700px; margin: 0 auto;">The STRYKE White Portable Blender offers sleek simplicity and serious performance. Featuring a 16,000 RPM motor, stainless steel blades, and USB rechargeable battery, it's your go-to device for healthy living on the move. Elegant, lightweight, and easy to clean.</p>
-      <div class="buy-btn"><a href="#">Buy Now - £24.99</a></div>
-      <div class="gallery">
-        <img src="images/product1.png">
-        <img src="images/product2.png">
-        <img src="images/product3.png">
-        <img src="images/product4.png">
-        <img src="images/product5.png">
-        <img src="images/product6.png">
-        <img src="images/product7.png">
-        <img src="images/product8.png">
-      </div>
-    </div>
-
-    <div class="product">
-      <h2>Pink Portable Blender</h2>
-      <img src="images/Pink.png" alt="Pink Blender" class="main-img">
-      <p style="text-align:center; max-width:700px; margin: 0 auto;">Add some color to your day with the STRYKE Pink Portable Blender. Compact, powerful, and cute, it blends your favorite drinks in seconds thanks to its high-speed motor and sharp blades. USB rechargeable and ready for any adventure.</p>
-      <div class="buy-btn"><a href="#">Buy Now - £24.99</a></div>
-      <div class="gallery">
-        <img src="images/product1.png">
-        <img src="images/product2.png">
-        <img src="images/product3.png">
-        <img src="images/product4.png">
-        <img src="images/product5.png">
-        <img src="images/product6.png">
-        <img src="images/product7.png">
-        <img src="images/product8.png">
-      </div>
-    </div>
-
-    <div class="product">
-      <h2>Black Portable Blender</h2>
-      <img src="images/Black.png" alt="Black Blender" class="main-img">
-      <p style="text-align:center; max-width:700px; margin: 0 auto;">Our STRYKE Black Portable Blender delivers power and style in one compact device. Built with stainless steel blades and a 16,000 RPM motor, it's perfect for smoothies, protein shakes, and juices anywhere you go. Lightweight, USB rechargeable, and travel-friendly. Comes with a 1-year warranty.</p>
-      <div class="buy-btn"><a href="#">Buy Now - £24.99</a></div>
-      <div class="gallery">
-        <img src="images/product1.png">
-        <img src="images/product2.png">
-        <img src="images/product3.png">
-        <img src="images/product4.png">
-        <img src="images/product5.png">
-        <img src="images/product6.png">
-        <img src="images/product7.png">
-        <img src="images/product8.png">
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function redirectToProducts() {
-      document.getElementById('popup-modal').style.display = 'none';
-      document.getElementById('product-grid').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>

@@ -36,7 +36,7 @@
     }
 
     .popup video {
-      width: 300px;
+      width: 250px;
       border-radius: 10px;
     }
 
@@ -65,7 +65,6 @@
       cursor: pointer;
     }
 
-    /* Modal styles */
     #popup-modal {
       display: flex;
       position: fixed;
@@ -121,11 +120,18 @@
       font-size: 14px;
     }
 
+    .modal-content p {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
     .modal-content ul {
-      text-align: left;
+      text-align: center;
       list-style-type: disc;
-      padding-left: 20px;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
+      padding-left: 0;
+      width: fit-content;
     }
 
     .product-grid-container {
@@ -250,7 +256,6 @@
       document.getElementById('product-grid').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Show modal on load
     window.addEventListener('load', function () {
       document.getElementById('popup-modal').style.display = 'flex';
     });

@@ -290,20 +290,31 @@
   max-width: 100%;
   height: auto;
 }
-    .sold-counter {
-  font-size: 32px;
-  font-weight: bold;
-  background: linear-gradient(45deg, #e44b11, #ff6f00);
+ .sold-counter {
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(45deg, #e44b11, #ff9b50);
   color: white;
-  text-shadow: 4px 4px 5px rgba(0,0,0,0.3), -4px -4px 5px rgba(0,0,0,0.3);
-  transform: rotate(-2deg);
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  padding: 10px 22px;
+  border-radius: 50px;
   display: inline-block;
-  text-transform: uppercase;
-  padding: 12px;
-  border-radius: 10px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(228, 75, 17, 0.3);
+  animation: bounceFade 2.5s infinite;
+  transform: translateY(0);
+}
+
+@keyframes bounceFade {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(228, 75, 17, 0.3);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(228, 75, 17, 0.4);
+  }
+}
 }
   </style>
 </head>

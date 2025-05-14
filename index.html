@@ -341,9 +341,29 @@ input[type="number"] {
   overflow-y: auto; /* ✅ This allows vertical scroll */
   -webkit-overflow-scrolling: touch;
 }
+    .top-alert {
+  background: linear-gradient(135deg, #e44b11, #ff9b50);
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  animation: bounceIn 2s ease infinite;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1001;
+}
+
+@keyframes bounceIn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
   </style>
 </head>
 <body>
+  <div class="top-alert">
+  🔥 <strong>Save 38%</strong> – Limited-Time Offer Ends Soon!
+</div>
    <!-- Header -->
   <header>
     <div class="logo">STRYKE</div>

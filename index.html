@@ -649,8 +649,9 @@ function goToCheckoutBlack() {
 
 function closeModal(color) {
   document.getElementById(`modal-${color}`).style.display = "none";
-  document.body.style.overflow = ''; // Unlock scroll
-}
+document.body.style.overflow = 'auto';
+document.documentElement.style.overflow = 'auto';
+window.scrollTo(0, window.scrollY + 1);}
 
     function closeModal(color) {
       document.getElementById(`modal-${color}`).style.display = "none";

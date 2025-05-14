@@ -481,18 +481,41 @@ input[type="number"] {
     </div>
   </footer>
   <!-- Product Modals -->
-  <div id="modal-white" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('white')">&times;</button>
-      <img src="images/white.png" alt="White STRYKE" />
-      <h2>White STRYKE Blender</h2>
-      <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-white" class="countdown"></div>
-      <div style="margin: 10px 0;">
-  <label for="qty-white" style="font-weight:bold;">Quantity:</label>
-  <input type="number" id="qty-white" name="quantity" value="1" min="1" max="10"
-    style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+<div id="modal-white" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('white')">&times;</button>
+    <img src="images/white.png" alt="White STRYKE" />
+
+    <h2>White STRYKE Blender</h2>
+    <p>⭐️⭐️⭐️⭐️⭐️ Rated by 7,000+ happy customers</p>
+
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-white" class="countdown"></div>
+
+    <ul style="text-align: left; padding-left: 0; list-style: none; font-size: 14px; margin: 20px 0;">
+      <li>⚡ 16,000 RPM motor crushes fruit & ice</li>
+      <li>🔋 25 blends per charge (USB-C)</li>
+      <li>🧽 Self-cleaning in 30 seconds</li>
+      <li>🏃 Perfect for gym, car, desk, or travel</li>
+    </ul>
+
+    <div style="margin: 15px 0;">
+      <label for="qty-white" style="font-weight:bold;">Quantity:</label><br>
+      <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">
+        <button onclick="document.getElementById('qty-white').stepDown()" style="padding: 6px 10px; font-size: 18px;">−</button>
+        <input type="number" id="qty-white" name="quantity" value="1" min="1" max="10"
+          style="width: 60px; text-align: center; font-size: 16px; border: none;" />
+        <button onclick="document.getElementById('qty-white').stepUp()" style="padding: 6px 10px; font-size: 18px;">+</button>
+      </div>
+    </div>
+
+    <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutWhite()">Buy Now</a>
+
+    <div class="payments-wrapper">
+      <img src="images/payments.png" class="payments" />
+    </div>
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  </div>
 </div>
       <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutWhite()">Buy Now</a>
       <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
@@ -501,35 +524,82 @@ input[type="number"] {
   </div>
 
   <div id="modal-pink" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-      <img src="images/pink.png" alt="Pink STRYKE" />
-      <h2>Pink STRYKE Blender</h2>
-      <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-pink" class="countdown"></div>
-<div style="margin: 10px 0;">
-  <label for="qty-pink" style="font-weight:bold;">Quantity:</label>
-  <input type="number" id="qty-pink" name="quantity" value="1" min="1" max="10" 
-style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('pink')">&times;</button>
+    <img src="images/pink.png" alt="Pink STRYKE" />
+
+    <h2>Pink STRYKE Blender</h2>
+    <p>⭐️⭐️⭐️⭐️⭐️ Loved by beauty & fitness influencers</p>
+
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-pink" class="countdown"></div>
+
+    <ul style="text-align: left; padding-left: 0; list-style: none; font-size: 14px; margin: 20px 0;">
+      <li>⚡ 16,000 RPM motor crushes fruit & ice</li>
+      <li>🔋 25 blends per charge (USB-C)</li>
+      <li>🧽 Self-cleaning in 30 seconds</li>
+      <li>👛 Stylish for handbags, gym bags, or desks</li>
+    </ul>
+
+    <div style="margin: 15px 0;">
+      <label for="qty-pink" style="font-weight:bold;">Quantity:</label><br>
+      <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">
+        <button onclick="document.getElementById('qty-pink').stepDown()" style="padding: 6px 10px; font-size: 18px;">−</button>
+        <input type="number" id="qty-pink" name="quantity" value="1" min="1" max="10"
+          style="width: 60px; text-align: center; font-size: 16px; border: none;" />
+        <button onclick="document.getElementById('qty-pink').stepUp()" style="padding: 6px 10px; font-size: 18px;">+</button>
+      </div>
+    </div>
+
+    <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutPink()">Buy Now</a>
+
+    <div class="payments-wrapper">
+      <img src="images/payments.png" class="payments" />
+    </div>
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  </div>
 </div>
+
 <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutPink()">Buy Now</a>      <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
 
-  <div id="modal-black" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('black')">&times;</button>
-      <img src="images/black.png" alt="Black STRYKE" />
-      <h2>Black STRYKE Blender</h2>
-      <p>Stealth design. Blends everything in silence and style.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-black" class="countdown"></div>
-      <div style="margin: 10px 0;">
-  <label for="qty-white" style="font-weight:bold;">Quantity:</label>
-  <input type="number" id="qty-white" name="quantity" value="1" min="1" max="10"
-    style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+ <div id="modal-black" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('black')">&times;</button>
+    <img src="images/black.png" alt="Black STRYKE" />
+
+    <h2>Black STRYKE Blender</h2>
+    <p>⭐️⭐️⭐️⭐️⭐️ Chosen by athletes and execs</p>
+
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-black" class="countdown"></div>
+
+    <ul style="text-align: left; padding-left: 0; list-style: none; font-size: 14px; margin: 20px 0;">
+      <li>⚡ 16,000 RPM motor crushes fruit & ice</li>
+      <li>🔋 25 blends per charge (USB-C)</li>
+      <li>🧽 Self-cleaning in 30 seconds</li>
+      <li>🕶️ Sleek stealth design — built to impress</li>
+    </ul>
+
+    <div style="margin: 15px 0;">
+      <label for="qty-black" style="font-weight:bold;">Quantity:</label><br>
+      <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">
+        <button onclick="document.getElementById('qty-black').stepDown()" style="padding: 6px 10px; font-size: 18px;">−</button>
+        <input type="number" id="qty-black" name="quantity" value="1" min="1" max="10"
+          style="width: 60px; text-align: center; font-size: 16px; border: none;" />
+        <button onclick="document.getElementById('qty-black').stepUp()" style="padding: 6px 10px; font-size: 18px;">+</button>
+      </div>
+    </div>
+
+    <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutBlack()">Buy Now</a>
+
+    <div class="payments-wrapper">
+      <img src="images/payments.png" class="payments" />
+    </div>
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  </div>
 </div>
       <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutBlack()">Buy Now</a>
       <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>

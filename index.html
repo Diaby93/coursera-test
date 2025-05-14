@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>STRYKE Portable Blender | Official Store</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -254,15 +254,16 @@
       color: #666;
       margin-top: 10px;
     }
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 18px;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
+   .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000; /* ADD THIS */
+}
     .countdown {
       font-size: 14px;
       color: #e44b11;

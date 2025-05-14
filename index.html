@@ -358,6 +358,14 @@ input[type="number"] {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
 }
+    header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
   </style>
 </head>
 <body>
@@ -707,6 +715,15 @@ window.scrollTo(0, window.scrollY + 1);
     e.preventDefault(); // Block scroll only on background
   }
 }, { passive: false });
+  // Shrink header padding on scroll
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 10) {
+    header.style.padding = '10px 20px';
+  } else {
+    header.style.padding = '20px 40px';
+  }
+});
 </script>
 </body>
 </html>

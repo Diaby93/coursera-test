@@ -106,7 +106,7 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
-       .product-showcase {
+     .product-showcase {
       text-align: center;
       padding: 40px 20px;
       background: #fafafa;
@@ -363,104 +363,143 @@
       </div>
     </div>
   </section>
- <!-- Modals -->
-  <div id="modal-white" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('white')">&times;</button>
-      <img src="images/white.png" alt="White STRYKE" />
-      <h2>White STRYKE Blender</h2>
-      <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-white" class="countdown"></div>
-      <a href="checkout-white.html" class="cta-btn">Buy Now</a>
-      <img src="images/payments.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  <!-- Modals -->
+<div id="modal-white" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('white')">&times;</button>
+    <img src="images/white.png" alt="White STRYKE" />
+    <h2>White STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+    <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-white" class="countdown"></div>
+
+    <label for="qty-white">Qty:</label>
+    <select id="qty-white" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+
+    <a href="checkout-white.html" class="cta-btn">Buy Now</a>
+
+    <div style="margin-top: 20px; display: flex; justify-content: center;">
+      <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
     </div>
-  </div>
 
-  <div id="modal-pink" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-      <img src="images/pink.png" alt="Pink STRYKE" />
-      <h2>Pink STRYKE Blender</h2>
-      <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-pink" class="countdown"></div>
-      <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
-      <img src="images/payments.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  </div>
+</div>
+
+<div id="modal-pink" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('pink')">&times;</button>
+    <img src="images/pink.png" alt="Pink STRYKE" />
+    <h2>Pink STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+    <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-pink" class="countdown"></div>
+
+    <label for="qty-pink">Qty:</label>
+    <select id="qty-pink" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+
+    <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
+
+    <div style="margin-top: 20px; display: flex; justify-content: center;">
+      <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
     </div>
-  </div>
 
-  <div id="modal-black" class="product-modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal('black')">&times;</button>
-      <img src="images/black.png" alt="Black STRYKE" />
-      <h2>Black STRYKE Blender</h2>
-      <p>Stealth design. Blends everything in silence and style.</p>
-      <p class="price">£49.99 <span class="old">£80</span></p>
-      <div id="countdown-black" class="countdown"></div>
-      <a href="checkout-black.html" class="cta-btn">Buy Now</a>
-      <img src="images/payments.png" class="payments" />
-      <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
+  </div>
+</div>
+
+<div id="modal-black" class="product-modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('black')">&times;</button>
+    <img src="images/black.png" alt="Black STRYKE" />
+    <h2>Black STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+    <p>Stealth design. Blends everything in silence and style.</p>
+    <p class="price">£49.99 <span class="old">£80</span></p>
+    <div id="countdown-black" class="countdown"></div>
+
+    <label for="qty-black">Qty:</label>
+    <select id="qty-black" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+
+    <a href="checkout-black.html" class="cta-btn">Buy Now</a>
+
+    <div style="margin-top: 20px; display: flex; justify-content: center;">
+      <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
     </div>
+
+    <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
   </div>
+</div>
 
-  <!-- JavaScript -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
+<!-- JavaScript -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
 
-    function handleStickyCTA() {
-      const cta = document.querySelector('.mobile-sticky-cta');
-      cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
-    }
-    window.addEventListener('resize', handleStickyCTA);
-    window.addEventListener('load', handleStickyCTA);
+  function handleStickyCTA() {
+    const cta = document.querySelector('.mobile-sticky-cta');
+    cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
+  }
+  window.addEventListener('resize', handleStickyCTA);
+  window.addEventListener('load', handleStickyCTA);
 
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
-        });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
       });
     });
+  });
 
-    function openModal(color) {
-      document.getElementById(`modal-${color}`).style.display = "flex";
-      startCountdown(color);
-    }
+  function openModal(color) {
+    document.getElementById(`modal-${color}`).style.display = "flex";
+    startCountdown(color);
+  }
 
-    function closeModal(color) {
-      document.getElementById(`modal-${color}`).style.display = "none";
-    }
+  function closeModal(color) {
+    document.getElementById(`modal-${color}`).style.display = "none";
+  }
 
-    function startCountdown(color) {
-      const display = document.getElementById(`countdown-${color}`);
-      let timer = 5 * 60;
-      const interval = setInterval(() => {
-        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
-          clearInterval(interval); return;
-        }
-        let min = Math.floor(timer / 60);
-        let sec = timer % 60;
-        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
-        timer--;
-        if (timer < 0) {
-          display.textContent = "⏰ Time’s up! Limited stock remaining!";
-          clearInterval(interval);
-        }
-      }, 1000);
-    }
-  </script>
+  function startCountdown(color) {
+    const display = document.getElementById(`countdown-${color}`);
+    let timer = 5 * 60;
+    const interval = setInterval(() => {
+      if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+        clearInterval(interval); return;
+      }
+      let min = Math.floor(timer / 60);
+      let sec = timer % 60;
+      display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
+      timer--;
+      if (timer < 0) {
+        display.textContent = "⏰ Time’s up! Limited stock remaining!";
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+</script>
 </body>
 </html>

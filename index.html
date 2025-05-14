@@ -4,10 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>STRYKE Portable Blender | Official Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap"></noscript>  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
+    .shimmer {
+  background: linear-gradient(110deg, #f9f9f9 8%, #eee 18%, #f9f9f9 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+  100% { background-position: -200% 0; }
+}
     :root {
       --primary-color: #e44b11;
       --text-color: #333;
@@ -349,8 +359,7 @@ input[type="number"] {
 
   <!-- Hero Section -->
   <section class="hero" data-aos="fade-up">
-    <video src="hero-banner.mp4" autoplay muted loop playsinline></video>
-  <div class="hero-text">
+<video src="hero-banner.mp4" autoplay muted loop playsinline loading="lazy"></video>  <div class="hero-text">
   <h1 style="font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.2; margin-bottom: 20px;">
     Blend Without Limits
   </h1>
@@ -593,11 +602,15 @@ input[type="number"] {
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
- <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-  <!-- JavaScript -->
-    AOS.init({ duration: 1000, once: true });
-
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+<script defer>
+  // Initialize AOS animation library
+  AOS.init({
+    duration: 600,
+    once: true,
+    throttleDelay: 150
+  });
+</script>
     function goToCheckoutWhite() {
   const qty = document.getElementById('qty-white').value;
   window.location.href = `checkout-white.html?qty=${qty}`;
@@ -651,22 +664,38 @@ function closeModal(color) {
     }
 
     function startCountdown(color) {
-      const display = document.getElementById(`countdown-${color}`);
-      let timer = 5 * 60;
-      const interval = setInterval(() => {
-        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
-          clearInterval(interval); return;
-        }
-        let min = Math.floor(timer / 60);
-        let sec = timer % 60;
-        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
-        timer--;
-        if (timer < 0) {
-          display.textContent = "⏰ Time’s up! Limited stock remaining!";
-          clearInterval(interval);
-        }
-      }, 1000);
+  const display = document.getElementById(`countdown-${color}`);
+  const end = Date.now() + 5 * 60 * 1000; // 5 minutes from now
+
+  const interval = setInterval(() => {
+    const now = Date.now();
+    const remaining = end - now;
+
+    // Exit if modal was closed
+    if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+      clearInterval(interval);
+      return;
     }
+
+    if (remaining <= 0) {
+      display.textContent = "⏰ Time’s up! Limited stock remaining!";
+      clearInterval(interval);
+      return;
+    }
+
+    const min = Math.floor(remaining / 60000);
+    const sec = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
+    display.textContent = `🔥 Offer expires in ${min}:${sec}`;
+  }, 1000);
+}
+    }
+      let hasShownExitPopup = false;
+document.addEventListener("mouseout", e => {
+  if (e.clientY < 50 && !hasShownExitPopup) {
+    hasShownExitPopup = true;
+    alert("WAIT! ⚠️ You forgot something – Limited stock, grab yours before it's gone!");
+  }
+});
   </script>
 
 </body>

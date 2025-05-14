@@ -106,10 +106,185 @@
       font-size: 18px;
       margin-bottom: 10px;
     }
+    .product-showcase {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fafafa;
+    }
+    .product-showcase h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 280px;
+      transition: 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .product-card .price {
+      margin: 10px 0;
+    }
+    .product-card .price .old {
+      text-decoration: line-through;
+      color: #999;
+      margin-right: 10px;
+    }
+    .product-card .price .new {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #fff;
+      margin: 0 10px;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      font-size: 16px;
+    }
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #e44b11;
+      padding: 15px;
+      text-align: center;
+      z-index: 999;
+    }
+    .mobile-sticky-cta a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.4s ease;
+    }
+    .modal-content img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    .modal-content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .modal-content .price {
+      font-size: 20px;
+      color: #e44b11;
+      margin: 10px 0;
+    }
+    .modal-content .old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    .modal-content .cta-btn {
+      background: #e44b11;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .modal-content .payments {
+      margin-top: 15px;
+      max-width: 180px;
+    }
+    .modal-content .guarantee {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .countdown {
+      font-size: 14px;
+      color: #e44b11;
+      margin-top: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
+   <!-- Header -->
   <header>
     <div class="logo">STRYKE</div>
     <nav>
@@ -154,10 +329,6 @@
       <p>Peace of mind with every purchase.</p>
     </div>
   </section>
-   <!-- Urgency Banner -->
-  <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
-    🔥 Limited Stock Alert! Order now before we sell out again!
-  </section>
 
   <!-- Product Grid -->
   <section id="shop" class="product-showcase" data-aos="fade-up">
@@ -192,6 +363,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Urgency Banner -->
+  <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
+    🔥 Limited Stock Alert! Order now before we sell out again!
+  </section>
+
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up" style="padding:60px 20px; background:#fff; text-align:center;">
     <h2 style="font-size:28px; margin-bottom:30px;">What Our Customers Say</h2>
@@ -231,6 +408,7 @@
       <p>A: Yes, we offer a 30-day money-back guarantee, no questions asked.</p>
     </div>
   </section>
+
   <!-- Mobile Sticky CTA and Scroll Button -->
   <div class="mobile-sticky-cta">
     <a href="#shop">🛒 Buy Now for £49.99 – Limited Stock!</a>
@@ -252,25 +430,12 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('white')">&times;</button>
       <img src="images/white.png" alt="White STRYKE" />
-      <h2>White STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+      <h2>White STRYKE Blender</h2>
       <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-white" class="countdown"></div>
-
-      <label for="qty-white">Qty:</label>
-      <select id="qty-white" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-
       <a href="checkout-white.html" class="cta-btn">Buy Now</a>
-
-      <div style="margin-top: 20px; display: flex; justify-content: center;">
-        <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
-      </div>
-
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
@@ -279,25 +444,12 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('pink')">&times;</button>
       <img src="images/pink.png" alt="Pink STRYKE" />
-      <h2>Pink STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+      <h2>Pink STRYKE Blender</h2>
       <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-pink" class="countdown"></div>
-
-      <label for="qty-pink">Qty:</label>
-      <select id="qty-pink" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-
       <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
-
-      <div style="margin-top: 20px; display: flex; justify-content: center;">
-        <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
-      </div>
-
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
@@ -306,28 +458,16 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('black')">&times;</button>
       <img src="images/black.png" alt="Black STRYKE" />
-      <h2>Black STRYKE Blender <span style="font-size:12px; color:#e44b11; background:#ffe9e0; padding:2px 6px; border-radius:6px;">🆕 New</span></h2>
+      <h2>Black STRYKE Blender</h2>
       <p>Stealth design. Blends everything in silence and style.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-black" class="countdown"></div>
-
-      <label for="qty-black">Qty:</label>
-      <select id="qty-black" style="margin:10px 0; padding:6px 12px; border-radius:6px;">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-
       <a href="checkout-black.html" class="cta-btn">Buy Now</a>
-
-      <div style="margin-top: 20px; display: flex; justify-content: center;">
-        <img src="images/payments.png" class="payments" style="max-width: 200px; height:auto;" />
-      </div>
-
+      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
+
   <!-- JavaScript -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -356,8 +496,7 @@
         });
       });
     });
-  </script>
-    <script>
+
     function openModal(color) {
       document.getElementById(`modal-${color}`).style.display = "flex";
       startCountdown(color);
@@ -371,17 +510,13 @@
       const display = document.getElementById(`countdown-${color}`);
       let timer = 5 * 60;
       const interval = setInterval(() => {
-        const modal = document.getElementById(`modal-${color}`);
-        if (!modal || modal.style.display !== "flex") {
-          clearInterval(interval);
-          return;
+        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+          clearInterval(interval); return;
         }
-
         let min = Math.floor(timer / 60);
         let sec = timer % 60;
         display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
         timer--;
-
         if (timer < 0) {
           display.textContent = "⏰ Time’s up! Limited stock remaining!";
           clearInterval(interval);
@@ -389,5 +524,6 @@
       }, 1000);
     }
   </script>
-  </body>
+
+</body>
 </html>

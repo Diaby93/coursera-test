@@ -674,10 +674,13 @@ window.scrollTo(0, window.scrollY + 1);
   </script>
 <script>
   document.addEventListener("touchmove", function(e) {
-    if (document.body.style.overflow === 'hidden') {
-      e.preventDefault();
-    }
-  }, { passive: false });
+  const modalOpen = document.querySelector('.product-modal[style*="display: flex"]');
+  const isInsideModal = modalOpen && modalOpen.contains(e.target);
+
+  if (document.body.style.overflow === 'hidden' && !isInsideModal) {
+    e.preventDefault(); // Block scroll only on background
+  }
+}, { passive: false });
 </script>
 </body>
 </html>

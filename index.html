@@ -471,7 +471,12 @@ With a powerful <strong>16,000 RPM motor</strong> and USB-C recharging, this por
       <p>Clean, modern and built for power. 16,000 RPM on-the-go blending.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-white" class="countdown"></div>
-      <a href="checkout-white.html" class="cta-btn">Buy Now</a>
+      <div style="margin: 10px 0;">
+  <label for="qty-white" style="font-weight:bold;">Quantity:</label>
+  <input type="number" id="qty-white" name="quantity" value="1" min="1" max="10" 
+         style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px;">
+</div>
+      <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutWhite()">Buy Now</a>
       <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
@@ -510,6 +515,10 @@ With a powerful <strong>16,000 RPM motor</strong> and USB-C recharging, this por
   <script>
     AOS.init({ duration: 1000, once: true });
 
+    function goToCheckoutWhite() {
+  const qty = document.getElementById('qty-white').value;
+  window.location.href = `checkout-white.html?qty=${qty}`;
+}
     function handleStickyCTA() {
       const cta = document.querySelector('.mobile-sticky-cta');
       cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';

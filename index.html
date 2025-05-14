@@ -600,16 +600,16 @@ input[type="number"] {
 
     function goToCheckoutWhite() {
   const qty = document.getElementById('qty-white').value;
-  window.location.href = checkout-white.html?qty=${qty};
+  window.location.href = `checkout-white.html?qty=${qty}`;
 }
     function goToCheckoutPink() {
   const qty = document.getElementById('qty-pink').value;
-  window.location.href = checkout-pink.html?qty=${qty};
+  window.location.href = `checkout-pink.html?qty=${qty}`;
 }
 
 function goToCheckoutBlack() {
   const qty = document.getElementById('qty-black').value;
-  window.location.href = checkout-black.html?qty=${qty};
+  window.location.href = `checkout-black.html?qty=${qty}`;
 }
     function handleStickyCTA() {
       const cta = document.querySelector('.mobile-sticky-cta');
@@ -636,30 +636,30 @@ function goToCheckoutBlack() {
     });
 
    function openModal(color) {
-  document.getElementById(modal-${color}).style.display = "flex";
+  document.getElementById(`modal-${color}`).style.display = "flex";
   document.body.style.overflow = 'hidden'; // Lock scroll behind modal
   startCountdown(color);
 }
 
 function closeModal(color) {
-  document.getElementById(modal-${color}).style.display = "none";
+  document.getElementById(`modal-${color}`).style.display = "none";
   document.body.style.overflow = ''; // Unlock scroll
 }
 
     function closeModal(color) {
-      document.getElementById(modal-${color}).style.display = "none";
+      document.getElementById(`modal-${color}`).style.display = "none";
     }
 
     function startCountdown(color) {
-      const display = document.getElementById(countdown-${color});
+      const display = document.getElementById(`countdown-${color}`);
       let timer = 5 * 60;
       const interval = setInterval(() => {
-        if (!document.getElementById(modal-${color}).style.display.includes("flex")) {
+        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
           clearInterval(interval); return;
         }
         let min = Math.floor(timer / 60);
         let sec = timer % 60;
-        display.textContent = 🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec};
+        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
         timer--;
         if (timer < 0) {
           display.textContent = "⏰ Time’s up! Limited stock remaining!";

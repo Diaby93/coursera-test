@@ -9,6 +9,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
+    .features-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.feature-item {
+  text-align: center;
+  max-width: 200px;
+}
+
+.feature-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-item img:hover {
+  transform: scale(1.05);
+}
+
+.feature-item p {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
     :root {
       --primary-color: #e44b11;
       --text-color: #333;
@@ -465,7 +497,21 @@ input[type="number"] {
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
   </section>
-
+<!-- Feature Icons Section -->
+<section class="features-gallery" data-aos="fade-up">
+  <div class="feature-item">
+    <img src="images/smoothie-ready in seconds.png" alt="Smoothie in seconds" />
+    <p>Smoothie-ready in seconds</p>
+  </div>
+  <div class="feature-item">
+    <img src="images/just add water.avif" alt="Just add water" />
+    <p>Just add water – no mess</p>
+  </div>
+  <div class="feature-item">
+    <img src="images/fits in gym bags.png" alt="Fits anywhere" />
+    <p>Fits in gym bags, cup holders & more</p>
+  </div>
+</section>
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up" style="padding:60px 20px; background:#fff; text-align:center;">
     <h2 style="font-size:28px; margin-bottom:30px;">What Our Customers Say</h2>

@@ -651,12 +651,8 @@ function closeModal(color) {
   document.getElementById(`modal-${color}`).style.display = "none";
 document.body.style.overflow = 'auto';
 document.documentElement.style.overflow = 'auto';
-window.scrollTo(0, window.scrollY + 1);}
-
-    function closeModal(color) {
-      document.getElementById(`modal-${color}`).style.display = "none";
-    }
-
+window.scrollTo(0, window.scrollY + 1);
+}
     function startCountdown(color) {
       const display = document.getElementById(`countdown-${color}`);
       let timer = 5 * 60;

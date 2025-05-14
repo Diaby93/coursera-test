@@ -490,8 +490,12 @@ With a powerful <strong>16,000 RPM motor</strong> and USB-C recharging, this por
       <p>Fun, bold and beautiful. Perfect for travel, work and workouts.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-pink" class="countdown"></div>
-      <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
-      <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
+<div style="margin: 10px 0;">
+  <label for="qty-pink" style="font-weight:bold;">Quantity:</label>
+  <input type="number" id="qty-pink" name="quantity" value="1" min="1" max="10" 
+         style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px;">
+</div>
+<a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutPink()">Buy Now</a>      <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
@@ -504,7 +508,8 @@ With a powerful <strong>16,000 RPM motor</strong> and USB-C recharging, this por
       <p>Stealth design. Blends everything in silence and style.</p>
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-black" class="countdown"></div>
-      <a href="checkout-black.html" class="cta-btn">Buy Now</a>
+      <div style="margin: 10px 0;">   <label for="qty-black" style="font-weight:bold;">Quantity:</label>   <input type="number" id="qty-black" name="quantity" value="1" min="1" max="10"           style="width: 60px; padding: 6px 8px; margin-left: 10px; border: 1px solid #ccc; border-radius: 6px;"> </div> 
+      <a href="javascript:void(0);" class="cta-btn" onclick="goToCheckoutBlack()">Buy Now</a>
       <div class="payments-wrapper">   <img src="images/payments.png" class="payments" /> </div>
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
@@ -518,6 +523,15 @@ With a powerful <strong>16,000 RPM motor</strong> and USB-C recharging, this por
     function goToCheckoutWhite() {
   const qty = document.getElementById('qty-white').value;
   window.location.href = `checkout-white.html?qty=${qty}`;
+}
+    function goToCheckoutPink() {
+  const qty = document.getElementById('qty-pink').value;
+  window.location.href = `checkout-pink.html?qty=${qty}`;
+}
+
+function goToCheckoutBlack() {
+  const qty = document.getElementById('qty-black').value;
+  window.location.href = `checkout-black.html?qty=${qty}`;
 }
     function handleStickyCTA() {
       const cta = document.querySelector('.mobile-sticky-cta');

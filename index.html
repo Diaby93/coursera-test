@@ -19,12 +19,13 @@
 
 .feature-item {
   text-align: center;
-  max-width: 200px;
+  max-width: 300px;
+  flex: 1;
 }
 
 .feature-item img {
   width: 100%;
-  height: 140px;
+height: 180px;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
@@ -397,6 +398,11 @@ input[type="number"] {
   z-index: 999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+}
+    @media (min-width: 768px) {
+  .feature-item img:hover {
+    transform: scale(1.08);
+  }
 }
   </style>
 </head>

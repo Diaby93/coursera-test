@@ -284,7 +284,6 @@
   </style>
 </head>
 <body>
-   <!-- Header -->
   <header>
     <div class="logo">STRYKE</div>
     <nav>
@@ -294,7 +293,6 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero" data-aos="fade-up">
     <video src="hero-banner.mp4" autoplay muted loop playsinline></video>
     <div class="hero-text">
@@ -306,7 +304,6 @@
     </div>
   </section>
 
-  <!-- Features Section -->
   <section id="features" class="features" data-aos="fade-up">
     <div class="feature-box">
       <i class="fas fa-bolt"></i>
@@ -330,7 +327,6 @@
     </div>
   </section>
 
-  <!-- Product Grid -->
   <section id="shop" class="product-showcase" data-aos="fade-up">
     <h2>Shop the Collection</h2>
     <div class="product-grid">
@@ -363,7 +359,6 @@
       </div>
     </div>
   </section>
-
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
@@ -425,6 +420,7 @@
       <a href="#"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
+
   <!-- Product Modals -->
   <div id="modal-white" class="product-modal">
     <div class="modal-content">
@@ -435,7 +431,7 @@
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-white" class="countdown"></div>
       <a href="checkout-white.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <img src="images/payment.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
@@ -449,7 +445,7 @@
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-pink" class="countdown"></div>
       <a href="checkout-pink.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <img src="images/payment.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
@@ -463,11 +459,10 @@
       <p class="price">£49.99 <span class="old">£80</span></p>
       <div id="countdown-black" class="countdown"></div>
       <a href="checkout-black.html" class="cta-btn">Buy Now</a>
-      <img src="https://i.imgur.com/Y2nU8c5.png" class="payments" />
+      <img src="images/payment.png" class="payments" />
       <p class="guarantee">Secure Checkout • 30-Day Guarantee</p>
     </div>
   </div>
-
   <!-- JavaScript -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -488,7 +483,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
         document.querySelector(this.getAttribute("href")).scrollIntoView({
@@ -524,6 +519,5 @@
       }, 1000);
     }
   </script>
-
 </body>
 </html>

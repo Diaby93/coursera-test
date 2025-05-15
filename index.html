@@ -454,42 +454,6 @@ input[type="number"] {
 .slider-btn.right {
   right: 10px;
 }
-    .hero-highlights {
-  text-align: left;
-  margin-top: 20px;
-}
-
-.highlight-line {
-  font-size: 16px;
-  color: #e44b11;
-  font-weight: 600;
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.hero-tagline {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #222;
-}
-
-.hero-subtext {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-}
-
-.hero-subtext strong {
-  color: #e44b11;
-}
-
-.hero-subtext em {
-  font-style: italic;
-  color: #333;
-}
   </style>
 </head>
 <body>
@@ -513,20 +477,12 @@ input[type="number"] {
   <h1 style="font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.2; margin-bottom: 20px;">
     Blend Without Limits
   </h1>
-<div class="hero-intro" data-aos="fade-up">
-  <p>In the gym</p>
-  <p>In the car</p>
-  <p>At your desk</p>
-
-  <h2>Blend Anywhere. Live Unstoppable.</h2>
-
-  <p>
-    <strong>STRYKE</strong> goes wherever life takes you — no cords, no kitchen.
-    With a <strong>16,000 RPM motor</strong> and <strong>USB-C charging</strong>,
-    this portable powerhouse is built for <em>busy lives</em> and <em>bold blends</em>.
+  <p style="font-size: clamp(14px, 3vw, 18px); margin-bottom: 20px;">
+    🏋️‍♂️ In the gym. 🚗 In the car. 🧃 At your desk. <br>
+    <strong>STRYKE</strong> blends wherever life takes you — no cords, no kitchen. <br>
+    With a powerful <strong>⚡16,000 RPM motor</strong> and 🔌 USB-C recharging,<br>
+    this portable beast is built for 🧠 busy lives and 💥 bold blends.
   </p>
-</div>
-</div>
   <p class="sold-counter">🔥 Over 7,000 Sold – Join the Movement!</p>
   <a class="cta-btn" href="#shop">🛒 Shop Now</a>
 </div>
@@ -719,11 +675,8 @@ input[type="number"] {
   <div id="modal-pink" class="product-modal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-<div class="image-slider">
-  <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
-<img id="slider-pink" src="images/pink.png" alt="Product view" class="slider-img" />
-  <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
-</div>
+    <img src="images/pink.png" alt="Pink STRYKE" />
+
     <h2>Pink STRYKE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Loved by beauty & fitness influencers</p>
 
@@ -738,6 +691,11 @@ input[type="number"] {
       <li>🧽 Self-cleaning in 30 seconds</li>
       <li>👛 Stylish for handbags, gym bags, or desks</li>
     </ul>
+<div class="image-slider">
+  <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
+  <img id="slider-pink" src="images/gallery1.png" alt="Product view" class="slider-img" />
+  <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
+</div>
     <div style="margin: 15px 0;">
       <label for="qty-pink" style="font-weight:bold;">Quantity:</label><br>
       <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">
@@ -814,10 +772,11 @@ function goToCheckoutBlack() {
     // --- Image slider logic ---
 const galleryImages = {
   pink: [
-    "images/pink.png",
-    "images/perfect1.jpg",
-    "images/perfect2.jpg",
-    "images/perfect3.jpg"
+    "images/gallery1.png",
+    "images/gallery2.png",
+    "images/gallery3.png",
+    "images/gallery4.png",
+    "images/gallery5.png"
   ]
 };
 
@@ -864,10 +823,8 @@ function nextSlide(product) {
     });
 
    function openModal(color) {
-  currentIndex[color] = 0; // 👈 Reset to pink.png
-  showSlide(color);        // 👈 Immediately update the image
   document.getElementById(`modal-${color}`).style.display = "flex";
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden'; // Lock scroll behind modal
   startCountdown(color);
 }
 

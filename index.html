@@ -506,18 +506,28 @@ input[type="number"] {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-   .hero-banner {
+  .hero-banner {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 650px; /* 👈 controlled height */
   overflow: hidden;
 }
 
 .hero-full {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3); /* light dark overlay */
+  z-index: 1;
 }
 
 .hero-text {
@@ -528,25 +538,47 @@ input[type="number"] {
   z-index: 2;
   color: #fff;
   text-align: center;
+  padding: 20px;
   max-width: 90%;
-  padding: 0 20px;
 }
 
 .hero-text h1 {
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: 42px;
   font-weight: 700;
   margin-bottom: 20px;
-  line-height: 1.2;
 }
 
 .hero-text p {
-  font-size: clamp(14px, 3vw, 18px);
-  margin-bottom: 20px;
-  line-height: 1.4;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 25px;
 }
-    @media (max-width: 768px) {
-  .hero-full {
-    height: 250px;
+
+.cta-btn {
+  background: #000;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #222;
+}
+   @media (max-width: 768px) {
+  .hero-banner {
+    height: 450px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
   }
 }
   </style>
@@ -573,16 +605,11 @@ input[type="number"] {
   <!-- Hero Section -->
  <section class="hero-banner">
   <img src="images/banner.jpeg" alt="JUICE Banner" class="hero-full" />
+  <div class="hero-overlay"></div>
   <div class="hero-text">
-    <h1>Power. Anywhere.</h1>
-    <p>
-      From the gym to your kitchen, JUICE blends on your schedule.<br>
-      No cords. No limits.<br>
-      16,000 RPM motor. USB-C rechargeable.<br>
-      Portable. Precise. Always ready.
-    </p>
-    <p class="sold-counter">🔥 Over 7,000 Sold – Join the Movement!</p>
-    <a class="cta-btn" href="#shop">🛒 Shop Now</a>
+    <h1>Mini. Fast. Portable.</h1>
+    <p>Powerful enough to crush ice and small enough to be taken on the go.</p>
+    <a class="cta-btn" href="#shop">🛒 Order Now!</a>
   </div>
 </section>
 

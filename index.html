@@ -454,6 +454,42 @@ input[type="number"] {
 .slider-btn.right {
   right: 10px;
 }
+    .hero-highlights {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.highlight-line {
+  font-size: 16px;
+  color: #e44b11;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hero-tagline {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.hero-subtext {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.hero-subtext strong {
+  color: #e44b11;
+}
+
+.hero-subtext em {
+  font-style: italic;
+  color: #333;
+}
   </style>
 </head>
 <body>
@@ -477,12 +513,19 @@ input[type="number"] {
   <h1 style="font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.2; margin-bottom: 20px;">
     Blend Without Limits
   </h1>
-  <p style="font-size: clamp(14px, 3vw, 18px); margin-bottom: 20px;">
-    🏋️‍♂️ In the gym. 🚗 In the car. 🧃 At your desk. <br>
-    <strong>STRYKE</strong> blends wherever life takes you — no cords, no kitchen. <br>
-    With a powerful <strong>⚡16,000 RPM motor</strong> and 🔌 USB-C recharging,<br>
-    this portable beast is built for 🧠 busy lives and 💥 bold blends.
+ <div class="hero-highlights" data-aos="fade-up">
+  <div class="highlight-line">
+    <i class="fas fa-dumbbell"></i> In the gym &nbsp;&nbsp;
+    <i class="fas fa-car"></i> In the car &nbsp;&nbsp;
+    <i class="fas fa-laptop-house"></i> At your desk
+  </div>
+  <h2 class="hero-tagline">Blend Anywhere. Live Unstoppable.</h2>
+  <p class="hero-subtext">
+    <strong>STRYKE</strong> goes wherever life takes you — no cords, no kitchen.<br>
+    With a <strong>⚡ 16,000 RPM motor</strong> and <strong>🔌 USB-C charging</strong>,<br>
+    this portable powerhouse is built for <em>busy lives</em> and <em>bold blends</em>.
   </p>
+</div>
   <p class="sold-counter">🔥 Over 7,000 Sold – Join the Movement!</p>
   <a class="cta-btn" href="#shop">🛒 Shop Now</a>
 </div>

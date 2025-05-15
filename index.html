@@ -675,8 +675,11 @@ input[type="number"] {
   <div id="modal-pink" class="product-modal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-    <img src="images/pink.png" alt="Pink STRYKE" />
-
+<div class="image-slider">
+  <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
+  <img id="slider-pink" src="images/gallery1.png" alt="Product view" class="slider-img" />
+  <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
+</div>
     <h2>Pink STRYKE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Loved by beauty & fitness influencers</p>
 

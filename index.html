@@ -675,8 +675,11 @@ input[type="number"] {
   <div id="modal-pink" class="product-modal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('pink')">&times;</button>
-    <img src="images/pink.png" alt="Pink STRYKE" />
-
+<div class="image-slider">
+  <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
+<img id="slider-pink" src="images/pink.png" alt="Product view" class="slider-img" />
+  <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
+</div>
     <h2>Pink STRYKE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Loved by beauty & fitness influencers</p>
 
@@ -691,11 +694,6 @@ input[type="number"] {
       <li>🧽 Self-cleaning in 30 seconds</li>
       <li>👛 Stylish for handbags, gym bags, or desks</li>
     </ul>
-<div class="image-slider">
-  <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
-  <img id="slider-pink" src="images/gallery1.png" alt="Product view" class="slider-img" />
-  <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
-</div>
     <div style="margin: 15px 0;">
       <label for="qty-pink" style="font-weight:bold;">Quantity:</label><br>
       <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">
@@ -772,11 +770,10 @@ function goToCheckoutBlack() {
     // --- Image slider logic ---
 const galleryImages = {
   pink: [
-    "images/gallery1.png",
-    "images/gallery2.png",
-    "images/gallery3.png",
-    "images/gallery4.png",
-    "images/gallery5.png"
+    "images/pink.png",
+    "images/perfect1.jpg",
+    "images/perfect2.jpg",
+    "images/perfect3.jpg"
   ]
 };
 
@@ -823,8 +820,10 @@ function nextSlide(product) {
     });
 
    function openModal(color) {
+  currentIndex[color] = 0; // 👈 Reset to pink.png
+  showSlide(color);        // 👈 Immediately update the image
   document.getElementById(`modal-${color}`).style.display = "flex";
-  document.body.style.overflow = 'hidden'; // Lock scroll behind modal
+  document.body.style.overflow = 'hidden';
   startCountdown(color);
 }
 

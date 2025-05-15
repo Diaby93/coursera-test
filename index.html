@@ -820,8 +820,10 @@ function nextSlide(product) {
     });
 
    function openModal(color) {
+  currentIndex[color] = 0; // 👈 Reset to pink.png
+  showSlide(color);        // 👈 Immediately update the image
   document.getElementById(`modal-${color}`).style.display = "flex";
-  document.body.style.overflow = 'hidden'; // Lock scroll behind modal
+  document.body.style.overflow = 'hidden';
   startCountdown(color);
 }
 

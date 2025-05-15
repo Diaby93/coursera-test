@@ -454,6 +454,23 @@ input[type="number"] {
 .slider-btn.right {
   right: 10px;
 }
+    .sold-out-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+.product-card.sold-out {
+  opacity: 0.6;
+  pointer-events: none;
+}
   </style>
 </head>
 <body>
@@ -516,18 +533,20 @@ input[type="number"] {
   <section id="shop" class="product-showcase" data-aos="fade-up">
     <h2>Shop the Collection</h2>
     <div class="product-grid">
-      <div class="product-card">
-        <img src="images/white.png" alt="White STRYKE Blender">
-<span class="badge">✨ New</span>
-<h3>White STRYKE Blender</h3>
+      <div class="product-card sold-out" style="position: relative;">
+  <div class="sold-out-overlay">Sold Out</div>
+  <img src="images/black.png" alt="Black STRYKE Blender">
+  <span class="badge">✨ New</span>
+  <h3>Black STRYKE Blender</h3>
 
-        <div class="price">
-  <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
-  <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
+  <div class="price">
+    <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
+    <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
+  </div>
+  <p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
+
+  <p style="font-weight: bold; color: #e44b11; margin-top: 10px;">🛑 Currently Unavailable</p>
 </div>
-<p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
-
-<a class="cta-btn" href="javascript:void(0)" onclick="openModal('white')">Buy Now</a>
       </div>
       <div class="product-card">
         <img src="images/pink.png" alt="Pink STRYKE Blender">
@@ -541,19 +560,6 @@ input[type="number"] {
 <p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
 
         <a class="cta-btn" href="javascript:void(0)" onclick="openModal('pink')">Buy Now</a>
-      </div>
-      <div class="product-card">
-        <img src="images/black.png" alt="Black STRYKE Blender">
-<span class="badge">✨ New</span>
-<h3>Black STRYKE Blender</h3>
-
-        <div class="price">
-  <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
-  <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
-</div>
-<p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
-
-        <a class="cta-btn" href="javascript:void(0)" onclick="openModal('black')">Buy Now</a>
       </div>
     </div>
   </section>

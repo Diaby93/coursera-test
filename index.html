@@ -404,6 +404,21 @@ input[type="number"] {
     transform: scale(1.08);
   }
 }
+    .modal-gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-gallery img {
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
   </style>
 </head>
 <body>
@@ -477,7 +492,7 @@ input[type="number"] {
 </div>
 <p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
 
-        <a class="cta-btn" href="javascript:void(0)" onclick="openModal('white')">Buy Now</a>
+        <a class="cta-btn" href="javascript:void(0)" onclick="openModal('white')"></a>
       </div>
       <div class="product-card">
         <img src="images/pink.png" alt="Pink STRYKE Blender">
@@ -642,7 +657,13 @@ input[type="number"] {
       <li>🧽 Self-cleaning in 30 seconds</li>
       <li>👛 Stylish for handbags, gym bags, or desks</li>
     </ul>
-
+<div class="modal-gallery">
+  <img src="gallery 1.png" alt="Product view 1">
+  <img src="gallery 2.png" alt="Product view 2">
+  <img src="gallery 3.png" alt="Product view 3">
+  <img src="gallery 4.png" alt="Product view 4">
+  <img src="gallery 5.png" alt="Product view 5">
+</div>
     <div style="margin: 15px 0;">
       <label for="qty-pink" style="font-weight:bold;">Quantity:</label><br>
       <div style="display: inline-flex; align-items: center; border: 1px solid #ccc; border-radius: 6px;">

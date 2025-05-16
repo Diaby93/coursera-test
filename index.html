@@ -1243,23 +1243,31 @@ function setMainImage(img) {
   document.getElementById("main-product-image").src = img.src;
 }
 
-function changeQty(val) {
-  const qty = document.getElementById("qty");
-  let current = parseInt(qty.value);
-  if (!isNaN(current)) {
-    qty.value = Math.max(1, Math.min(10, current + val));
-  }
-}
-
-window.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.color-circle').forEach(circle => {
-    circle.addEventListener('click', () => {
-      document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
-      circle.classList.add('active');
-      document.getElementById('main-product-image').src = circle.dataset.image;
+<script>
+  // ✅ COLOR BUTTON LOGIC
+  window.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.color-circle').forEach(circle => {
+      circle.addEventListener('click', () => {
+        document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+        circle.classList.add('active');
+        document.getElementById('main-product-image').src = circle.dataset.image;
+      });
     });
   });
-});
+
+  // ✅ MAKE QUANTITY FUNCTION GLOBAL
+  function changeQty(val) {
+    const qty = document.getElementById("qty");
+    let current = parseInt(qty.value);
+    if (!isNaN(current)) {
+      qty.value = Math.max(1, Math.min(10, current + val));
+    }
+  }
+
+  // ✅ MAKE setMainImage GLOBAL TOO (for thumbnails)
+  function setMainImage(img) {
+    document.getElementById("main-product-image").src = img.src;
+  }
 </script>
 
 <!-- ✅ Then your existing cart script -->

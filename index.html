@@ -594,6 +594,36 @@ input[type="number"] {
     left: auto;
   }
 }
+    .category-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #c8d9f1;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.scroll-track {
+  display: inline-block;
+  animation: scroll-left 20s linear infinite;
+}
+
+.scroll-track span {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  padding: 0 30px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -624,7 +654,31 @@ input[type="number"] {
     <a class="cta-btn" href="#shop">ORDER NOW!</a>
   </div>
 </section>
+<img src="images/new new banner.png" alt="FRESH JUICE Banner" class="hero-full" />
+<div class="hero-text left-aligned">
+  <h1>Mini. Fast. Portable.</h1>
+  <p>Powerful enough to crush ice and small enough to be taken on the go.</p>
+  <a class="cta-btn" href="#shop">ORDER NOW!</a>
+</div>
+</section>
 
+<!-- ✅ Category Scroll Bar -->
+<div class="category-scroll">
+  <div class="scroll-track">
+    <span>SAUCES</span>
+    <span>SHAKES</span>
+    <span>SLUSHIES</span>
+    <span>JUICE</span>
+    <span>SMOOTHIES</span>
+    <span>DIPS</span>
+    <span>SAUCES</span>
+    <span>SHAKES</span>
+    <span>SLUSHIES</span>
+    <span>JUICE</span>
+    <span>SMOOTHIES</span>
+    <span>DIPS</span>
+  </div>
+</div>
   <!-- Features Section -->
   <section id="features" class="features" data-aos="fade-up">
     <div class="feature-box">

@@ -822,7 +822,7 @@ input[type="number"] {
 
    <!-- Center: Main Image -->
 <div class="product-main-img">
-<img id="main-product-image" src="new-pink.jpeg" alt="Fresh Juice Blender" />
+  <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
 </div>
 
     <!-- Right: Product Info -->
@@ -835,10 +835,10 @@ input[type="number"] {
 
       <p class="label">Color</p>
 <div class="color-options">
-<span class="color-circle black" data-image="images/new-black.jpeg"></span>
-<span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
-<span class="color-circle white" data-image="images/new-white.jpeg"></span>
-<span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
+  <span class="color-circle black" data-image="images/new-black.jpeg"></span>
+  <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
+  <span class="color-circle white" data-image="images/new-white.jpeg"></span>
+  <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
 </div>
       <p class="label">Quantity</p>
       <div class="quantity-selector">
@@ -1244,22 +1244,17 @@ function setMainImage(img) {
 }
 
 <script>
-// ✅ FINAL COLOR BUTTON LOGIC
-document.addEventListener('DOMContentLoaded', () => {
+// ✅ COLOR BUTTON LOGIC
+document.addEventListener('DOMContentLoaded', function () {
   const colorCircles = document.querySelectorAll('.color-circle');
   const mainImage = document.getElementById('main-product-image');
 
   colorCircles.forEach(circle => {
     circle.addEventListener('click', function () {
-      // Remove active from all
       colorCircles.forEach(c => c.classList.remove('active'));
-
-      // Add active to the clicked one
       this.classList.add('active');
-
-      // Change the main image
       const newImage = this.getAttribute('data-image');
-      if (mainImage && newImage) {
+      if (mainImage) {
         mainImage.src = newImage;
       }
     });

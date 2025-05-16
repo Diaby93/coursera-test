@@ -1241,16 +1241,22 @@ window.addEventListener('scroll', () => {
 // ✅ Your new product JS (paste this first)
 
 <script>
-  // ✅ COLOR BUTTON LOGIC
+ // ✅ COLOR BUTTON LOGIC
   window.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.color-circle').forEach(circle => {
       circle.addEventListener('click', () => {
+        // Remove "active" class from all
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+
+        // Add "active" to the clicked one
         circle.classList.add('active');
+
+        // Update the main image
         document.getElementById('main-product-image').src = circle.dataset.image;
       });
     });
   });
+</script>
 
   // ✅ MAKE QUANTITY FUNCTION GLOBAL
   function changeQty(val) {

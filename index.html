@@ -823,7 +823,7 @@ input[type="number"] {
 
    <!-- Center: Main Image -->
 <div class="product-main-img">
-  <img src="images/new pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
+  <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
 </div>
 
     <!-- Right: Product Info -->
@@ -836,10 +836,10 @@ input[type="number"] {
 
       <p class="label">Color</p>
 <div class="color-options">
-  <span class="color-circle black" data-image="images/new black.jpeg"></span>
-  <span class="color-circle pink active" data-image="images/new pink.jpeg"></span>
-  <span class="color-circle white" data-image="images/new white.jpeg"></span>
-  <span class="color-circle yellow" data-image="images/new yellow.jpeg"></span>
+  <span class="color-circle black" data-image="images/new-black.jpeg"></span>
+  <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
+  <span class="color-circle white" data-image="images/new-white.jpeg"></span>
+  <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
 </div>
       <p class="label">Quantity</p>
       <div class="quantity-selector">
@@ -936,7 +936,7 @@ input[type="number"] {
 <div id="modal-white" class="product-modal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('white')">&times;</button>
-    <img src="images/white.png" alt="White FRESH JUICE" />
+    <img src="images/new-white.jpeg" alt="White FRESH JUICE" />
 
     <h2>White FRESH JUICE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Rated by 7,000+ happy customers</p>
@@ -976,7 +976,7 @@ input[type="number"] {
     <button class="close-btn" onclick="closeModal('pink')">&times;</button>
 <div class="image-slider">
   <button class="slider-btn left" onclick="prevSlide('pink')">&#10094;</button>
-<img id="slider-pink" src="images/pink.png" alt="Product view" class="slider-img" />
+<img id="slider-pink" src="images/new-pink.jpeg" alt="Product view" class="slider-img" />
   <button class="slider-btn right" onclick="nextSlide('pink')">&#10095;</button>
 </div>
     <h2>Pink FRESH JUICE Blender</h2>
@@ -1016,7 +1016,7 @@ input[type="number"] {
 <div id="modal-black" class="product-modal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('black')">&times;</button>
-    <img src="images/black.png" alt="Black FRESH JUICE" />
+    <img src="images/new-black.jpeg" alt="Black FRESH JUICE" />
 
     <h2>Black FRESH JUICE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Chosen by athletes and execs</p>
@@ -1063,7 +1063,7 @@ input[type="number"] {
     name: "Pink FRESH JUICE Blender",
     price: 49.99,
     quantity: qty,
-    image: "images/pink.png"
+    image: "images/new-pink.jpeg"
   };
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -1088,7 +1088,7 @@ function goToCheckoutBlack() {
     // --- Image slider logic ---
 const galleryImages = {
   pink: [
-    "images/pink.png",
+    "images/new-pink.jpeg",
     "images/perfect1.jpg",
     "images/perfect2.jpg",
     "images/perfect3.jpg"

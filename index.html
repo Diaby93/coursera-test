@@ -1048,156 +1048,148 @@ input[type="number"] {
     </div>
   </div>
  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-  <!-- JavaScript -->
-    AOS.init({ duration: 1000, once: true });
+ <script>
+  // ✅ AOS Animations
+  AOS.init({ duration: 1000, once: true });
 
-    function goToCheckoutWhite() {
-  const qty = document.getElementById('qty-white').value;
-  window.location.href = `checkout-white.html?qty=${qty}`;
-}
-   function goToCheckoutPink() {
-  const qty = parseInt(document.getElementById('qty-pink').value);
-  const item = {
-    name: "Pink FRESH JUICE Blender",
-    price: 49.99,
-    quantity: qty,
-    image: "images/new-pink.jpeg"
+  // ✅ Checkout Buttons
+  function goToCheckoutWhite() {
+    const qty = document.getElementById('qty-white').value;
+    window.location.href = `checkout-white.html?qty=${qty}`;
+  }
+
+  function goToCheckoutPink() {
+    const qty = parseInt(document.getElementById('qty-pink').value);
+    const item = {
+      name: "Pink FRESH JUICE Blender",
+      price: 49.99,
+      quantity: qty,
+      image: "images/new-pink.jpeg"
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find(i => i.name === item.name);
+
+    if (existing) {
+      existing.quantity += item.quantity;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("Added to basket!");
+    closeModal('pink');
+  }
+
+  function goToCheckoutBlack() {
+    const qty = document.getElementById('qty-black').value;
+    window.location.href = `checkout-black.html?qty=${qty}`;
+  }
+
+  // ✅ Image Slider Logic
+  const galleryImages = {
+    pink: [
+      "images/new-pink.jpeg",
+      "images/perfect1.jpg",
+      "images/perfect2.jpg",
+      "images/perfect3.jpg"
+    ]
   };
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existing = cart.find(i => i.name === item.name);
+  let currentIndex = { pink: 0 };
 
-  if (existing) {
-    existing.quantity += item.quantity;
-  } else {
-    cart.push(item);
+  function showSlide(product) {
+    const img = document.getElementById(`slider-${product}`);
+    img.src = galleryImages[product][currentIndex[product]];
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  alert("Added to basket!");
-  closeModal('pink');
-}
+  function prevSlide(product) {
+    currentIndex[product] = (currentIndex[product] - 1 + galleryImages[product].length) % galleryImages[product].length;
+    showSlide(product);
+  }
 
-function goToCheckoutBlack() {
-  const qty = document.getElementById('qty-black').value;
-  window.location.href = `checkout-black.html?qty=${qty}`;
-}
-    // --- Image slider logic ---
-const galleryImages = {
-  pink: [
-    "images/new-pink.jpeg",
-    "images/perfect1.jpg",
-    "images/perfect2.jpg",
-    "images/perfect3.jpg"
-  ]
-};
+  function nextSlide(product) {
+    currentIndex[product] = (currentIndex[product] + 1) % galleryImages[product].length;
+    showSlide(product);
+  }
 
-let currentIndex = {
-  pink: 0
-};
+  // ✅ Sticky CTA on Mobile
+  function handleStickyCTA() {
+    const cta = document.querySelector('.mobile-sticky-cta');
+    cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
+  }
+  window.addEventListener('resize', handleStickyCTA);
+  window.addEventListener('load', handleStickyCTA);
 
-function showSlide(product) {
-  const img = document.getElementById(`slider-${product}`);
-  img.src = galleryImages[product][currentIndex[product]];
-}
+  // ✅ Scroll-To-Top Button
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-function prevSlide(product) {
-  currentIndex[product] = (currentIndex[product] - 1 + galleryImages[product].length) % galleryImages[product].length;
-  showSlide(product);
-}
-
-function nextSlide(product) {
-  currentIndex[product] = (currentIndex[product] + 1) % galleryImages[product].length;
-  showSlide(product);
-}
-    function handleStickyCTA() {
-      const cta = document.querySelector('.mobile-sticky-cta');
-      cta.style.display = window.innerWidth <= 768 ? 'block' : 'none';
-    }
-    window.addEventListener('resize', handleStickyCTA);
-    window.addEventListener('load', handleStickyCTA);
-
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  // ✅ Smooth Anchor Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
     });
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  });
 
-    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    });
+  // ✅ Modal Logic
+  function openModal(color) {
+    currentIndex[color] = 0;
+    showSlide(color);
+    document.getElementById(`modal-${color}`).style.display = "flex";
+    document.body.style.overflow = 'hidden';
+    startCountdown(color);
+  }
 
-   function openModal(color) {
-  currentIndex[color] = 0; // 👈 Reset to pink.png
-  showSlide(color);        // 👈 Immediately update the image
-  document.getElementById(`modal-${color}`).style.display = "flex";
-  document.body.style.overflow = 'hidden';
-  startCountdown(color);
-}
+  function closeModal(color) {
+    document.getElementById(`modal-${color}`).style.display = "none";
+    document.body.style.overflow = 'auto';
+    document.documentElement.style.overflow = 'auto';
+    window.scrollTo(0, window.scrollY + 1);
+  }
 
-function closeModal(color) {
-  document.getElementById(`modal-${color}`).style.display = "none";
-document.body.style.overflow = 'auto';
-document.documentElement.style.overflow = 'auto';
-window.scrollTo(0, window.scrollY + 1);
-}
-    function startCountdown(color) {
-      const display = document.getElementById(`countdown-${color}`);
-      let timer = 5 * 60;
-      const interval = setInterval(() => {
-        if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
-          clearInterval(interval); return;
-        }
-        let min = Math.floor(timer / 60);
-        let sec = timer % 60;
-        display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
-        timer--;
-        if (timer < 0) {
-          display.textContent = "⏰ Time’s up! Limited stock remaining!";
-          clearInterval(interval);
-        }
-      }, 1000);
-    }
-  </script>
-<script>
+  // ✅ Countdown Timer
+  function startCountdown(color) {
+    const display = document.getElementById(`countdown-${color}`);
+    let timer = 5 * 60;
+    const interval = setInterval(() => {
+      if (!document.getElementById(`modal-${color}`).style.display.includes("flex")) {
+        clearInterval(interval); return;
+      }
+      let min = Math.floor(timer / 60);
+      let sec = timer % 60;
+      display.textContent = `🔥 Offer expires in ${min}:${sec < 10 ? '0' + sec : sec}`;
+      timer--;
+      if (timer < 0) {
+        display.textContent = "⏰ Time’s up! Limited stock remaining!";
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
+  // ✅ Touch Scroll Lock on Modal
   document.addEventListener("touchmove", function(e) {
-  const modalOpen = document.querySelector('.product-modal[style*="display: flex"]');
-  const isInsideModal = modalOpen && modalOpen.contains(e.target);
+    const modalOpen = document.querySelector('.product-modal[style*="display: flex"]');
+    const isInsideModal = modalOpen && modalOpen.contains(e.target);
+    if (document.body.style.overflow === 'hidden' && !isInsideModal) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
-  if (document.body.style.overflow === 'hidden' && !isInsideModal) {
-    e.preventDefault(); // Block scroll only on background
-  }
-}, { passive: false });
-  // Shrink header padding on scroll
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 10) {
-    header.style.padding = '10px 20px';
-  } else {
-    header.style.padding = '20px 40px';
-  }
-});
-<!-- 🛒 Cart Modal -->
-<div id="cart-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:30px; border-radius:12px; width:90%; max-width:400px; position:relative;">
-    <button onclick="closeCart()" style="position:absolute; top:10px; right:15px; font-size:20px;">&times;</button>
-    <h2 style="margin-bottom:20px;">Your Basket</h2>
-    <div id="cart-items"></div>
-    <p style="margin-top:20px;"><strong>Total:</strong> <span id="cart-total">£0.00</span></p>
-    <a href="checkout-pink.html" class="cta-btn" style="margin-top:15px; display:inline-block;">Checkout</a>
-  </div>
-</div>
+  // ✅ Shrink Header on Scroll
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    header.style.padding = window.scrollY > 10 ? '10px 20px' : '20px 40px';
+  });
 
-<script>
+  // ✅ Cart Logic
   function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const count = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -1238,51 +1230,42 @@ window.addEventListener('scroll', () => {
   function closeCart() {
     document.getElementById("cart-modal").style.display = "none";
   }
-// ✅ Your new product JS (paste this first)
-function setMainImage(img) {
-  document.getElementById("main-product-image").src = img.src;
-}
 
-// ✅ COLOR BUTTON LOGIC
+  // ✅ Manual Image Switch
+  function setMainImage(img) {
+    document.getElementById("main-product-image").src = img.src;
+  }
 
-</script>
+  // ✅ Color Button (circle) Logic
+  document.addEventListener('DOMContentLoaded', function () {
+    const colorCircles = document.querySelectorAll('.color-circle');
+    const mainImage = document.getElementById('main-product-image');
 
-<script>
-// ✅ QUANTITY BUTTON LOGIC
-function changeQty(val) {
-  const qtyInput = document.getElementById("qty");
-  let currentQty = parseInt(qtyInput.value) || 1;
-  currentQty += val;
-  if (currentQty < 1) currentQty = 1;
-  if (currentQty > 10) currentQty = 10;
-  qtyInput.value = currentQty;
-}
-</script>
-<!-- ✅ Then your existing cart script -->
-<script>
-window.addEventListener("load", updateCartCount);
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const colorCircles = document.querySelectorAll('.color-circle');
-  const mainImage = document.getElementById('main-product-image');
-  console.log("Found mainImage?", mainImage); // ✅ log this
+    colorCircles.forEach(circle => {
+      circle.addEventListener('click', function () {
+        colorCircles.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
 
-  colorCircles.forEach(circle => {
-    circle.addEventListener('click', function () {
-      console.log("Clicked:", this.classList); // ✅ log which one was clicked
-
-      colorCircles.forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-
-      const newImage = this.getAttribute('data-image');
-      console.log("Switching to:", newImage); // ✅ see which image it's trying to load
-
-      if (mainImage && newImage) {
-        mainImage.src = newImage;
-      }
+        const newImage = this.getAttribute('data-image');
+        if (mainImage && newImage) {
+          mainImage.src = newImage;
+        }
+      });
     });
   });
-});
+
+  // ✅ Quantity Selector
+  function changeQty(val) {
+    const qtyInput = document.getElementById("qty");
+    let currentQty = parseInt(qtyInput.value) || 1;
+    currentQty += val;
+    if (currentQty < 1) currentQty = 1;
+    if (currentQty > 10) currentQty = 10;
+    qtyInput.value = currentQty;
+  }
+
+  // ✅ Update cart on load
+  window.addEventListener("load", updateCartCount);
 </script>
 </body>
 </html>

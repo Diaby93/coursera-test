@@ -1261,21 +1261,28 @@ function changeQty(val) {
 <!-- ✅ Then your existing cart script -->
 <script>
 window.addEventListener("load", updateCartCount);
-</script>
-  document.addEventListener('DOMContentLoaded', function () {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
   const colorCircles = document.querySelectorAll('.color-circle');
   const mainImage = document.getElementById('main-product-image');
+  console.log("Found mainImage?", mainImage); // ✅ log this
 
   colorCircles.forEach(circle => {
     circle.addEventListener('click', function () {
+      console.log("Clicked:", this.classList); // ✅ log which one was clicked
+
       colorCircles.forEach(c => c.classList.remove('active'));
       this.classList.add('active');
+
       const newImage = this.getAttribute('data-image');
-      if (mainImage) {
+      console.log("Switching to:", newImage); // ✅ see which image it's trying to load
+
+      if (mainImage && newImage) {
         mainImage.src = newImage;
       }
     });
   });
 });
+</script>
 </body>
 </html>

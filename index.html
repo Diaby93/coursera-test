@@ -1242,20 +1242,23 @@ window.addEventListener('scroll', () => {
 
 <script>
  // ✅ COLOR BUTTON LOGIC
-  window.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.color-circle').forEach(circle => {
-      circle.addEventListener('click', () => {
-        // Remove "active" class from all
-        document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const colorCircles = document.querySelectorAll('.color-circle');
+  const mainImage = document.getElementById('main-product-image');
 
-        // Add "active" to the clicked one
-        circle.classList.add('active');
+  colorCircles.forEach(circle => {
+    circle.addEventListener('click', function() {
+      // Change image
+      const newSrc = this.getAttribute('data-image');
+      mainImage.src = newSrc;
 
-        // Update the main image
-        document.getElementById('main-product-image').src = circle.dataset.image;
-      });
+      // Optional: switch active class
+      document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
     });
   });
+});
 </script>
 
   // ✅ MAKE QUANTITY FUNCTION GLOBAL

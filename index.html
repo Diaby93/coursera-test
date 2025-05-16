@@ -1244,32 +1244,35 @@ function setMainImage(img) {
 }
 
 <script>
-  // ✅ COLOR BUTTON LOGIC
-  window.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.color-circle').forEach(circle => {
-      circle.addEventListener('click', () => {
-        document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
-        circle.classList.add('active');
-        document.getElementById('main-product-image').src = circle.dataset.image;
-      });
+// ✅ COLOR BUTTON LOGIC
+document.addEventListener('DOMContentLoaded', function () {
+  const colorCircles = document.querySelectorAll('.color-circle');
+  const mainImage = document.getElementById('main-product-image');
+
+  colorCircles.forEach(circle => {
+    circle.addEventListener('click', function () {
+      colorCircles.forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      const newImage = this.getAttribute('data-image');
+      if (mainImage) {
+        mainImage.src = newImage;
+      }
     });
   });
-
-  // ✅ MAKE QUANTITY FUNCTION GLOBAL
-  function changeQty(val) {
-    const qty = document.getElementById("qty");
-    let current = parseInt(qty.value);
-    if (!isNaN(current)) {
-      qty.value = Math.max(1, Math.min(10, current + val));
-    }
-  }
-
-  // ✅ MAKE setMainImage GLOBAL TOO (for thumbnails)
-  function setMainImage(img) {
-    document.getElementById("main-product-image").src = img.src;
-  }
+});
 </script>
 
+<script>
+// ✅ QUANTITY BUTTON LOGIC
+function changeQty(val) {
+  const qtyInput = document.getElementById("qty");
+  let currentQty = parseInt(qtyInput.value) || 1;
+  currentQty += val;
+  if (currentQty < 1) currentQty = 1;
+  if (currentQty > 10) currentQty = 10;
+  qtyInput.value = currentQty;
+}
+</script>
 <!-- ✅ Then your existing cart script -->
 <script>
 window.addEventListener("load", updateCartCount);

@@ -1244,17 +1244,21 @@ function setMainImage(img) {
 }
 
 <script>
-// ✅ COLOR BUTTON LOGIC
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const colorCircles = document.querySelectorAll('.color-circle');
   const mainImage = document.getElementById('main-product-image');
 
   colorCircles.forEach(circle => {
     circle.addEventListener('click', function () {
+      // Remove active class from all
       colorCircles.forEach(c => c.classList.remove('active'));
+
+      // Add active to clicked circle
       this.classList.add('active');
-      const newImage = this.getAttribute('data-image');
-      if (mainImage) {
+
+      // Change main image
+      const newImage = this.dataset.image;
+      if (mainImage && newImage) {
         mainImage.src = newImage;
       }
     });

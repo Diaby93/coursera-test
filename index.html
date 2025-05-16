@@ -547,8 +547,8 @@ input[type="number"] {
   margin-bottom: 25px;
 }
 
-.cta-btn {
-  background: #000;
+.cta-btn-orange {
+  background: #e44b11;
   color: #fff;
   padding: 12px 30px;
   border-radius: 6px;
@@ -558,8 +558,8 @@ input[type="number"] {
   transition: 0.3s ease;
 }
 
-.cta-btn:hover {
-  background: #222;
+.cta-btn-orange:hover {
+  background-color: #c6400f;
 }
     
 .cta-btn {
@@ -763,7 +763,7 @@ input[type="number"] {
   <div class="hero-text left-aligned">
     <h1>Mini. Fast. Portable.</h1>
     <p>Powerful enough to crush ice and small enough to be taken on the go.</p>
-    <a class="cta-btn" href="#shop">ORDER NOW!</a>
+    <a class="cta-btn-orange" href="#shop">ORDER NOW!</a>
   </div>
 </section>
 
@@ -916,9 +916,9 @@ input[type="number"] {
   </section>
 
   <!-- Mobile Sticky CTA and Scroll Button -->
-  <div class="mobile-sticky-cta">
-    <a href="#shop">🛒 Buy Now for £49.99 – Limited Stock!</a>
-  </div>
+ <div class="mobile-sticky-cta">
+  <a href="#shop" class="cta-btn-orange">🛒 Buy Now for £49.99 – Limited Stock!</a>
+</div>
   <button class="scroll-top" id="scrollTopBtn">↑ Top</button>
 
   <!-- Footer -->
@@ -1243,23 +1243,8 @@ function setMainImage(img) {
   document.getElementById("main-product-image").src = img.src;
 }
 
-<script>
 // ✅ COLOR BUTTON LOGIC
-document.addEventListener('DOMContentLoaded', function () {
-  const colorCircles = document.querySelectorAll('.color-circle');
-  const mainImage = document.getElementById('main-product-image');
 
-  colorCircles.forEach(circle => {
-    circle.addEventListener('click', function () {
-      colorCircles.forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-      const newImage = this.getAttribute('data-image');
-      if (mainImage) {
-        mainImage.src = newImage;
-      }
-    });
-  });
-});
 </script>
 
 <script>
@@ -1277,5 +1262,20 @@ function changeQty(val) {
 <script>
 window.addEventListener("load", updateCartCount);
 </script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const colorCircles = document.querySelectorAll('.color-circle');
+  const mainImage = document.getElementById('main-product-image');
+
+  colorCircles.forEach(circle => {
+    circle.addEventListener('click', function () {
+      colorCircles.forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      const newImage = this.getAttribute('data-image');
+      if (mainImage) {
+        mainImage.src = newImage;
+      }
+    });
+  });
+});
 </body>
 </html>

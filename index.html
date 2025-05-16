@@ -624,6 +624,118 @@ input[type="number"] {
     transform: translateX(-50%);
   }
 }
+    .product-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+}
+.product-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-thumbs img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.product-thumbs img:hover {
+  border-color: #e44b11;
+}
+.product-main-img img {
+  width: 400px;
+  border-radius: 10px;
+}
+.product-info {
+  max-width: 400px;
+}
+.product-info h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.price {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.price .new {
+  font-weight: bold;
+  color: #e44b11;
+}
+.price .old {
+  margin-left: 10px;
+  text-decoration: line-through;
+  color: #888;
+}
+.label {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+.color-options {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.color-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  cursor: pointer;
+}
+.color-circle.active {
+  outline: 3px solid #000;
+}
+.color-circle.black { background: #000; }
+.color-circle.pink { background: pink; }
+.color-circle.white { background: #fff; }
+.color-circle.yellow { background: #f1e600; }
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.quantity-selector input {
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+}
+.quantity-selector button {
+  font-size: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.add-to-cart {
+  background: #000;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.add-to-cart:hover {
+  background: #222;
+}
+.shipping-info {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+.shipping-info i {
+  margin-right: 6px;
+}
   </style>
 </head>
 <body>
@@ -696,50 +808,56 @@ input[type="number"] {
     </div>
   </section>
 
-  <!-- Product Grid -->
-  <section id="shop" class="product-showcase" data-aos="fade-up">
-    <h2>Shop the Collection</h2>
-    <div class="product-grid">
-    <div class="product-card sold-out-card" style="position: relative;">
-  <div class="sold-out-badge">Sold Out</div>
-  <img src="images/white.png" alt="White FRESH JUICE Blender">
-  <span class="badge">✨ New</span>
-  <h3>White FRESH JUICE Blender</h3>
-  <div class="price">
-    <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
-    <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
-  </div>
-  <p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
-  <a class="cta-btn">Sold Out</a>
-</div>
-      <div class="product-card">
-        <img src="images/pink.png" alt="Pink FRESH JUICE Blender">
-        <span class="badge">🔥 Best Seller</span>
-<h3>Pink FRESH JUICE Blender</h3>
-
-      <div class="price">
-  <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
-  <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
-</div>
-<p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
-
-        <a class="cta-btn" href="javascript:void(0)" onclick="openModal('pink')">Buy Now</a>
-      </div>
-      <div class="product-card sold-out-card" style="position: relative;">
-  <div class="sold-out-badge">Sold Out</div>
-  <img src="images/black.png" alt="Black FRESH JUICE Blender">
-  <span class="badge">✨ New</span>
-  <h3>Black FRESH JUICE Blender</h3>
-  <div class="price">
-    <span style="text-decoration: line-through; color: red; font-size: 14px;">£80</span>
-    <span style="font-size: 22px; font-weight: bold; margin-left: 8px;">£49.99</span>
-  </div>
-  <p style="color: green; font-weight: 600; font-size: 15px;">Save 38%</p>
-  <a class="cta-btn">Sold Out</a>
-</div>
+ <!-- Product Grid -->
+<section id="shop" class="product-showcase" style="background: #fff; padding: 60px 20px;">
+  <div class="product-container">
+    
+    <!-- Left: Thumbnails -->
+    <div class="product-thumbs">
+      <img src="images/perfect1.jpg" onclick="setMainImage(this)" />
+      <img src="images/perfect2.jpg" onclick="setMainImage(this)" />
+      <img src="images/perfect3.jpg" onclick="setMainImage(this)" />
+      <img src="images/perfect4.jpg" onclick="setMainImage(this)" />
+      <img src="images/perfect5.jpg" onclick="setMainImage(this)" />
     </div>
-  </section>
 
+    <!-- Center: Main Image -->
+    <div class="product-main-img">
+      <img src="images/pink.png" id="main-product-image" alt="Fresh Juice Blender" />
+    </div>
+
+    <!-- Right: Product Info -->
+    <div class="product-info">
+      <h1>Fresh Juice Portable Blender</h1>
+      <div class="price">
+        <span class="new">£49.99</span>
+        <span class="old">£80</span>
+      </div>
+
+      <p class="label">Color</p>
+      <div class="color-options">
+        <span class="color-circle black" data-image="images/black.png"></span>
+        <span class="color-circle pink active" data-image="images/pink.png"></span>
+        <span class="color-circle white" data-image="images/white.png"></span>
+        <span class="color-circle yellow" data-image="images/yellow.png"></span>
+      </div>
+
+      <p class="label">Quantity</p>
+      <div class="quantity-selector">
+        <button onclick="changeQty(-1)">−</button>
+        <input type="number" id="qty" value="1" min="1" max="10" />
+        <button onclick="changeQty(1)">+</button>
+      </div>
+
+      <button class="add-to-cart">Add to cart</button>
+
+      <div class="shipping-info">
+        <p><i class="fa fa-truck"></i> <strong>Estimated Delivery:</strong> May 21 – May 25</p>
+        <p><i class="fa fa-undo"></i> <strong>Free Shipping & Returns:</strong> On all orders</p>
+      </div>
+    </div>
+  </div>
+</section>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
@@ -1122,9 +1240,31 @@ window.addEventListener('scroll', () => {
   function closeCart() {
     document.getElementById("cart-modal").style.display = "none";
   }
+// ✅ Your new product JS (paste this first)
+function setMainImage(img) {
+  document.getElementById("main-product-image").src = img.src;
+}
 
-  window.addEventListener("load", updateCartCount);
+function changeQty(val) {
+  const qty = document.getElementById("qty");
+  let current = parseInt(qty.value);
+  if (!isNaN(current)) {
+    qty.value = Math.max(1, Math.min(10, current + val));
+  }
+}
+
+document.querySelectorAll('.color-circle').forEach(circle => {
+  circle.addEventListener('click', () => {
+    document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+    circle.classList.add('active');
+    document.getElementById('main-product-image').src = circle.dataset.image;
+  });
+});
 </script>
+
+<!-- ✅ Then your existing cart script -->
+<script>
+window.addEventListener("load", updateCartCount);
 </script>
 </body>
 </html>

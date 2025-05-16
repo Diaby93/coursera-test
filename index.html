@@ -1165,11 +1165,10 @@ window.scrollTo(0, window.scrollY + 1);
           display.textContent = "⏰ Time’s up! Limited stock remaining!";
           clearInterval(interval);
         }
-      }, 1000);
-    }
-  </script>
-<script>
-  document.addEventListener("touchmove", function(e) {
+     }, 1000);
+}
+
+document.addEventListener("touchmove", function(e) {
   const modalOpen = document.querySelector('.product-modal[style*="display: flex"]');
   const isInsideModal = modalOpen && modalOpen.contains(e.target);
 

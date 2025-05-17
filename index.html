@@ -696,21 +696,7 @@ input[type="number"] {
     padding: 16px 36px;
   }
 
-  .color-options {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .quantity-selector {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-
+  
   .label {
     text-align: center;
     display: block;
@@ -729,17 +715,7 @@ input[type="number"] {
     padding: 16px 36px;
   }
 
-  .color-options {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 8px;
-  }
-
-  .quantity-selector {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
+ 
 
   .label {
     text-align: center;
@@ -827,14 +803,6 @@ input[type="number"] {
     text-align: center;
   }
 
-  .color-options {
-    justify-content: center;
-  }
-
-  .quantity-selector {
-    justify-content: center;
-  }
-
   .add-to-cart {
     width: 100%;
     max-width: 300px;
@@ -866,11 +834,6 @@ input[type="number"] {
   font-weight: 600;
   margin-top: 20px;
   margin-bottom: 6px;
-}
-.color-options {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
 }
 .color-circle {
   width: 26px;
@@ -925,6 +888,15 @@ input[type="number"] {
 }
 .shipping-info i {
   margin-right: 6px;
+}
+    .color-options,
+.quantity-selector {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
 }
   </style>
 </head>

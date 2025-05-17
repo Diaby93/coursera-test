@@ -1162,25 +1162,26 @@ input[type="number"] {
 </section>
     <!-- See it in action -->
 <section style="text-align: center; padding: 60px 20px;">
+<section style="text-align: center; padding: 60px 20px;">
   <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 30px;">See it in action</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <video controls style="width: 220px; border-radius: 16px;">
-      <source src="video1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video controls style="width: 220px; border-radius: 16px;">
-      <source src="video2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video controls style="width: 220px; border-radius: 16px;">
-      <source src="video3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video controls style="width: 220px; border-radius: 16px;">
-      <source src="video4.mp4" type="video/mp4">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+    <img src="images/thumb1.png" onclick="openVideoModal('video1.mp4')" style="width: 200px; border-radius: 16px; cursor: pointer;" />
+    <img src="images/thumb2.png" onclick="openVideoModal('video2.mp4')" style="width: 200px; border-radius: 16px; cursor: pointer;" />
+    <img src="images/thumb3.png" onclick="openVideoModal('video3.mp4')" style="width: 200px; border-radius: 16px; cursor: pointer;" />
+    <img src="images/thumb4.png" onclick="openVideoModal('video4.mp4')" style="width: 200px; border-radius: 16px; cursor: pointer;" />
+  </div>
+</section>
+
+<!-- Modal Video Popup -->
+<div id="videoModal" class="product-modal" style="z-index: 10000;">
+  <div class="modal-content" style="max-width: 90%; padding: 0;">
+    <button class="close-btn" onclick="closeVideoModal()">&times;</button>
+    <video id="modalVideo" controls autoplay style="width: 100%; border-radius: 16px;">
+      <source id="videoSource" src="" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
+</div>
 </section>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
@@ -1599,6 +1600,27 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     accordion.classList.toggle('active');
   });
 });
+   <script>
+  function openVideoModal(src) {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("modalVideo");
+    const source = document.getElementById("videoSource");
+
+    source.src = src;
+    video.load();
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeVideoModal() {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("modalVideo");
+
+    video.pause();
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+</script>
 </script>
 </body>
 </html>

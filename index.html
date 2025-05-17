@@ -898,37 +898,60 @@ input[type="number"] {
   gap: 10px;
   margin-top: 8px;
 }
-    .video-thumb-wrapper {
-  position: relative;
-  width: 180px;
-  height: 320px;
-  cursor: pointer;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    .accordion-section {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #ddd;
 }
 
-.video-thumb-img {
+.accordion {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  padding: 16px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header::after {
+  content: '▸';
+  float: right;
   transition: transform 0.3s ease;
 }
 
-.video-thumb-wrapper:hover .video-thumb-img {
-  transform: scale(1.05);
+.accordion.active .accordion-header::after {
+  transform: rotate(90deg);
 }
 
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 16px;
+}
+
+.accordion.active .accordion-content {
+  max-height: 500px;
+  padding: 16px;
+}
+
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-content li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
 }
   </style>
 </head>
@@ -1059,45 +1082,84 @@ input[type="number"] {
     With a minimalistic design, Fresh Juice has a convenient bottle format so that you can drink straight
     from the blender. It also has a wireless charging dock so you can charge it without having to worry about wires!
   </p>
-
-  <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">
+ <!-- Beach Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
     Enjoy Fresh Drinks, Anytime and Anywhere
   </h2>
-  <p style="font-size: 16px; color: #444; line-height: 1.6; margin-bottom: 30px;">
+  <p style="font-size: 16px; max-width: 600px; margin: 0 auto 20px;">
     Blend and drink perfect smoothies, frozen cocktails, protein shakes, baby food, or lattes on the go with our bottle blender.
   </p>
-
-  <img src="images/beach.gif" alt="Fresh Juice at the beach" style="max-width: 100%; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);" />
+  <img src="images/beach.gif" alt="Beach Blender Use" style="max-width: 100%; border-radius: 10px;">
 </section>
-  <section style="padding: 60px 20px; text-align: center;">
-  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">See it in action</h2>
-  <div id="video-gallery" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-    <div class="video-thumb-wrapper" onclick="openVideoModal('video1.mp4')">
-      <img src="images/thumb1.jpg" alt="Video 1" class="video-thumb-img">
-      <div class="play-icon">&#9658;</div>
+
+<!-- Office Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+    Blend the perfect smoothie in ten seconds at work
+  </h2>
+  <img src="images/office.gif" alt="Blender in Office" style="max-width: 100%; border-radius: 10px;">
+</section>
+
+<!-- Cleaning Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+    Waterproof and Self-cleaning
+  </h2>
+  <p style="font-size: 16px; max-width: 600px; margin: 0 auto 20px;">
+    The fully waterproof body makes cleanup a breeze—just put some soap and warm water inside the jar and let it run until everything comes out smooth!
+  </p>
+  <img src="images/cleaning.gif" alt="Cleaning Demo" style="max-width: 100%; border-radius: 10px;">
+</section>
+    <!-- Kids Health Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+    Give Your Children The Gift Of Health
+  </h2>
+  <p style="font-size: 16px; max-width: 600px; margin: 0 auto 20px;">
+    The Fresh Juice Blender is also a great gift for children. It’s a great way to teach them about healthy eating and how to make smoothies and protein shakes.
+  </p>
+  <img src="images/kitchen.gif" alt="Kids using blender" style="max-width: 100%; border-radius: 10px;">
+</section>
+
+<!-- Sold Out Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <p style="font-size: 16px; max-width: 600px; margin: 0 auto 20px;">
+    Sold out 5 times in the first 3 months, Fresh Juice Blender is quickly becoming a favorite among health-conscious consumers. So don’t wait any longer, order your Fresh Juice Blender today!
+  </p>
+  <img src="images/happy.gif" alt="Happy Customer" style="max-width: 100%; border-radius: 10px;">
+</section>
+    <!-- Specification and What's in the Box Section -->
+<section class="accordion-section">
+  <div class="accordion">
+    <button class="accordion-header">Specification</button>
+    <div class="accordion-content">
+      <ul>
+        <li>Temperature-resistant & dishwasher safe</li>
+        <li>Wireless charging dock & cable (USB)</li>
+        <li>1400mAh battery (good for 20 blends with 3h charge)</li>
+        <li>Waterproof</li>
+        <li>304SUS stainless steel blades</li>
+        <li>Lightweight: 1.1 lb (490 g)</li>
+        <li>Compact Size: 8.5” x 3” (218mm x 82mm) Capacity: 350 mL</li>
+        <li>BPA-Free Plastic</li>
+      </ul>
     </div>
-    <div class="video-thumb-wrapper" onclick="openVideoModal('video2.mp4')">
-      <img src="images/thumb2.jpg" alt="Video 2" class="video-thumb-img">
-      <div class="play-icon">&#9658;</div>
-    </div>
-    <div class="video-thumb-wrapper" onclick="openVideoModal('video3.mp4')">
-      <img src="images/thumb3.jpg" alt="Video 3" class="video-thumb-img">
-      <div class="play-icon">&#9658;</div>
-    </div>
-    <div class="video-thumb-wrapper" onclick="openVideoModal('video4.mp4')">
-      <img src="images/thumb4.jpg" alt="Video 4" class="video-thumb-img">
-      <div class="play-icon">&#9658;</div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-header">What’s in the box</button>
+    <div class="accordion-content">
+      <ul>
+        <li>Blender Base 350ml</li>
+        <li>Blending Vessel with Silicon Carry Handle</li>
+        <li>Storage Bottom Lid</li>
+        <li>Magnetic Wireless Charging Dock</li>
+        <li>User Guide</li>
+      </ul>
     </div>
   </div>
 </section>
-
-<!-- ✅ Video Modal -->
-<div id="videoModal" class="product-modal" onclick="closeVideoModal()">
-  <div class="modal-content" style="max-width: 700px; padding: 0; overflow: hidden;" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="closeVideoModal()">&times;</button>
-    <video id="modalVideo" controls style="width: 100%; height: auto; border-radius: 16px;"></video>
-  </div>
-</div>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
@@ -1508,24 +1570,13 @@ input[type="number"] {
 
   // ✅ Update cart on load
   window.addEventListener("load", updateCartCount);
-   // ✅ VIDEO MODAL LOGIC FOR "SEE IT IN ACTION" SECTION
-function openVideoModal(src) {
-  const modal = document.getElementById('videoModal');
-  const video = document.getElementById('modalVideo');
-  video.src = src;
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeVideoModal() {
-  const modal = document.getElementById('videoModal');
-  const video = document.getElementById('modalVideo');
-  video.pause();
-  video.currentTime = 0;
-  video.src = '';
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
+   // Accordion toggle behavior
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const accordion = header.parentElement;
+    accordion.classList.toggle('active');
+  });
+});
 </script>
 </body>
 </html>

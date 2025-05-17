@@ -898,6 +898,61 @@ input[type="number"] {
   gap: 10px;
   margin-top: 8px;
 }
+    .accordion-section {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #ddd;
+}
+
+.accordion {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header::after {
+  content: '▸';
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.accordion.active .accordion-header::after {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 16px;
+}
+
+.accordion.active .accordion-content {
+  max-height: 500px;
+  padding: 16px;
+}
+
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-content li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
   </style>
 </head>
 <body>
@@ -1073,6 +1128,37 @@ input[type="number"] {
     Sold out 5 times in the first 3 months, Fresh Juice Blender is quickly becoming a favorite among health-conscious consumers. So don’t wait any longer, order your Fresh Juice Blender today!
   </p>
   <img src="images/happy.gif" alt="Happy Customer" style="max-width: 100%; border-radius: 10px;">
+</section>
+    <!-- Specification and What's in the Box Section -->
+<section class="accordion-section">
+  <div class="accordion">
+    <button class="accordion-header">Specification</button>
+    <div class="accordion-content">
+      <ul>
+        <li>Temperature-resistant & dishwasher safe</li>
+        <li>Wireless charging dock & cable (USB)</li>
+        <li>1400mAh battery (good for 20 blends with 3h charge)</li>
+        <li>Waterproof</li>
+        <li>304SUS stainless steel blades</li>
+        <li>Lightweight: 1.1 lb (490 g)</li>
+        <li>Compact Size: 8.5” x 3” (218mm x 82mm) Capacity: 350 mL</li>
+        <li>BPA-Free Plastic</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-header">What’s in the box</button>
+    <div class="accordion-content">
+      <ul>
+        <li>Blender Base 350ml</li>
+        <li>Blending Vessel with Silicon Carry Handle</li>
+        <li>Storage Bottom Lid</li>
+        <li>Magnetic Wireless Charging Dock</li>
+        <li>User Guide</li>
+      </ul>
+    </div>
+  </div>
 </section>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
@@ -1484,6 +1570,13 @@ input[type="number"] {
 
   // ✅ Update cart on load
   window.addEventListener("load", updateCartCount);
+   // Accordion toggle behavior
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const accordion = header.parentElement;
+    accordion.classList.toggle('active');
+  });
+});
 </script>
 </body>
 </html>

@@ -1241,20 +1241,6 @@ input[type="number"] {
   </div>
 </div>
 <!-- ✅ END: See It In Action Section -->
-function openVideoModal(videoSrc) {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("modalVideo");
-  video.src = videoSrc;
-  modal.style.display = "flex";
-}
-
-function closeVideoModal() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("modalVideo");
-  modal.style.display = "none";
-  video.pause();
-  video.currentTime = 0;
-}
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!

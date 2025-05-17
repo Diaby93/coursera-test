@@ -150,11 +150,23 @@ height: 180px;
       margin-bottom: 20px;
     }
     .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* ✅ key line: aligns items vertically */
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+    .product-main-img,
+.product-info,
+.product-thumbs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
     .product-card {
       background: #fff;
       border: 1px solid #ddd;

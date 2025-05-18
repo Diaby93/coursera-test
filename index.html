@@ -956,8 +956,10 @@ input[type="number"] {
   font-size: 15px;
 }
   .video-thumb {
-  width: 150px;
-  height: 260px;
+  width: 22vw;
+  height: 40vw;
+  max-width: 250px;
+  max-height: 450px;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -994,6 +996,12 @@ input[type="number"] {
   cursor: pointer;
   font-weight: bold;
   z-index: 10000;
+}
+    @media (max-width: 768px) {
+  .video-thumb {
+    width: 45vw;
+    height: 80vw;
+  }
 }
   </style>
 </head>
@@ -1205,20 +1213,20 @@ input[type="number"] {
     <!-- See It In Action Section -->
 <section style="text-align: center; padding: 40px 20px;">
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">See it in action</h2>
-  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-    <video class="video-thumb" controls muted playsinline>
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; overflow-x: auto;">
+    <video class="video-thumb" controls playsinline>
       <source src="images/video1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <video class="video-thumb" controls muted playsinline>
+    <video class="video-thumb" controls playsinline>
       <source src="images/video2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <video class="video-thumb" controls muted playsinline>
+    <video class="video-thumb" controls playsinline>
       <source src="images/video3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <video class="video-thumb" controls muted playsinline>
+    <video class="video-thumb" controls playsinline>
       <source src="images/video4.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -1228,7 +1236,7 @@ input[type="number"] {
 <!-- Modal for Video Playback -->
 <div id="videoModal" class="video-modal">
   <span class="close-modal" onclick="closeVideoModal()">&times;</span>
-  <video id="modalVideo" controls autoplay muted playsinline></video>
+  <video id="modalVideo" controls autoplay playsinline></video>
 </div>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">

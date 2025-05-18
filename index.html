@@ -955,13 +955,13 @@ input[type="number"] {
   font-size: 15px;
 }
    .video-thumb {
-  width: 240px;       /* increased from 180px */
-  height: 400px;      /* increased from 320px */
+  width: 220px;
+  height: 390px;
   object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 .video-thumb:hover {
   transform: scale(1.05);
@@ -1205,10 +1205,22 @@ input[type="number"] {
 <section style="text-align: center; padding: 40px 20px;">
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">See it in action</h2>
   <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-    <img src="images/thumbnail video1.png" class="video-thumb" onclick="openVideoModal('images/video1.mp4')" />
-    <img src="images/thumbnail video2.png" class="video-thumb" onclick="openVideoModal('images/video2.mp4')" />
-    <img src="images/thumbnail video3.png" class="video-thumb" onclick="openVideoModal('images/video3.mp4')" />
-    <img src="images/thumbnail video4.png" class="video-thumb" onclick="openVideoModal('images/video4.mp4')" />
+    <video class="video-thumb" controls muted playsinline>
+      <source src="images/video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video class="video-thumb" controls muted playsinline>
+      <source src="images/video2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video class="video-thumb" controls muted playsinline>
+      <source src="images/video3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video class="video-thumb" controls muted playsinline>
+      <source src="images/video4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 </section>
 

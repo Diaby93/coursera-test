@@ -1106,6 +1106,32 @@ input[type="number"] {
     object-position: center;
   }
 }
+    /* Mobile ONLY – Force pink banner taller */
+@media (max-width: 768px) {
+  .pink-banner {
+    height: 600px; /* taller on mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .pink-banner-img {
+    height: auto !important;
+    width: 80%; /* Make it take more space horizontally */
+    max-width: 300px; /* Prevent it from getting too wide */
+    object-fit: contain;
+    margin-top: 20px;
+  }
+
+  .pink-banner-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
   </style>
 </head>
 <body>

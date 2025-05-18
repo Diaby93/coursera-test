@@ -1741,7 +1741,9 @@ function closeVideoModal() {
 ];
 
 let currentVideoIndex = 0;
-
+window.addEventListener("DOMContentLoaded", () => {
+  updateMobileVideo();
+});
 function updateMobileVideo() {
   const container = document.querySelector(".mobile-video-carousel");
 

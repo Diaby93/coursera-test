@@ -1073,28 +1073,30 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
-    .pink-banner img {
+ .pink-banner {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.pink-banner img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* ✅ Mobile only: force pink banner to fill screen width + exaggerate size */
+/* ✅ Mobile ONLY – Force height & scaling */
 @media (max-width: 768px) {
   .pink-banner {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow: hidden;
+    height: 340px; /* Force a taller height */
   }
 
   .pink-banner img {
-    width: 100vw;
-    height: auto;
-    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: top center;
   }
 }
   </style>

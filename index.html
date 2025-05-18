@@ -1112,6 +1112,43 @@ input[type="number"] {
     max-width: 280px;
   }
 }
+    .gift-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8e3e3;
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin: 60px auto;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+.gift-text h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.4;
+}
+
+.gift-image img {
+  max-width: 480px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+/* Mobile fix: stack text + image */
+@media (max-width: 768px) {
+  .gift-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .gift-text h2 {
+    font-size: 28px;
+  }
+}
   </style>
 </head>
 <body>

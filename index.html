@@ -11,6 +11,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  /* last existing styles... */
+
+/* ✅ Paste this new block right here: */
+.gift-banner {
+  background: #f8e4e4;
+  background-image: url("images/bottom banner.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-banner-content {
+  background-color: rgba(255, 255, 255, 0.85); /* Optional soft white overlay for contrast */
+  padding: 20px 40px;
+  border-radius: 16px;
+  max-width: 90%;
+}
+
+.gift-banner-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .gift-banner {
+    padding: 80px 20px;
+  }
+
+  .gift-banner-content h2 {
+    font-size: 22px;
+  }
+}
   <style>
     .features-gallery {
   display: flex;
@@ -1366,13 +1405,10 @@ input[type="number"] {
   <button class="scroll-top" id="scrollTopBtn">↑ Top</button>
 
   <!-- Footer -->
-    <!-- Bottom Gift Banner Section -->
+   <!-- Bottom Gift Banner Section -->
 <section class="gift-banner">
-  <div class="gift-text">
+  <div class="gift-banner-content">
     <h2>The best gift anyone can<br>give anyone is the gift of<br>health.</h2>
-  </div>
-  <div class="gift-image">
-    <img src="images/bottom banner.jpeg" alt="Gift Health Banner" />
   </div>
 </section>
   <footer id="footer" class="footer">

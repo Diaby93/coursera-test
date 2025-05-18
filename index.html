@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1706,10 +1709,8 @@ input[type="number"] {
   }
 
   // ✅ Update cart on load
-window.addEventListener("load", () => {
-  updateCartCount();
-  updateMobileVideo(); // ✅ ensures mobile video loads correctly on first load });
-// Accordion toggle behavior
+  window.addEventListener("load", updateCartCount);
+   // Accordion toggle behavior
 document.querySelectorAll('.accordion-header').forEach(header => {
   header.addEventListener('click', () => {
     const accordion = header.parentElement;
@@ -1746,31 +1747,27 @@ function updateMobileVideo() {
 
   // Remove the old video element
   const oldVideo = document.getElementById("mobileVideo");
-  if (oldVideo) {
-    oldVideo.pause(); // 💡 make sure it's not running
-    oldVideo.remove(); // use remove() for better compatibility
-  }
+  if (oldVideo) container.removeChild(oldVideo);
 
+  // Get the correct video + thumbnail
   const data = mobileVideos[currentVideoIndex];
 
-  // Create new <video> element
+  // Create a new <video> element
   const newVideo = document.createElement("video");
   newVideo.id = "mobileVideo";
   newVideo.className = "video-thumb";
   newVideo.setAttribute("controls", "");
   newVideo.setAttribute("playsinline", "");
+  newVideo.setAttribute("preload", "none");
   newVideo.setAttribute("poster", data.poster);
-  newVideo.setAttribute("preload", "auto"); // ✅ preload fix
 
+  // Add the <source> to the <video>
   const newSource = document.createElement("source");
   newSource.src = data.src;
   newSource.type = "video/mp4";
   newVideo.appendChild(newSource);
 
-  // Force re-render
-  newVideo.load();
-
-  // Insert after left arrow
+  // Re-insert the video into the carousel (between arrows)
   const leftArrow = container.querySelector(".carousel-arrow.left");
   container.insertBefore(newVideo, leftArrow.nextSibling);
 }

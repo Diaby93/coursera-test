@@ -1698,6 +1698,29 @@ document.querySelectorAll('.accordion-header').forEach(header => {
   width: 100%;
   border-radius: 12px;
 }
+   function openVideoModal(videoSrc) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+  const source = document.getElementById("modalSource");
+
+  source.src = videoSrc;
+  video.load();
+  modal.style.display = "flex";
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal(event) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+
+  // Close only if clicking outside the video
+  if (event.target.id === "videoModal") {
+    video.pause();
+    video.currentTime = 0;
+    modal.style.display = "none";
+    document.body.style.overflow = 'auto';
+  }
+}
 </script>
 </body>
 </html>

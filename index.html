@@ -956,9 +956,9 @@ input[type="number"] {
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
-   .video-thumb {
-  width: 220px;
-  height: 390px;
+  .video-thumb {
+  width: 200px;
+  height: 360px;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -995,6 +995,12 @@ input[type="number"] {
   cursor: pointer;
   font-weight: bold;
   z-index: 10000;
+}
+    @media (max-width: 768px) {
+  .video-thumb {
+    width: 45vw;
+    height: 80vw;
+  }
 }
   </style>
 </head>

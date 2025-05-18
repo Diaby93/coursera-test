@@ -953,6 +953,46 @@ input[type="number"] {
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
+    .video-thumb {
+  width: 180px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.video-thumb:hover {
+  transform: scale(1.05);
+}
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+.video-modal video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10000;
+}
   </style>
 </head>
 <body>
@@ -1160,6 +1200,22 @@ input[type="number"] {
     </div>
   </div>
 </section>
+    <!-- See It In Action Section -->
+<section style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">See it in action</h2>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <img src="images/thumbnail video1.png" class="video-thumb" onclick="openVideoModal('images/video1.mp4')" />
+    <img src="images/thumbnail video2.png" class="video-thumb" onclick="openVideoModal('images/video2.mp4')" />
+    <img src="images/thumbnail video3.png" class="video-thumb" onclick="openVideoModal('images/video3.mp4')" />
+    <img src="images/thumbnail video4.png" class="video-thumb" onclick="openVideoModal('images/video4.mp4')" />
+  </div>
+</section>
+
+<!-- Modal for Video Playback -->
+<div id="videoModal" class="video-modal">
+  <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+  <video id="modalVideo" controls autoplay muted playsinline></video>
+</div>
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
@@ -1577,6 +1633,22 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     accordion.classList.toggle('active');
   });
 });
+ // 🎬 Modal Video Playback
+function openVideoModal(videoSrc) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+  modal.style.display = "flex";
+  video.src = videoSrc;
+  video.play();
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+  modal.style.display = "none";
+  video.pause();
+  video.currentTime = 0;
+}  
 </script>
 </body>
 </html>

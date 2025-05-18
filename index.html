@@ -953,9 +953,11 @@ input[type="number"] {
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
-  .video-thumb {
-  width: 200px;
-  height: 360px;
+ .video-thumb {
+  width: 22vw;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 9/16;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -999,11 +1001,12 @@ input[type="number"] {
     height: 80vw;
   }
 }
-    .video-row {
+   .video-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  max-width: 100%;
 }
   </style>
 </head>

@@ -953,65 +953,51 @@ input[type="number"] {
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
-    .video-gallery {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+   .video-thumbnails-section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.video-gallery img {
-  width: 220px;
-  height: 390px;
+.video-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.video-thumb img {
+  width: 200px;
+  height: 350px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.video-gallery img:hover {
-  transform: scale(1.03);
+.video-thumb img:hover {
+  transform: scale(1.05);
 }
 
-/* Modal Styling */
 .video-modal {
   display: none;
   position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  z-index: 9999;
 }
 
-.video-modal-content {
-  position: relative;
-  max-width: 400px;
+.video-container {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.video-container video {
   width: 100%;
-  background: transparent;
-  border-radius: 12px;
-}
-
-.video-modal video {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.video-close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: 30px;
-  background: #fff;
-  color: #000;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
+  max-height: 100%;
+  border-radius: 10px;
 }
   </style>
 </head>
@@ -1207,39 +1193,34 @@ input[type="number"] {
     </div>
   </div>
 
-  <div class="accordion">
-    <button class="accordion-header">What’s in the box</button>
-    <div class="accordion-content">
-      <ul>
-        <li>Blender Base 350ml</li>
-        <li>Blending Vessel with Silicon Carry Handle</li>
-        <li>Storage Bottom Lid</li>
-        <li>Magnetic Wireless Charging Dock</li>
-        <li>User Guide</li>
-      </ul>
+  <section class="video-thumbnails-section">
+  <h2>See it in action</h2>
+  <div class="video-thumbnails">
+    <div class="video-thumb" onclick="openVideoModal('images/video1.mp4')">
+      <img src="images/thumbnail video1.png" alt="Video preview" />
+    </div>
+    <div class="video-thumb" onclick="openVideoModal('images/video2.mp4')">
+      <img src="images/thumbnail video2.png" alt="Video preview" />
+    </div>
+    <div class="video-thumb" onclick="openVideoModal('images/video3.mp4')">
+      <img src="images/thumbnail video3.png" alt="Video preview" />
+    </div>
+    <div class="video-thumb" onclick="openVideoModal('images/video4.mp4')">
+      <img src="images/thumbnail video4.png" alt="Video preview" />
     </div>
   </div>
 </section>
-    <section style="padding: 40px 20px; text-align: center;">
-  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 24px;">See it in action</h2>
-  <div class="video-gallery">
-    <img src="images/gallery1.png" class="video-thumb" data-video="images/video1.mp4" alt="Video 1" />
-    <img src="images/gallery2.png" class="video-thumb" data-video="images/video2.mp4" alt="Video 2" />
-    <img src="images/gallery3.png" class="video-thumb" data-video="images/video3.mp4" alt="Video 3" />
-    <img src="images/gallery4.png" class="video-thumb" data-video="images/video4.mp4" alt="Video 4" />
-  </div>
-</section>
 
-<!-- Modal -->
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-content">
-    <button class="video-close" onclick="closeVideoModal()">&times;</button>
-    <video id="modalVideo" controls autoplay playsinline>
-      <source src="" type="video/mp4" />
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal" onclick="closeVideoModal(event)">
+  <div class="video-container">
+    <video id="modalVideo" controls autoplay>
+      <source id="modalSource" src="" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
 </div>
+
   <!-- Urgency Banner -->
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
@@ -1658,28 +1639,64 @@ document.querySelectorAll('.accordion-header').forEach(header => {
   });
 });
    // Open modal and load video
-document.querySelectorAll('.video-thumb').forEach(thumb => {
-  thumb.addEventListener('click', () => {
-    const videoSrc = thumb.getAttribute('data-video');
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
+.video-thumbnails-section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    video.querySelector('source').src = videoSrc;
-    video.load();
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  });
-});
+.video-thumbnails-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
 
-// Close modal and stop video
-function closeVideoModal() {
-  const modal = document.getElementById('videoModal');
-  const video = document.getElementById('modalVideo');
+.video-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  modal.style.display = 'none';
-  video.pause();
-  video.currentTime = 0;
-  document.body.style.overflow = 'auto';
+.video-thumb {
+  cursor: pointer;
+  width: 220px;
+  height: 390px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-thumb:hover {
+  transform: scale(1.03);
+}
+
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 12px;
 }
 </script>
 </body>

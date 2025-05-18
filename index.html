@@ -1002,6 +1002,12 @@ input[type="number"] {
     height: 80vw;
   }
 }
+    .video-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
   </style>
 </head>
 <body>
@@ -1209,25 +1215,18 @@ input[type="number"] {
     </div>
   </div>
 </section>
-    <!-- See It In Action Section -->
+    
 <section style="text-align: center; padding: 40px 20px;">
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">See it in action</h2>
-  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+   <div class="video-column">
     <video class="video-thumb" controls muted playsinline>
       <source src="images/video1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <video class="video-thumb" controls muted playsinline>
       <source src="images/video2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <video class="video-thumb" controls muted playsinline>
       <source src="images/video3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video class="video-thumb" controls muted playsinline>
-      <source src="images/video4.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
   </div>
 </section>

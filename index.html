@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1267,15 +1268,13 @@ input[type="number"] {
   <source src="images/video4.mp4" type="video/mp4">
 </video>
 </div>
- <video 
-  id="mobileVideo" 
-  class="video-thumb" 
-  controls 
-  playsinline 
-  preload="none" 
-  poster="images/thumbnail video1.png">
-  <source id="mobileVideoSource" src="images/video1.mp4" type="video/mp4">
-</video>
+  <div class="mobile-video-carousel">
+  <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
+  <video id="mobileVideo" class="video-thumb" controls playsinline poster="images/thumbnail video1.png">
+    <source id="mobileVideoSource" src="images/video1.mp4" type="video/mp4">
+  </video>
+  <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
+</div>
 </section>
 
 <!-- Modal for Video Playback -->
@@ -1724,8 +1723,18 @@ function closeVideoModal() {
 ];
 
 let currentVideoIndex = 0;
+
 function updateMobileVideo() {
-  
+  const video = document.getElementById("mobileVideo");
+  const source = document.getElementById("mobileVideoSource");
+
+  const data = mobileVideos[currentVideoIndex];
+  source.src = data.src;
+  video.poster = data.poster;
+
+  video.load(); // ✅ This resets everything
+}
+
 function prevMobileVideo() {
   currentVideoIndex = (currentVideoIndex - 1 + mobileVideos.length) % mobileVideos.length;
   updateMobileVideo();

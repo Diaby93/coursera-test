@@ -1725,32 +1725,7 @@ function closeVideoModal() {
 
 let currentVideoIndex = 0;
 function updateMobileVideo() {
-  const video = document.getElementById("mobileVideo");
-
-  // 1️⃣ Stop any current video playing
-  video.pause();
-
-  // 2️⃣ Fully clear out any existing <source>
-  video.removeAttribute("src");      // Remove video src
-  video.innerHTML = "";              // Remove all children (like <source>)
-
-  // 3️⃣ Get the new video data from the array
-  const data = mobileVideos[currentVideoIndex];
-
-  // 4️⃣ Create a new <source> element
-  const newSource = document.createElement("source");
-  newSource.src = data.src;
-  newSource.type = "video/mp4";
-
-  // 5️⃣ Set the new thumbnail image (poster)
-  video.setAttribute("poster", data.poster);
-
-  // 6️⃣ Append the new <source> to the video tag
-  video.appendChild(newSource);
-
-  // 7️⃣ Force the browser to reload and show poster
-  video.load();
-}
+  
 function prevMobileVideo() {
   currentVideoIndex = (currentVideoIndex - 1 + mobileVideos.length) % mobileVideos.length;
   updateMobileVideo();

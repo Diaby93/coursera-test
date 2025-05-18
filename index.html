@@ -1730,30 +1730,34 @@ function closeVideoModal() {
 let currentVideoIndex = 0;
 
 function updateMobileVideo() {
-  const video = document.getElementById("mobileVideo");
+  const container = document.querySelector(".mobile-video-carousel");
 
-  // Stop any video playback
-  video.pause();
+  // Remove the old video element
+  const oldVideo = document.getElementById("mobileVideo");
+  if (oldVideo) container.removeChild(oldVideo);
 
-  // Fully clear previous source
-  video.innerHTML = "";
-
-  // Get new video data
+  // Get the correct video + thumbnail
   const data = mobileVideos[currentVideoIndex];
 
-  // Create new <source> element
+  // Create a new <video> element
+  const newVideo = document.createElement("video");
+  newVideo.id = "mobileVideo";
+  newVideo.className = "video-thumb";
+  newVideo.setAttribute("controls", "");
+  newVideo.setAttribute("playsinline", "");
+  newVideo.setAttribute("preload", "none");
+  newVideo.setAttribute("poster", data.poster);
+
+  // Add the <source> to the <video>
   const newSource = document.createElement("source");
   newSource.src = data.src;
   newSource.type = "video/mp4";
+  newVideo.appendChild(newSource);
 
-  // Update poster and inject new <source>
-  video.setAttribute("poster", data.poster);
-  video.appendChild(newSource);
-
-  // Reload video so poster shows correctly
-  video.load();
+  // Re-insert the video into the carousel (between arrows)
+  const leftArrow = container.querySelector(".carousel-arrow.left");
+  container.insertBefore(newVideo, leftArrow.nextSibling);
 }
-
 function prevMobileVideo() {
   currentVideoIndex = (currentVideoIndex - 1 + mobileVideos.length) % mobileVideos.length;
   updateMobileVideo();

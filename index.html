@@ -1270,9 +1270,14 @@ input[type="number"] {
 </div>
   <div class="mobile-video-carousel">
   <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
-  <video id="mobileVideo" class="video-thumb" controls playsinline poster="images/thumbnail video1.png">
-    <source id="mobileVideoSource" src="images/video1.mp4" type="video/mp4">
-  </video>
+  <<video 
+  id="mobileVideo" 
+  class="video-thumb" 
+  controls 
+  playsinline 
+  preload="none"
+  poster="images/thumbnail video1.png">
+</video>
   <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
 </div>
 </section>
@@ -1726,13 +1731,27 @@ let currentVideoIndex = 0;
 
 function updateMobileVideo() {
   const video = document.getElementById("mobileVideo");
-  const source = document.getElementById("mobileVideoSource");
 
+  // Stop any video playback
+  video.pause();
+
+  // Fully clear previous source
+  video.innerHTML = "";
+
+  // Get new video data
   const data = mobileVideos[currentVideoIndex];
-  source.src = data.src;
-  video.poster = data.poster;
 
-  video.load(); // ✅ This resets everything
+  // Create new <source> element
+  const newSource = document.createElement("source");
+  newSource.src = data.src;
+  newSource.type = "video/mp4";
+
+  // Update poster and inject new <source>
+  video.setAttribute("poster", data.poster);
+  video.appendChild(newSource);
+
+  // Reload video so poster shows correctly
+  video.load();
 }
 
 function prevMobileVideo() {

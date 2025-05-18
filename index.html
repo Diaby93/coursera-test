@@ -1267,13 +1267,15 @@ input[type="number"] {
   <source src="images/video4.mp4" type="video/mp4">
 </video>
 </div>
-  <div class="mobile-video-carousel">
-  <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
-  <video id="mobileVideo" class="video-thumb" controls playsinline poster="images/thumbnail video1.png">
-    <source id="mobileVideoSource" src="images/video1.mp4" type="video/mp4">
-  </video>
-  <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
-</div>
+ <video 
+  id="mobileVideo" 
+  class="video-thumb" 
+  controls 
+  playsinline 
+  preload="none" 
+  poster="images/thumbnail video1.png">
+  <source id="mobileVideoSource" src="images/video1.mp4" type="video/mp4">
+</video>
 </section>
 
 <!-- Modal for Video Playback -->
@@ -1722,18 +1724,33 @@ function closeVideoModal() {
 ];
 
 let currentVideoIndex = 0;
-
 function updateMobileVideo() {
   const video = document.getElementById("mobileVideo");
-  const source = document.getElementById("mobileVideoSource");
 
+  // 1️⃣ Stop any current video playing
+  video.pause();
+
+  // 2️⃣ Fully clear out any existing <source>
+  video.removeAttribute("src");      // Remove video src
+  video.innerHTML = "";              // Remove all children (like <source>)
+
+  // 3️⃣ Get the new video data from the array
   const data = mobileVideos[currentVideoIndex];
-  source.src = data.src;
-  video.poster = data.poster;
 
-  video.load(); // ✅ This resets everything
+  // 4️⃣ Create a new <source> element
+  const newSource = document.createElement("source");
+  newSource.src = data.src;
+  newSource.type = "video/mp4";
+
+  // 5️⃣ Set the new thumbnail image (poster)
+  video.setAttribute("poster", data.poster);
+
+  // 6️⃣ Append the new <source> to the video tag
+  video.appendChild(newSource);
+
+  // 7️⃣ Force the browser to reload and show poster
+  video.load();
 }
-
 function prevMobileVideo() {
   currentVideoIndex = (currentVideoIndex - 1 + mobileVideos.length) % mobileVideos.length;
   updateMobileVideo();

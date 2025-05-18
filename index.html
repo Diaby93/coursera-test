@@ -1714,33 +1714,34 @@ function closeVideoModal() {
   video.pause();
   video.currentTime = 0;
 }  
-   const mobileVideos = [
+  const mobileVideos = [
   { src: "images/video1.mp4", poster: "images/thumbnail video1.png" },
   { src: "images/video2.mp4", poster: "images/thumbnail video2.png" },
   { src: "images/video3.mp4", poster: "images/thumbnail video3.png" },
-  { src: "images/video4.mp4", poster: "images/thumbnail video4.png" }
+  { src: "images/video4.mp4", poster: "images/thumbnail video4.png" },
 ];
 
-let currentMobileVideo = 0;
+let currentVideoIndex = 0;
 
-function showMobileVideo(index) {
+function updateMobileVideo() {
   const video = document.getElementById("mobileVideo");
   const source = document.getElementById("mobileVideoSource");
-  currentMobileVideo = index;
-  video.pause();
-  source.src = mobileVideos[index].src;
-  video.poster = mobileVideos[index].poster;
-  video.load();
+
+  const data = mobileVideos[currentVideoIndex];
+  source.src = data.src;
+  video.poster = data.poster;
+
+  video.load(); // ✅ This resets everything
 }
 
 function prevMobileVideo() {
-  currentMobileVideo = (currentMobileVideo - 1 + mobileVideos.length) % mobileVideos.length;
-  showMobileVideo(currentMobileVideo);
+  currentVideoIndex = (currentVideoIndex - 1 + mobileVideos.length) % mobileVideos.length;
+  updateMobileVideo();
 }
 
 function nextMobileVideo() {
-  currentMobileVideo = (currentMobileVideo + 1) % mobileVideos.length;
-  showMobileVideo(currentMobileVideo);
+  currentVideoIndex = (currentVideoIndex + 1) % mobileVideos.length;
+  updateMobileVideo();
 }
 </script>
 </body>

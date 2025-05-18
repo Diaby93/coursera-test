@@ -1071,25 +1071,25 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
-    .gift-banner {
+.gift-banner {
   background-color: #f7e2e2;
-  padding: 60px 30px;
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
 }
 
 .gift-content {
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
-  flex-wrap: wrap;
+  gap: 40px;
+  flex-wrap: nowrap;
 }
 
 .gift-text {
   flex: 1;
-  padding-right: 40px;
 }
 
 .gift-text h2 {
@@ -1097,6 +1097,8 @@ input[type="number"] {
   font-weight: 700;
   color: #000;
   line-height: 1.4;
+  margin: 0;
+  text-align: left;
 }
 
 .gift-image {
@@ -1105,8 +1107,9 @@ input[type="number"] {
 }
 
 .gift-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  max-width: 500px;
   border-radius: 16px;
 }
 
@@ -1116,17 +1119,13 @@ input[type="number"] {
     text-align: center;
   }
 
-  .gift-text {
-    padding: 0;
-    margin-bottom: 20px;
+  .gift-text h2 {
+    font-size: 26px;
+    text-align: center;
   }
 
   .gift-image {
     text-align: center;
-  }
-
-  .gift-text h2 {
-    font-size: 24px;
   }
 }
   </style>

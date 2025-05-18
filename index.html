@@ -1071,6 +1071,64 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
+    .gift-banner {
+  background-color: #f7e2e2;
+  padding: 60px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.gift-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.gift-text {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.gift-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.4;
+}
+
+.gift-image {
+  flex: 1;
+  text-align: right;
+}
+
+.gift-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .gift-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gift-text {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .gift-image {
+    text-align: center;
+  }
+
+  .gift-text h2 {
+    font-size: 24px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1318,6 +1376,17 @@ input[type="number"] {
   <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
     🔥 Limited Stock Alert! Order now before we sell out again!
   </section>
+    <!-- Gift Banner Section -->
+<section class="gift-banner">
+  <div class="gift-content">
+    <div class="gift-text">
+      <h2>The best gift anyone can<br>give anyone is the gift of health.</h2>
+    </div>
+    <div class="gift-image">
+      <img src="images/bottom banner.jpeg" alt="Gift banner image" />
+    </div>
+  </div>
+</section>
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up" style="padding:60px 20px; background:#fff; text-align:center;">
     <h2 style="font-size:28px; margin-bottom:30px;">What Our Customers Say</h2>

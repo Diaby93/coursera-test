@@ -1044,29 +1044,33 @@ input[type="number"] {
     color: #333;
   }
 }
-  /* SEE IT IN ACTION – DESKTOP ONLY */
-@media (min-width: 769px) {
+ @media (min-width: 769px) {
   .video-row {
     display: flex;
     justify-content: center;
     align-items: stretch;
     flex-wrap: nowrap;
-    gap: 20px;
-    max-width: 900px;
+    gap: 24px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 30px 0;
   }
 
   .video-row .video-thumb {
-    width: 180px;
-    height: 320px;
+    width: 240px;
+    height: 420px;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
     cursor: pointer;
+    transition: transform 0.3s ease;
   }
-}  
+
+  .video-row .video-thumb:hover {
+    transform: scale(1.03);
+  }
+}
   </style>
 </head>
 <body>

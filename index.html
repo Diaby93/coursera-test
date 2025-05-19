@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1073,65 +1072,6 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
- .pink-banner {
-  width: 100vw;
-  max-width: 100%;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-.pink-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ✅ Mobile ONLY – Force height & scaling */
-@media (max-width: 768px) {
-  .pink-banner {
-    height: 600px; /* Force a taller height */
-  }
-
-  .pink-banner img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    object-position: top center;
-  }
-}
-    @media (max-width: 768px) {
-  .pink-banner-img {
-    height: 600px !important; /* Make taller */
-    object-fit: cover;
-    object-position: center;
-  }
-}
-    /* Mobile ONLY – Force pink banner taller */
-@media (max-width: 768px) {
-  .pink-banner {
-    height: 600px; /* taller on mobile */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .pink-banner-img {
-    height: auto !important;
-    width: 80%; /* Make it take more space horizontally */
-    max-width: 300px; /* Prevent it from getting too wide */
-    object-fit: contain;
-    margin-top: 20px;
-  }
-
-  .pink-banner-text {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-}
   </style>
 </head>
 <body>
@@ -1204,27 +1144,24 @@ input[type="number"] {
     </div>
   </section>
 
-<!-- Product Grid -->
+ <!-- Product Grid -->
 <section id="shop" class="product-showcase" style="background: #fff; padding: 60px 20px;">
-  <div class="product-container" style="align-items: flex-start; gap: 60px;">
+  <div class="product-container">
+    
+    <!-- Left: Thumbnails -->
+<div class="product-thumbs">
+  <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
+</div>
 
-    <!-- Sticky Left Panel (Thumbs + Main Image) -->
-    <div style="position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px;">
-      <!-- Thumbnails -->
-      <div class="product-thumbs">
-        <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
-      </div>
+   <!-- Center: Main Image -->
+<div class="product-main-img">
+  <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
+</div>
 
-      <!-- Main Image -->
-      <div class="product-main-img">
-        <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
-      </div>
-    </div>
-
-    <!-- Product Info (scrolls as normal) -->
+    <!-- Right: Product Info -->
     <div class="product-info">
       <h1>Fresh Juice Portable Blender</h1>
       <div class="price">
@@ -1233,13 +1170,12 @@ input[type="number"] {
       </div>
 
       <p class="label">Color</p>
-      <div class="color-options">
-        <span class="color-circle black" data-image="images/new-black.jpeg"></span>
-        <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
-        <span class="color-circle white" data-image="images/new-white.jpeg"></span>
-        <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
-      </div>
-
+<div class="color-options">
+  <span class="color-circle black" data-image="images/new-black.jpeg"></span>
+  <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
+  <span class="color-circle white" data-image="images/new-white.jpeg"></span>
+  <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
+</div>
       <p class="label">Quantity</p>
       <div class="quantity-selector">
         <button onclick="changeQty(-1)">−</button>
@@ -1373,23 +1309,7 @@ input[type="number"] {
   <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
 </div>
 </section>
-<!-- Pink Banner Full Width, Edge to Edge -->
-<div style="
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 60px;
-">
-  <img src="images/pink banner.png" alt="Pink Banner" style="
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0;
-  ">
-</div>
+
 <!-- Modal for Video Playback -->
 <div id="videoModal" class="video-modal">
   <span class="close-modal" onclick="closeVideoModal()">&times;</span>

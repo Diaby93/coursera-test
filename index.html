@@ -1072,6 +1072,32 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
+    video-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.video-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.video-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 0 20px;
+}
   </style>
 </head>
 <body>
@@ -1280,34 +1306,38 @@ input[type="number"] {
   </div>
 </section>
     
-<section style="text-align: center; padding: 40px 20px;">
-  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">See it in action</h2>
+<section class="video-full-width">
+  <h2 class="video-title">See it in action</h2>
+
   <div class="video-row">
-  <video class="video-thumb" controls playsinline poster="images/thumbnail video1.png">
-  <source src="images/video1.mp4" type="video/mp4">
-</video>
-<video class="video-thumb" controls playsinline poster="images/thumbnail video2.png">
-  <source src="images/video2.mp4" type="video/mp4">
-</video>
-<video class="video-thumb" controls playsinline poster="images/thumbnail video3.png">
-  <source src="images/video3.mp4" type="video/mp4">
-</video>
-<video class="video-thumb" controls playsinline poster="images/thumbnail video4.png">
-  <source src="images/video4.mp4" type="video/mp4">
-</video>
-</div>
+    <video class="video-thumb" controls playsinline poster="images/thumbnail video1.png">
+      <source src="images/video1.mp4" type="video/mp4">
+    </video>
+    <video class="video-thumb" controls playsinline poster="images/thumbnail video2.png">
+      <source src="images/video2.mp4" type="video/mp4">
+    </video>
+    <video class="video-thumb" controls playsinline poster="images/thumbnail video3.png">
+      <source src="images/video3.mp4" type="video/mp4">
+    </video>
+    <video class="video-thumb" controls playsinline poster="images/thumbnail video4.png">
+      <source src="images/video4.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Mobile carousel -->
   <div class="mobile-video-carousel">
-  <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
-  <<video 
-  id="mobileVideo" 
-  class="video-thumb" 
-  controls 
-  playsinline 
-  preload="none"
-  poster="images/thumbnail video1.png">
-</video>
-  <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
-</div>
+    <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
+    <video 
+      id="mobileVideo" 
+      class="video-thumb" 
+      controls 
+      playsinline 
+      preload="none"
+      poster="images/thumbnail video1.png">
+      <source src="images/video1.mp4" type="video/mp4">
+    </video>
+    <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
+  </div>
 </section>
 
 <!-- Modal for Video Playback -->

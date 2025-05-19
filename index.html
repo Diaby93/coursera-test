@@ -1,6 +1,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1072,6 +1074,65 @@ input[type="number"] {
     transform: scale(1.03);
   }
 }
+ .pink-banner {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.pink-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ✅ Mobile ONLY – Force height & scaling */
+@media (max-width: 768px) {
+  .pink-banner {
+    height: 600px; /* Force a taller height */
+  }
+
+  .pink-banner img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+    @media (max-width: 768px) {
+  .pink-banner-img {
+    height: 600px !important; /* Make taller */
+    object-fit: cover;
+    object-position: center;
+  }
+}
+    /* Mobile ONLY – Force pink banner taller */
+@media (max-width: 768px) {
+  .pink-banner {
+    height: 600px; /* taller on mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .pink-banner-img {
+    height: auto !important;
+    width: 80%; /* Make it take more space horizontally */
+    max-width: 300px; /* Prevent it from getting too wide */
+    object-fit: contain;
+    margin-top: 20px;
+  }
+
+  .pink-banner-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1309,7 +1370,23 @@ input[type="number"] {
   <button class="carousel-arrow right" onclick="nextMobileVideo()">❯</button>
 </div>
 </section>
-
+<!-- Pink Banner Full Width, Edge to Edge -->
+<div style="
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 60px;
+">
+  <img src="images/pink banner.png" alt="Pink Banner" style="
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  ">
+</div>
 <!-- Modal for Video Playback -->
 <div id="videoModal" class="video-modal">
   <span class="close-modal" onclick="closeVideoModal()">&times;</span>

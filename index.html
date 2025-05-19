@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1068,26 +1071,6 @@ input[type="number"] {
   .video-row .video-thumb:hover {
     transform: scale(1.03);
   }
-
-.fixed-product-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 60px;
-  max-width: 1400px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-.fixed-product {
-  position: sticky;
-  top: 100px;
-  flex: 1;
-  max-width: 500px;
-}
-
-.scrolling-description {
-  flex: 1;
-  max-width: 700px;
 }
   </style>
 </head>
@@ -1161,58 +1144,52 @@ input[type="number"] {
     </div>
   </section>
 
- <section id="shop" style="background: #fff; padding: 60px 20px;">
-  <div class="fixed-product-layout">
+ <!-- Product Grid -->
+<section id="shop" class="product-showcase" style="background: #fff; padding: 60px 20px;">
+  <div class="product-container">
     
-    <!-- ✅ LEFT: FIXED PRODUCT DETAILS -->
-    <div class="fixed-product">
-      <div class="product-thumbs">
-        <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
+    <!-- Left: Thumbnails -->
+<div class="product-thumbs">
+  <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
+</div>
+
+   <!-- Center: Main Image -->
+<div class="product-main-img">
+  <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
+</div>
+
+    <!-- Right: Product Info -->
+    <div class="product-info">
+      <h1>Fresh Juice Portable Blender</h1>
+      <div class="price">
+        <span class="new">£49.99</span>
+        <span class="old">£80</span>
       </div>
 
-      <div class="product-main-img">
-        <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
+      <p class="label">Color</p>
+<div class="color-options">
+  <span class="color-circle black" data-image="images/new-black.jpeg"></span>
+  <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
+  <span class="color-circle white" data-image="images/new-white.jpeg"></span>
+  <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
+</div>
+      <p class="label">Quantity</p>
+      <div class="quantity-selector">
+        <button onclick="changeQty(-1)">−</button>
+        <input type="number" id="qty" value="1" min="1" max="10" />
+        <button onclick="changeQty(1)">+</button>
       </div>
 
-      <div class="product-info">
-        <h1>Fresh Juice Portable Blender</h1>
-        <div class="price">
-          <span class="new">£49.99</span>
-          <span class="old">£80</span>
-        </div>
+      <button class="add-to-cart">Add to cart</button>
 
-        <p class="label">Color</p>
-        <div class="color-options">
-          <span class="color-circle black" data-image="images/new-black.jpeg"></span>
-          <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
-          <span class="color-circle white" data-image="images/new-white.jpeg"></span>
-          <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
-        </div>
-
-        <p class="label">Quantity</p>
-        <div class="quantity-selector">
-          <button onclick="changeQty(-1)">−</button>
-          <input type="number" id="qty" value="1" min="1" max="10" />
-          <button onclick="changeQty(1)">+</button>
-        </div>
-
-        <button class="add-to-cart">Add to cart</button>
-
-        <div class="shipping-info">
-          <p><i class="fa fa-truck"></i> <strong>Estimated Delivery:</strong> May 21 – May 25</p>
-          <p><i class="fa fa-undo"></i> <strong>Free Shipping & Returns:</strong> On all orders</p>
-        </div>
+      <div class="shipping-info">
+        <p><i class="fa fa-truck"></i> <strong>Estimated Delivery:</strong> May 21 – May 25</p>
+        <p><i class="fa fa-undo"></i> <strong>Free Shipping & Returns:</strong> On all orders</p>
       </div>
     </div>
-
-    <!-- ✅ RIGHT: SCROLLABLE CONTENT -->
-    <div class="scrolling-description">
-      <!-- MOVE your "Goodbye, bulky blenders..." and all GIF sections here -->
-    </div>
-
   </div>
 </section>
   <section style="padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center;">

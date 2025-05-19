@@ -1214,6 +1214,19 @@ input[type="number"] {
     body {
   font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 }
+    @media (max-width: 768px) {
+  .hero-banner {
+    height: 500px; /* or any value that works well */
+    position: relative;
+  }
+
+  .hero-full {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
   </style>
 </head>
 <body>

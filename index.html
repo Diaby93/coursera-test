@@ -1144,25 +1144,24 @@ input[type="number"] {
     </div>
   </section>
 
-<!-- Product Grid -->
+ <!-- Product Grid -->
 <section id="shop" class="product-showcase" style="background: #fff; padding: 60px 20px;">
-  <div class="product-container" style="align-items: flex-start; gap: 60px; flex-wrap: nowrap;">
+  <div class="product-container">
+    
+    <!-- Left: Thumbnails -->
+<div class="product-thumbs">
+  <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
+  <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
+</div>
 
-    <!-- Fixed Left (Thumbnails + Main Image) -->
-    <div class="sticky-left" style="position: sticky; top: 120px; flex-shrink: 0;">
-      <div class="product-thumbs" style="margin-bottom: 20px;">
-        <img src="images/new-black.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-pink.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-white.jpeg" onclick="setMainImage(this)" />
-        <img src="images/new-yellow.jpeg" onclick="setMainImage(this)" />
-      </div>
+   <!-- Center: Main Image -->
+<div class="product-main-img">
+  <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
+</div>
 
-      <div class="product-main-img">
-        <img src="images/new-pink.jpeg" id="main-product-image" alt="Fresh Juice Blender" />
-      </div>
-    </div>
-
-    <!-- Scrollable Product Info (Right Side) -->
+    <!-- Right: Product Info -->
     <div class="product-info">
       <h1>Fresh Juice Portable Blender</h1>
       <div class="price">
@@ -1171,13 +1170,12 @@ input[type="number"] {
       </div>
 
       <p class="label">Color</p>
-      <div class="color-options">
-        <span class="color-circle black" data-image="images/new-black.jpeg"></span>
-        <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
-        <span class="color-circle white" data-image="images/new-white.jpeg"></span>
-        <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
-      </div>
-
+<div class="color-options">
+  <span class="color-circle black" data-image="images/new-black.jpeg"></span>
+  <span class="color-circle pink active" data-image="images/new-pink.jpeg"></span>
+  <span class="color-circle white" data-image="images/new-white.jpeg"></span>
+  <span class="color-circle yellow" data-image="images/new-yellow.jpeg"></span>
+</div>
       <p class="label">Quantity</p>
       <div class="quantity-selector">
         <button onclick="changeQty(-1)">−</button>

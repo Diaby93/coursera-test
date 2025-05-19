@@ -1133,6 +1133,87 @@ input[type="number"] {
     margin-bottom: 10px;
   }
 }
+    body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+    .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+    .card-hover:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+    @media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+    img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+   .btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #e44b11;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #c6400f;
+}
+
+.btn-dark {
+  background: black;
+  color: white;
+}
+
+.btn-dark:hover {
+  background: #222;
+}
+    .product-modal {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+    <div data-aos="fade-up" data-aos-delay="200">...</div>
+<div data-aos="zoom-in" data-aos-delay="400">...</div>
+<div data-aos="fade-left" data-aos-delay="600">...</div>
+    .product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+    body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
   </style>
 </head>
 <body>

@@ -1228,7 +1228,37 @@ input[type="number"] {
     object-position: center;
   }
 }
-    
+  .pink-banner-wrapper {
+  width: 100vw;
+  margin-top: 60px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.pink-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .pink-banner-img {
+    width: 100%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pink-banner-img {
+    width: 100%;
+    max-height: none;
+    padding: 0;
+  }
+}  
   </style>
 </head>
 <body>
@@ -1252,7 +1282,7 @@ input[type="number"] {
 
   <!-- Hero Section -->
  <section class="hero-banner">
-  <img src="images/new new banner.png" alt="FRESH JUICE Banner" class="hero-full" />
+  <img src="images/pink banner.png" alt="Pink Banner" class="pink-banner-img">
   <div class="hero-text left-aligned">
     <h1>Mini. Fast. Portable.</h1>
     <p>Powerful enough to crush ice and small enough to be taken on the go.</p>

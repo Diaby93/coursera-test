@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1466,42 +1467,22 @@ input[type="number"] {
 </div>
 </section>
 <!-- Pink Banner Full Width, Edge to Edge -->
-<div class="pink-banner-wrapper">
-  <img src="images/pink banner.png" alt="Pink Banner" class="pink-banner-img">
-</div>
-
-<style>
-  .pink-banner-wrapper {
-    width: 100vw;
-    margin-top: 60px;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-  }
-
-  .pink-banner-img {
+<div style="
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 60px;
+">
+  <img src="images/pink banner.png" alt="Pink Banner" style="
     width: 100%;
     height: auto;
     display: block;
     border-radius: 0;
-  }
-
-  @media (max-width: 768px) {
-    .pink-banner-img {
-      width: 100%;
-      max-height: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .pink-banner-img {
-      width: 100%;
-      max-height: none;
-      padding: 0;
-    }
-  }
+  ">
+</div>
 <!-- Modal for Video Playback -->
 <div id="videoModal" class="video-modal">
   <span class="close-modal" onclick="closeVideoModal()">&times;</span>

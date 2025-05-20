@@ -2037,9 +2037,9 @@ document.addEventListener("DOMContentLoaded", () => {
         cart.push(item);
       }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartCount();
-      alert("Added to basket!");
+     localStorage.setItem("cart", JSON.stringify(cart));
+updateCartCount();
+toggleCart(true); // ✅ this opens the drawer
     });
   }
 });

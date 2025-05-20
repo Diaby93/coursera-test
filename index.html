@@ -1231,6 +1231,27 @@ input[type="number"] {
     display: none !important;
   }
 }
+    #cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9999;
+}
+#cart-drawer-overlay {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+#cart-drawer-content {
+  width: 320px;
+  max-width: 100%;
+  background: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
   </style>
 </head>
 <body>
@@ -1725,40 +1746,74 @@ input[type="number"] {
   // ✅ AOS Animations
   AOS.init({ duration: 1000, once: true });
 
-  // ✅ Checkout Buttons
-  function goToCheckoutWhite() {
-    const qty = document.getElementById('qty-white').value;
-    window.location.href = `checkout-white.html?qty=${qty}`;
+function goToCheckoutWhite() {
+  const qty = parseInt(document.getElementById('qty-white').value);
+  const item = {
+    name: "White FRESH JUICE Blender",
+    price: 49.99,
+    quantity: qty,
+    image: "images/new-white.jpeg"
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(i => i.name === item.name);
+
+  if (existing) {
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
   }
 
-  function goToCheckoutPink() {
-    const qty = parseInt(document.getElementById('qty-pink').value);
-    const item = {
-      name: "Pink FRESH JUICE Blender",
-      price: 49.99,
-      quantity: qty,
-      image: "images/new-pink.jpeg"
-    };
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+   closeModal('white');
+  openCart(); // 👈 This opens the drawer right after adding
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existing = cart.find(i => i.name === item.name);
+function goToCheckoutPink() {
+  const qty = parseInt(document.getElementById('qty-pink').value);
+  const item = {
+    name: "Pink FRESH JUICE Blender",
+    price: 49.99,
+    quantity: qty,
+    image: "images/new-pink.jpeg"
+  };
 
-    if (existing) {
-      existing.quantity += item.quantity;
-    } else {
-      cart.push(item);
-    }
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(i => i.name === item.name);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert("Added to basket!");
-    closeModal('pink');
+  if (existing) {
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
   }
 
-  function goToCheckoutBlack() {
-    const qty = document.getElementById('qty-black').value;
-    window.location.href = `checkout-black.html?qty=${qty}`;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+ closeModal('pink');
+  openCart(); // 👈 Opens the slide-out cart drawer
+
+function goToCheckoutBlack() {
+  const qty = parseInt(document.getElementById('qty-black').value);
+  const item = {
+    name: "Black FRESH JUICE Blender",
+    price: 49.99,
+    quantity: qty,
+    image: "images/new-black.jpeg"
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(i => i.name === item.name);
+
+  if (existing) {
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
   }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  closeModal('black');
+  openCart(); // 👈 Show the cart drawer
 
   // ✅ Image Slider Logic
   const galleryImages = {
@@ -1936,7 +1991,12 @@ input[type="number"] {
     if (currentQty > 10) currentQty = 10;
     qtyInput.value = currentQty;
   }
-
+// ✅ Define the cart count updater
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+  document.getElementById("cart-count").textContent = count;
+}
   // ✅ Update cart on load
   window.addEventListener("load", updateCartCount);
    // Accordion toggle behavior
@@ -2011,7 +2071,16 @@ function nextMobileVideo() {
   currentVideoIndex = (currentVideoIndex + 1) % mobileVideos.length;
   updateMobileVideo();
 }
-   
+ <!-- Slide-Out Cart Drawer -->
+<div id="cart-drawer" style="display:none;">
+  <div id="cart-drawer-overlay" onclick="closeCart()"></div>
+  <div id="cart-drawer-content">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p>Total: <span id="cart-total">£0.00</span></p>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>  
 </script>
 </body>
 </html>

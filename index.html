@@ -2045,7 +2045,14 @@ toggleCart(true); // ✅ this opens the drawer
   }
 });
   // ✅ Update cart on load
-  window.addEventListener("load", updateCartCount);
+window.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+
+  const drawer = document.getElementById("cart-drawer");
+  if (drawer.classList.contains("open")) {
+    openCart(); // only load cart contents if drawer is already open
+  }
+});
    // Accordion toggle behavior
 document.querySelectorAll('.accordion-header').forEach(header => {
   header.addEventListener('click', () => {

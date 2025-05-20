@@ -1216,6 +1216,14 @@ input[type="number"] {
     display: none !important;
   }
 }
+    @media (max-width: 768px) {
+  .pink-banner img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    max-width: 100% !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -1463,12 +1471,9 @@ input[type="number"] {
   margin-right: -50vw;
   margin-top: 60px;
 ">
-  <img src="images/pink banner.png" alt="Pink Banner" style="
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0;
-  ">
+ <!-- Pink Banner Section -->
+<div class="pink-banner">
+  <img src="images/pink banner.png" alt="Pink Banner">
 </div>
 <!-- Modal for Video Playback -->
 <div id="videoModal" class="video-modal">

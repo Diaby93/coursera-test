@@ -1941,27 +1941,51 @@ input[type="number"] {
       container.innerHTML = "<p>Your cart is empty.</p>";
       total.textContent = "£0.00";
     } else {
-      cart.forEach(item => {
-        const itemHTML = `
-          <div style="margin-bottom:15px; display:flex; align-items:center; gap:10px;">
-            <img src="${item.image}" style="width:50px; height:50px; border-radius:8px;" />
-            <div>
-              <p style="margin:0;">${item.name}</p>
-              <p style="margin:0; font-size:14px;">Qty: ${item.quantity}</p>
-              <p style="margin:0; font-size:14px;">£${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-          </div>
-        `;
-        container.innerHTML += itemHTML;
-        totalAmount += item.price * item.quantity;
-      });
+cart.forEach((item, index) => {
+  const itemHTML = `
+    <div style="margin-bottom:15px; display:flex; align-items:center; gap:10px;">
+      <img src="${item.image}" style="width:50px; height:50px; border-radius:8px;" />
+      <div style="flex: 1;">
+        <p style="margin:0; font-weight: 600;">${item.name}</p>
+        <div style="display: flex; align-items: center; gap: 8px; margin: 6px 0;">
+          <label>Qty:</label>
+          <input type="number" min="1" max="10" value="${item.quantity}" 
+                 onchange="updateQuantity(${index}, this.value)" 
+                 style="width: 50px; padding: 4px; font-size: 14px;" />
+        </div>
+        <p style="margin:0; font-size:14px;">£${(item.price * item.quantity).toFixed(2)}</p>
+        <button onclick="removeItem(${index})" style="margin-top: 6px; font-size: 13px; color: red; border: none; background: none; cursor: pointer;">Remove</button>
+      </div>
+    </div>
+  `;
+  container.innerHTML += itemHTML;
+  totalAmount += item.price * item.quantity;
+});
       total.textContent = `£${totalAmount.toFixed(2)}`;
     }
 
     document.getElementById("cart-modal").style.display = "flex";
     document.getElementById("cart-drawer").classList.add("open");
   }
-   
+   function updateQuantity(index, newQty) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  newQty = parseInt(newQty);
+  if (newQty < 1 || newQty > 10 || isNaN(newQty)) return;
+
+  cart[index].quantity = newQty;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  openCart();
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  openCart();
+}
+
    function toggleCart(show) {
   const drawer = document.getElementById("cart-drawer");
   if (show) {

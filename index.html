@@ -3,6 +3,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1227,7 +1229,27 @@ input[type="number"] {
     object-position: center;
   }
 }
-    
+  .discount-badge {
+  display: inline-block;
+  background: #e44b11;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 10px auto;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+    .discount-badge {
+  background: limegreen; /* TEMP: to test visibility */
+}
+    .discount-badge {
+  display: block;
+  width: fit-content;
+  margin: 10px auto;
+}
   </style>
 </head>
 <body>
@@ -1454,7 +1476,7 @@ input[type="number"] {
 </div>
   <div class="mobile-video-carousel">
   <button class="carousel-arrow left" onclick="prevMobileVideo()">❮</button>
-  <<video 
+  <video 
   id="mobileVideo" 
   class="video-thumb" 
   controls 
@@ -1488,9 +1510,23 @@ input[type="number"] {
   <video id="modalVideo" controls autoplay playsinline></video>
 </div>
   <!-- Urgency Banner -->
-  <section class="urgency-banner" style="background:#ffe5dc; padding:20px; text-align:center; font-weight:bold; color:#e44b11;">
-    🔥 Limited Stock Alert! Order now before we sell out again!
-  </section>
+ <section class="urgency-banner" style="
+  width: 100vw;
+  background: #ffe5dc;
+  padding: 30px 20px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #e44b11;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+">
+  🔥 Limited Stock Alert! Order now before we sell out again!
+</section>
   <!-- Testimonials -->
   <section class="testimonials" data-aos="fade-up" style="padding:60px 20px; background:#fff; text-align:center;">
     <h2 style="font-size:28px; margin-bottom:30px;">What Our Customers Say</h2>
@@ -1557,6 +1593,7 @@ input[type="number"] {
     <p>⭐️⭐️⭐️⭐️⭐️ Rated by 7,000+ happy customers</p>
 
     <p class="price">£49.99 <span class="old">£80</span></p>
+    <div style="background:yellow; padding:10px;">TESTING DISCOUNT</div>
     <div class="discount-badge">Save 38%</div>
     <div id="countdown-white" class="countdown"></div>
 

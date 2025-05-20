@@ -1240,6 +1240,57 @@ input[type="number"] {
     display: none !important;
   }
 }
+    .cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-header button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-items {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -1907,10 +1958,23 @@ input[type="number"] {
     }
 
     document.getElementById("cart-modal").style.display = "flex";
+    document.getElementById("cart-drawer").classList.add("open");
   }
+   
+   function toggleCart(show) {
+  const drawer = document.getElementById("cart-drawer");
+  if (show) {
+    drawer.classList.add("open");
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove("open");
+    document.body.style.overflow = 'auto';
+  }
+}
 
   function closeCart() {
     document.getElementById("cart-modal").style.display = "none";
+      document.getElementById("cart-drawer").classList.remove("open"); // ✅ ADD THIS
   }
 
   // ✅ Manual Image Switch
@@ -2022,5 +2086,20 @@ function nextMobileVideo() {
 }
    
 </script>
+  <!-- Shopping Cart Drawer -->
+<div id="cart-drawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <button onclick="toggleCart(false)">×</button>
+  </div>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="subtotal">
+      <span>Subtotal</span>
+      <strong id="cart-total">£0.00</strong>
+    </div>
+    <a href="checkout.html" class="cta-btn btn-dark" style="width: 100%; text-align: center;">Checkout</a>
+  </div>
+</div>
 </body>
 </html>

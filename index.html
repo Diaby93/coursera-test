@@ -2009,7 +2009,40 @@ input[type="number"] {
     if (currentQty > 10) currentQty = 10;
     qtyInput.value = currentQty;
   }
+// ✅ Add to Cart Button Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartBtn = document.querySelector(".add-to-cart");
 
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+      const qty = parseInt(document.getElementById("qty").value);
+      const colorEl = document.querySelector(".color-circle.active");
+      const image = colorEl.getAttribute("data-image");
+      const color = colorEl.classList[1]; // e.g., pink, white, black
+      const name = `FRESH JUICE Blender (${color})`;
+
+      const item = {
+        name,
+        price: 49.99,
+        quantity: qty,
+        image
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(i => i.name === item.name);
+
+      if (existing) {
+        existing.quantity += item.quantity;
+      } else {
+        cart.push(item);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert("Added to basket!");
+    });
+  }
+});
   // ✅ Update cart on load
   window.addEventListener("load", updateCartCount);
    // Accordion toggle behavior

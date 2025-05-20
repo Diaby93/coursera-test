@@ -1998,9 +1998,10 @@ function removeItem(index) {
 }
 
   function closeCart() {
-    document.getElementById("cart-modal").style.display = "none";
-      document.getElementById("cart-drawer").classList.remove("open"); // ✅ ADD THIS
-  }
+  document.getElementById("cart-modal").style.display = "none";
+  document.getElementById("cart-drawer").classList.remove("open");
+  document.body.style.overflow = 'auto'; // ✅ ADD THIS LINE HERE
+}
 
   // ✅ Manual Image Switch
   function setMainImage(img) {

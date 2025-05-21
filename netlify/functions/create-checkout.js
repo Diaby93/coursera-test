@@ -7,14 +7,14 @@ exports.handler = async (event) => {
     console.log("Parsed data:", data);
 
     // Check if items array exists
-    if (!Array.isArray(data.items)) {
+    if (!Array.isArray(data.cart)) {
       throw new Error("Request body must include an 'items' array.");
     }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
-      line_items: data.items.map(item => ({
+      line_items: data.cart.map(item => ({
         price_data: {
           currency: 'gbp',
           product_data: {

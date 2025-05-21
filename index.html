@@ -8,6 +8,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1416,7 +1417,7 @@ input[type="number"] {
         <button onclick="changeQty(1)">+</button>
       </div>
 
-<button class="add-to-cart" onclick="handleBuyNow()">Buy Now</button>
+      <button class="add-to-cart">Add to cart</button>
 
       <div class="shipping-info">
         <p><i class="fa fa-truck"></i> <strong>Estimated Delivery:</strong> May 21 – May 25</p>
@@ -2166,34 +2167,8 @@ function nextMobileVideo() {
       <span>Subtotal</span>
       <strong id="cart-total">£0.00</strong>
     </div>
-<a href="https://buy.stripe.com/test_bJedR96Sr2X68Y1cLbo4o1" target="_blank" class="cta-btn btn-dark" style="width: 100%; text-align: center;">Checkout</a>
-  Checkout
-</a>
+    <a href="checkout.html" class="cta-btn btn-dark" style="width: 100%; text-align: center;">Checkout</a>
+  </div>
 </div>
-    <script>
-  async function handleBuyNow() {
-    const qty = parseInt(document.getElementById("qty").value);
-    const colorEl = document.querySelector(".color-circle.active");
-    const color = colorEl?.classList[1] || "White";
-
-    try {
-      const response = await fetch("/.netlify/functions/createCheckout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ quantity: qty, color })
-      });
-
-      const data = await response.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Something went wrong. No checkout URL.");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Failed to redirect to checkout.");
-    }
-  }
-</script>
 </body>
 </html>

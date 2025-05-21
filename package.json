@@ -1,0 +1,23 @@
+{
+  "name": "coursera-test",
+  "version": "1.0.0",
+  "description": "This repository is for the Coursera course assignment on Git and GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diaby93/coursera-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diaby93/coursera-test/issues"
+  },
+  "homepage": "https://github.com/Diaby93/coursera-test#readme",
+  "dependencies": {
+    "stripe": "^18.1.1"
+  }
+}

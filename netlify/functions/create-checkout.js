@@ -16,11 +16,11 @@ exports.handler = async (event) => {
       mode: 'payment',
       line_items: data.cart.map(item => ({
         price_data: {
-          currency: 'gbp',
+          currency: 'usd',
           product_data: {
             name: item.name,
           },
-          unit_amount: item.price * 100, // price in pence
+          unit_amount: item.price * 100, // price in cents
         },
         quantity: item.quantity,
       })),

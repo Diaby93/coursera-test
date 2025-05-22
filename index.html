@@ -1583,6 +1583,7 @@ input[type="number"] {
 <section id="reviews" class="testimonials" data-aos="fade-up" style="padding: 60px 20px; background: #fff; text-align: center;">
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">What Our Customers Say</h2>
   <div id="reviews-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
+    <div id="pagination" style="margin-top: 30px; text-align: center;"></div>
   </div>
 </section>
 
@@ -2155,31 +2156,76 @@ function nextMobileVideo() {
   Checkout
 </a>
 </div>
-    <script>
-  fetch('reviews.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('reviews-container');
+   <script>
+  let currentPage = 1;
+  const reviewsPerPage = 5;
+  let reviews = [];
 
-      data.forEach(review => {
-        const div = document.createElement('div');
-        div.style.background = '#f9f9f9';
-        div.style.padding = '20px';
-        div.style.borderRadius = '12px';
-        div.style.maxWidth = '300px';
-        div.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
-        div.innerHTML = `
-          <div style="color: gold; font-size: 18px; margin-bottom: 10px;">★★★★★</div>
-          <p style="font-size: 15px;">${review.text}</p>
-          <img src="${review.image}" alt="${review.name}" style="width: 100%; border-radius: 8px; margin-top: 10px;">
-          <strong style="display: block; margin-top: 10px;">– ${review.name}</strong>
-        `;
-        container.appendChild(div);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading reviews:', error);
+  async function fetchReviews() {
+    try {
+      const response = await fetch('reviews.json');
+      const data = await response.json();
+      reviews = data;
+      renderReviews();
+      renderPagination();
+    } catch (err) {
+      console.error('Error loading reviews:', err);
+    }
+  }
+
+  function renderReviews() {
+    const container = document.getElementById('reviews-container');
+    container.innerHTML = '';
+
+    const start = (currentPage - 1) * reviewsPerPage;
+    const end = start + reviewsPerPage;
+    const paginatedReviews = reviews.slice(start, end);
+
+    paginatedReviews.forEach(review => {
+      const div = document.createElement('div');
+      div.style.background = '#f9f9f9';
+      div.style.padding = '20px';
+      div.style.margin = '10px 0';
+      div.style.borderRadius = '12px';
+      div.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+      div.style.maxWidth = '600px';
+
+      div.innerHTML = `
+        <div style="color: gold; font-size: 18px;">${'★'.repeat(review.rating)}</div>
+        <p style="font-size: 15px;">${review.text}</p>
+        <img src="${review.image}" alt="${review.name}" style="width: 100%; max-width: 300px; border-radius: 8px; margin-top: 10px;">
+        <strong style="display: block; margin-top: 10px;">– ${review.name}</strong>
+      `;
+
+      container.appendChild(div);
     });
+  }
+
+  function renderPagination() {
+    const pageCount = Math.ceil(reviews.length / reviewsPerPage);
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+
+    for (let i = 1; i <= pageCount; i++) {
+      const btn = document.createElement('button');
+      btn.innerText = i;
+      btn.onclick = () => {
+        currentPage = i;
+        renderReviews();
+        renderPagination();
+      };
+      btn.style.margin = '0 5px';
+      btn.style.padding = '6px 12px';
+      btn.style.borderRadius = '8px';
+      btn.style.border = '1px solid #ccc';
+      btn.style.background = i === currentPage ? '#222' : '#fff';
+      btn.style.color = i === currentPage ? '#fff' : '#000';
+      pagination.appendChild(btn);
+    }
+  }
+
+  fetchReviews();
 </script>
+
 </body>
 </html>

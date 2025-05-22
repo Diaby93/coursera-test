@@ -1306,6 +1306,65 @@ input[type="number"] {
     background: #000;
     color: #fff;
   }
+    /* === REVIEW SECTION STYLING === */
+#review-list img {
+  width: 100%;
+  max-width: 300px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#review-list img:hover {
+  transform: scale(1.03);
+}
+#review-list > div {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+#rating-bars {
+  margin: 20px auto;
+}
+.rating-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 8px 0;
+  position: relative;
+}
+.rating-bar .fill {
+  height: 100%;
+  background: #e44b11;
+  border-radius: 20px;
+}
+.rating-label {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+#imageModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+#imageModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
   </style>
 </head>
 <body>
@@ -1595,15 +1654,30 @@ input[type="number"] {
   🔥 Limited Stock Alert! Order now before we sell out again!
 </section>
 <!-- Testimonials Section -->
-<section id="reviews" class="testimonials" data-aos="fade-up" style="padding: 60px 20px; background: #fff; text-align: center;">
-  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">What Our Customers Say</h2>
-  <div id="reviews-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
-    <div id="pagination" style="margin-top: 30px; text-align: center;"></div>
+<section id="reviews" style="padding: 60px 20px; background: #fff;">
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 28px; font-weight: 700;">Customer Reviews</h2>
+    <div style="margin: 20px 0;">
+      <div style="font-size: 24px; color: gold;">★★★★★</div>
+      <p style="font-weight: bold; margin: 10px 0;">Based on <span id="review-total">0</span> reviews</p>
+      <div id="rating-bars" style="text-align: left; max-width: 400px; margin: 0 auto;"></div>
+    </div>
+  </div>
+
+  <div id="reviews-container" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 40px auto;"></div>
+
+  <div id="pagination" style="text-align: center; margin-top: 30px;"></div>
+
+  <!-- Modal for zoomed image -->
+  <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:9999;">
+    <span onclick="closeImageModal()" style="position:absolute; top:20px; right:30px; color:white; font-size:32px; cursor:pointer;">&times;</span>
+    <img id="modalImage" src="" style="max-width: 90%; max-height: 90%; border-radius: 12px;" />
   </div>
 </section>
 
 
-  <!-- FAQ Section -->
+ 
+<!-- FAQ Section -->
   <section class="faq" data-aos="fade-up" style="padding:60px 20px; background:#fff; max-width:800px; margin:0 auto;">
     <h2 style="text-align:center; font-size:28px; margin-bottom:30px;">FAQs</h2>
     <div style="margin-bottom:20px;">

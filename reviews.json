@@ -29,4 +29,35 @@
     "text": "It's compact and really powerful! I made a protein shake with it and it was damn good! The self-cleaning feature is a bonus.",
     "image": "images/review5.jpeg"
   }
+  ,
+{
+  "name": "Jenna H.",
+  "rating": 5,
+  "text": "I love my portable blender and it makes my smoothies so yummy 😋",
+  "image": "images/review6.jpeg"
+},
+{
+  "name": "Tanisha G.",
+  "rating": 5,
+  "text": "Being on the road can lead to some unhealthy eating habits, but my Fresh Juice blender helps me get my daily amount of veggies and protein! I use it practically every day to make refreshing ginger-apple-kale smoothies and peanut butter-banana protein shakes. It’s powerful and easy-to-clean, and has been a game changer for road trips and camp outs.",
+  "image": "images/review7.jpeg"
+},
+{
+  "name": "Michael R.",
+  "rating": 5,
+  "text": "This blender is fabulous! I use it for my banana shakes and they come out great every time! 🙌🏼",
+  "image": "images/review8.jpeg"
+},
+{
+  "name": "Camila B.",
+  "rating": 5,
+  "text": "The smoothies I make in this blender come out so tasty!! And I love that I can take it with me anywhere ❤️",
+  "image": "images/review9.jpeg"
+},
+{
+  "name": "Jessica N.",
+  "rating": 5,
+  "text": "I saw this going viral on Instagram and knew I had to get one! I’ve been on a weightloss journey for the past 2 months and use mine to make fruit smoothies. I’ve lost 12 pounds so far and this blender was a big reason for it. Being able to make my smoothies anywhere was a really big help!😍",
+  "image": "images/review10.jpeg"
+}
 ]

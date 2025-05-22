@@ -1365,6 +1365,14 @@ input[type="number"] {
   max-height: 90%;
   border-radius: 12px;
 }
+    #reviews-container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 0 auto;
+}
   </style>
 </head>
 <body>
@@ -2264,34 +2272,39 @@ currentPage = 1;
     }
   }
 
-  function renderReviews() {
-    const container = document.getElementById('reviews-container');
-    container.innerHTML = '';
+ function renderReviews() {
+  const container = document.getElementById('reviews-container');
+  container.innerHTML = '';
 
-    const start = (currentPage - 1) * reviewsPerPage;
-    const end = start + reviewsPerPage;
-    const paginatedReviews = reviews.slice(start, end);
+  const start = (currentPage - 1) * reviewsPerPage;
+  const end = start + reviewsPerPage;
+  const paginatedReviews = reviews.slice(start, end);
 
-    paginatedReviews.forEach(review => {
-      const div = document.createElement('div');
-      div.style.background = '#f9f9f9';
-      div.style.padding = '20px';
-      div.style.margin = '10px 0';
-      div.style.borderRadius = '12px';
-      div.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
-      div.style.maxWidth = '600px';
+  paginatedReviews.forEach(review => {
+    const div = document.createElement('div');
+    div.style.display = 'flex';
+    div.style.alignItems = 'flex-start';
+    div.style.gap = '16px';
+    div.style.padding = '20px';
+    div.style.borderBottom = '1px solid #eee';
 
-      div.innerHTML = `
-        <div style="color: gold; font-size: 18px;">${'★'.repeat(review.rating)}</div>
-        <p style="font-size: 15px;">${review.text}</p>
-        <img src="${review.image}" alt="${review.name}" style="width: 100%; max-width: 300px; border-radius: 8px; margin-top: 10px;">
-        <strong style="display: block; margin-top: 10px;">– ${review.name}</strong>
-      `;
+    div.innerHTML = `
+      <div style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px;">
+        ${review.name.charAt(0)}
+      </div>
+      <div style="flex: 1;">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <strong>${review.name}</strong>
+          <div style="color: gold;">${'★'.repeat(review.rating)}</div>
+        </div>
+        <p style="margin: 8px 0; font-size: 15px; line-height: 1.5;">${review.text}</p>
+        <img src="${review.image}" alt="review" style="width: 120px; height: auto; border-radius: 10px; margin-top: 10px;" />
+      </div>
+    `;
 
-      container.appendChild(div);
-    });
-  }
-
+    container.appendChild(div);
+  });
+}
   function renderPagination() {
     const pageCount = Math.ceil(reviews.length / reviewsPerPage);
     const pagination = document.getElementById('pagination');

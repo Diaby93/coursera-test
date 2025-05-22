@@ -2168,6 +2168,7 @@ function nextMobileVideo() {
       const response = await fetch('reviews.json');
       const data = await response.json();
       reviews = data;
+currentPage = 1;
       renderReviews();
       renderPagination();
     } catch (err) {

@@ -1491,10 +1491,10 @@ input[type="number"] {
 </div>
       <div style="margin-top: 10px; text-align: center;">
   <div style="font-size: 18px; font-weight: 700; color: #e44b11; margin-bottom: 4px;">
-    £49.99 <span style="text-decoration: line-through; color: #999; font-weight: 500;">£80</span>
+    $49.99 <span style="text-decoration: line-through; color: #999; font-weight: 500;">$79.99</span>
   </div>
   <div style="font-size: 14px; font-weight: 600; color: #444;">
-    You save £30 — Launch offer ends soon
+    You save $30 — Launch offer ends soon
   </div>
   <div style="font-size: 13px; color: #888; margin-top: 4px;">
     🔥 Offer valid for the next 24 hours or until sold out.
@@ -1763,7 +1763,7 @@ input[type="number"] {
 
   <!-- Mobile Sticky CTA and Scroll Button -->
  <div class="mobile-sticky-cta">
-  <a href="#shop" class="cta-btn-orange">🛒 Buy Now for £49.99 – Limited Stock!</a>
+  <a href="#shop" class="cta-btn-orange">🛒 Buy Now for $49.99 – Limited Stock!</a>
 </div>
   <button class="scroll-top" id="scrollTopBtn">↑ Top</button>
 
@@ -1786,7 +1786,7 @@ input[type="number"] {
     <h2>White FRESH JUICE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Rated by 7,000+ happy customers</p>
 
-    <p class="price">£49.99 <span class="old">£80</span></p>
+    <p class="price">$49.99 <span class="old">$79.99</span></p>
     <div style="background:yellow; padding:10px;">TESTING DISCOUNT</div>
     <div class="discount-badge">Save 38%</div>
     <div id="countdown-white" class="countdown"></div>
@@ -1828,7 +1828,7 @@ input[type="number"] {
     <h2>Pink FRESH JUICE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Loved by beauty & fitness influencers</p>
 
-    <p class="price">£49.99 <span class="old">£80</span></p>
+    <p class="price">$49.99 <span class="old">$79.99</span></p>
     <div class="discount-badge">Save 38%</div>
     <div id="countdown-pink" class="countdown"></div>
 
@@ -1867,7 +1867,7 @@ input[type="number"] {
     <h2>Black FRESH JUICE Blender</h2>
     <p>⭐️⭐️⭐️⭐️⭐️ Chosen by athletes and execs</p>
 
-    <p class="price">£49.99 <span class="old">£80</span></p>
+    <p class="price">$49.99 <span class="old">$79.99</span></p>
     <div class="discount-badge">Save 38%</div>
     <div id="countdown-black" class="countdown"></div>
 
@@ -2052,7 +2052,7 @@ input[type="number"] {
 
     if (cart.length === 0) {
       container.innerHTML = "<p>Your cart is empty.</p>";
-      total.textContent = "£0.00";
+      total.textContent = "$0.00";
     } else {
 cart.forEach((item, index) => {
   const itemHTML = `
@@ -2066,7 +2066,7 @@ cart.forEach((item, index) => {
                  onchange="updateQuantity(${index}, this.value)" 
                  style="width: 50px; padding: 4px; font-size: 14px;" />
         </div>
-        <p style="margin:0; font-size:14px;">£${(item.price * item.quantity).toFixed(2)}</p>
+        <p style="margin:0; font-size:14px;">$${(item.price * item.quantity).toFixed(2)}</p>
         <button onclick="removeItem(${index})" style="margin-top: 6px; font-size: 13px; color: red; border: none; background: none; cursor: pointer;">Remove</button>
       </div>
     </div>
@@ -2074,7 +2074,7 @@ cart.forEach((item, index) => {
   container.innerHTML += itemHTML;
   totalAmount += item.price * item.quantity;
 });
-      total.textContent = `£${totalAmount.toFixed(2)}`;
+      total.textContent = `$${totalAmount.toFixed(2)}`;
     }
 
     document.getElementById("cart-modal").style.display = "flex";
@@ -2303,7 +2303,7 @@ function nextMobileVideo() {
   <div class="cart-footer">
     <div class="subtotal">
       <span>Subtotal</span>
-      <strong id="cart-total">£0.00</strong>
+      <strong id="cart-total">$0.00</strong>
     </div>
 <a href="javascript:void(0);" onclick="checkoutWithStripe()" class="cta-btn btn-dark" style="width: 100%; text-align: center;">Checkout</a>
 </div>

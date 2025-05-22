@@ -2357,11 +2357,12 @@ currentPage = 1;
       const btn = document.createElement('button');
       btn.className = 'pagination-btn';
       btn.innerText = i;
-      btn.onclick = () => {
-        currentPage = i;
-        renderReviews();
-        renderPagination();
-      };
+     btn.onclick = () => {
+  currentPage = i;
+  renderReviews();
+  renderPagination();
+  document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+};
       btn.style.margin = '0 5px';
       btn.style.padding = '6px 12px';
       btn.style.borderRadius = '8px';

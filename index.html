@@ -1292,6 +1292,20 @@ input[type="number"] {
   margin-bottom: 20px;
   font-weight: bold;
 }
+    .pagination-btn {
+    background: #eee;
+    border: none;
+    margin: 0 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .pagination-btn.active {
+    background: #000;
+    color: #fff;
+  }
   </style>
 </head>
 <body>
@@ -2211,6 +2225,7 @@ currentPage = 1;
 
     for (let i = 1; i <= pageCount; i++) {
       const btn = document.createElement('button');
+      btn.className = 'pagination-btn';
       btn.innerText = i;
       btn.onclick = () => {
         currentPage = i;

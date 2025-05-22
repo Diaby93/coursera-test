@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Maria J.",
+    "rating": 5,
+    "text": "I love it! I make smoothies on a daily basis so this was a must-have. Easy to clean and cuts frozen fruit fast ✨❤️",
+    "image": "images/review1.jpeg"
+  },
+  {
+    "name": "Sierra M.",
+    "rating": 5,
+    "text": "This blender is perfect for smoothies on the go! Convenient and fits in my bag easily!",
+    "image": "images/review2.jpeg"
+  },
+  {
+    "name": "Valerie P.",
+    "rating": 5,
+    "text": "I absolutely love this blender! Strawberry smoothie came out perfect. Great consistency every time.",
+    "image": "images/review3.jpeg"
+  },
+  {
+    "name": "Hannah T.",
+    "rating": 5,
+    "text": "I start work at 6am so I don't always have time to make breakfast. This was ideal to make my meal replacement shakes.",
+    "image": "images/review4.jpeg"
+  },
+  {
+    "name": "Brandon C.",
+    "rating": 5,
+    "text": "It's compact and really powerful! I made a protein shake with it and it was damn good! The self-cleaning feature is a bonus.",
+    "image": "images/review5.jpeg"
+  }
+]

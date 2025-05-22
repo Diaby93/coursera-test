@@ -2035,6 +2035,7 @@ toggleCart(true); // ✅ this opens the drawer
   // ✅ Update cart on load
 window.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
+  fetchReviews(); // ✅ This makes reviews load properly
 
   const drawer = document.getElementById("cart-drawer");
   if (drawer.classList.contains("open")) {

@@ -1373,6 +1373,13 @@ input[type="number"] {
   max-width: 900px;
   margin: 0 auto;
 }
+    #reviews {
+  text-align: center;
+}
+#reviews img {
+  display: block;
+  margin: 10px auto;
+}
   </style>
 </head>
 <body>
@@ -1665,11 +1672,10 @@ input[type="number"] {
 <section id="reviews" style="padding: 60px 20px; background: #fff;">
   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <h2 style="font-size: 28px; font-weight: 700;">Customer Reviews</h2>
-    <div style="margin: 20px 0;">
-      <div style="font-size: 24px; color: gold;">★★★★★</div>
-      <p style="font-weight: bold; margin: 10px 0;">Based on <span id="review-total">0</span> reviews</p>
-      <div id="rating-bars" style="text-align: left; max-width: 400px; margin: 0 auto;"></div>
-    </div>
+   <div style="margin: 20px 0; display: flex; flex-direction: column; align-items: center;">
+  <img src="images/star-breakdown.png" alt="Star Rating Breakdown" style="max-width: 300px; margin-bottom: 10px;" />
+  <p style="font-weight: bold; margin: 10px 0;">Based on <span id="review-total">134</span> reviews</p>
+</div>
   </div>
 
   <div id="reviews-container" style="display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 40px auto;"></div>
@@ -2251,8 +2257,6 @@ function nextMobileVideo() {
       <strong id="cart-total">£0.00</strong>
     </div>
 <a href="javascript:void(0);" onclick="checkoutWithStripe()" class="cta-btn btn-dark" style="width: 100%; text-align: center;">Checkout</a>
-  Checkout
-</a>
 </div>
    <script>
   let currentPage = 1;

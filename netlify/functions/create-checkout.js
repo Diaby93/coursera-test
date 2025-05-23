@@ -35,5 +35,10 @@ exports.handler = async (event) => {
     tax_behavior: 'inclusive',
   })),
   success_url: 'https://getfreshjuice.com/success',
-  cancel_url: 'https://getfreshjuice.com/cancel',
-});
+   } catch (error) {
+    console.error("Stripe error:", error); // 🔍 Logs the full error to Netlify
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }), // 🔁 Sends the error to your frontend
+    };
+  }

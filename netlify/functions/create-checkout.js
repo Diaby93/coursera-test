@@ -11,38 +11,32 @@ exports.handler = async (event) => {
       throw new Error("Request body must include an 'items' array.");
     }
 
-   const session = await stripe.checkout.sessions.create({
-  payment_method_types: ['card'],
-  mode: 'payment',
-  shipping_address_collection: {
-    allowed_countries: ['US', 'GB', 'CA', 'AU', 'NZ'],
-  },
-  shipping_options: [
-    {
-      shipping_rate_data: {
-        type: 'fixed_amount',
-        fixed_amount: {
-          amount: 0,
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: data.cart.map(item => ({
+        price_data: {
           currency: 'usd',
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: item.price * 100, // price in cents
         },
-        display_name: 'Free Shipping',
-        delivery_estimate: {
-          minimum: { unit: 'business_day', value: 7 },
-          maximum: { unit: 'business_day', value: 14 },
-        },
-      },
-    },
-  ],
-  line_items: data.cart.map(item => ({
-    price_data: {
-      currency: 'usd',
-      product_data: {
-        name: item.name,
-      },
-      unit_amount: item.price * 100,
-    },
-    quantity: item.quantity,
-  })),
-  success_url: 'https://getfreshjuice.com/success',
-  cancel_url: 'https://getfreshjuice.com/cancel',
-});
+        quantity: item.quantity,
+      })),
+      success_url: 'https://getfreshjuice.com/success',
+      cancel_url: 'https://getfreshjuice.com/cancel',
+    });
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ url: session.url }),
+    };
+  } catch (err) {
+    console.error("Checkout session error:", err);
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: err.message }),
+    };
+  }
+};

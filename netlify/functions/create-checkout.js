@@ -11,34 +11,32 @@ exports.handler = async (event) => {
       throw new Error("Request body must include an 'items' array.");
     }
 
-   const session = await stripe.checkout.sessions.create({
-  payment_method_types: ['card'],
-  mode: 'payment',
-  shipping_address_collection: {
-    allowed_countries: ['US', 'GB'],
-  },
-  phone_number_collection: {
-    enabled: true,
-  },
-  line_items: data.cart.map(item => ({
-    price_data: {
-      currency: 'usd',
-      product_data: {
-        name: item.name,
-      },
-      unit_amount: item.price * 100,
-    },
-    quantity: item.quantity,
-    adjustable_quantity: {
-      enabled: false,
-    },
-    tax_behavior: 'inclusive',
-  })),
-  success_url: 'https://getfreshjuice.com/success',
-   } catch (error) {
-    console.error("Stripe error:", error); // 🔍 Logs the full error to Netlify
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: data.cart.map(item => ({
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: item.price * 100, // price in cents
+        },
+        quantity: item.quantity,
+      })),
+      success_url: 'https://getfreshjuice.com/success',
+      cancel_url: 'https://getfreshjuice.com/cancel',
+    });
+
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message }), // 🔁 Sends the error to your frontend
+      statusCode: 200,
+      body: JSON.stringify({ url: session.url }),
+    };
+  } catch (err) {
+    console.error("Checkout session error:", err);
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: err.message }),
     };
   }
+};

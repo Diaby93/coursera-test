@@ -17,7 +17,7 @@
     "url": "https://github.com/Diaby93/coursera-test/issues"
   },
   "homepage": "https://github.com/Diaby93/coursera-test#readme",
- "dependencies": {
-  "stripe": "^8.1.1",
+"dependencies": {
+  "stripe": "^8.1.1"
 }
 }

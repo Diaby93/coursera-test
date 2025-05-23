@@ -1,7 +1,6 @@
 {
   "name": "email-function",
   "version": "1.0.0",
-  "type": "module",
   "dependencies": {
     "resend": "^0.2.0"
   }

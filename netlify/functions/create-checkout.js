@@ -1,4 +1,3 @@
-
 console.log("Stripe key:", process.env.STRIPE_SECRET_KEY);
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -7,9 +6,8 @@ exports.handler = async (event) => {
     const data = JSON.parse(event.body || '{}');
     console.log("Parsed data:", data);
 
-    // Check if items array exists
     if (!Array.isArray(data.cart)) {
-      throw new Error("Request body must include an 'items' array.");
+      throw new Error("Request body must include a 'cart' array.");
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -21,12 +19,17 @@ exports.handler = async (event) => {
           product_data: {
             name: item.name,
           },
-          unit_amount: item.price * 100, // price in cents
+          unit_amount: item.price * 100,
         },
         quantity: item.quantity,
       })),
       success_url: 'https://getfreshjuice.com/success',
       cancel_url: 'https://getfreshjuice.com/cancel',
+
+      // This line ensures address fields are shown:
+      shipping_address_collection: {
+        allowed_countries: ['US', 'GB', 'CA', 'AU', 'NZ'] // Add others as needed
+      }
     });
 
     return {

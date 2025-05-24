@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Thank You | Fresh Juice</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | FRESH JUICE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
   <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    h1 {
-      color: #28a745;
-    }
-    p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-    a {
-      margin-top: 30px;
-      display: inline-block;
-      text-decoration: none;
-      background: #ff5f5f;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-    }
-  </style>
+  body {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  background-color: #fffdf8;
+  color: #1a1a1a;
+  padding: 80px 20px;
+  line-height: 1.6;
+
+  /* ✅ Center vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+ .icon {
+  font-size: 50px;
+  margin-bottom: 30px;
+  animation: pop 0.5s ease-in-out;
+}
+    @keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #28a745;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 14px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #218838;
+    box-shadow: 0 12px 24px rgba(40, 167, 69, 0.3);
+  }
+</style>
 </head>
 <body>
-  <h1>🎉 Thank you for your purchase!</h1>
-  <p>Your order has been received and is being processed.</p>
-  <a href="/">Return to Homepage</a>
+  <div class="icon">✅</div>
+  <h1>Thank You for Your Order!</h1>
+  <p>Your FRESH JUICE portable blender is on its way. A receipt and tracking number will be emailed shortly.</p>
+  <p>Need help? Just reply to your order confirmation — we're available 7 days a week.</p>
+  <a href="/" class="button">Back to Home</a>
 </body>
 </html>
